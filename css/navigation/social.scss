@@ -1,0 +1,189 @@
+/* ==========================================================================
+	Social Navigation
+============================================================================= */
+
+.social_nav {
+
+	@media #{$min_lg} {
+		width: 50%;
+
+		float: left;
+
+		padding-left: 20px;
+	}
+}
+
+	.social_nav_header {
+		@include nav_header;
+	}
+
+		.social_nav_title {
+			@include nav_title;
+		}
+
+
+// Social Links
+// =============================================================================
+
+.social_nav_list_wrapper {
+	position: relative;
+}
+
+	.social_nav_list {}
+
+		.social_nav_item {
+			display: inline-block;
+			margin-right: 10px;
+			vertical-align: middle;
+
+			@media #{$min_sm} {
+				margin-right: 24px;
+			}
+
+			@media #{$min_lg} {
+				display: block;
+			}
+
+			&:first-child {
+
+				@media #{$min_lg} {
+					display: none;
+				}
+			}
+		}
+
+			.social_nav_link {
+				color: rgba(#fff, .8);
+				display: block;
+				padding: 8px 0;
+				transition: color .25s;
+
+				@media #{$min_lg} {
+					padding: 11px 0;
+				}
+
+				&:focus,
+				&:hover {
+					color: #fff;
+				}
+			}
+
+				.social_nav_icon {
+					color: #fff;
+
+					@media #{$min_lg} {
+						position: relative;
+						top: -3px;
+
+						display: inline-block;
+						margin-right: 13px;
+						vertical-align: middle;
+					}
+				}
+
+				.social_nav_label {
+					position: relative;
+
+					@media #{$max_lg} {
+						@include visually_hide;
+					}
+
+					@media #{$min_lg} {
+						@include univers(400);
+
+						display: inline-block;
+						font-size: 15px;
+						vertical-align: middle;
+					}
+
+					&:after {
+						height: 4px;
+						width: 100%;
+
+						position: absolute;
+						top: 100%;
+						top: calc(100% + 4px);
+						left: 0;
+
+						background: $yellow;
+						content: "";
+						transform-origin: left center;
+						transform: scaleX(0);
+						transition:
+							opacity .25s,
+							transform .25s;
+					}
+
+					.social_nav_link:focus &,
+					.social_nav_link:hover & {
+
+						&:after {
+							transform: scaleX(1);
+						}
+					}
+				}
+
+
+// Highlight
+// =============================================================================
+
+.social_nav_highlight {
+	display: none;
+
+	@media #{$min_lg} {
+		width: 50%;
+
+		position: absolute;
+		top: 10px;
+		right: 0;
+
+		display: block;
+		white-space: nowrap;
+	}
+
+	@media #{$min_xl} {
+		width: 200px;
+	}
+}
+
+	.social_nav_highlight_link {
+		position: relative;
+
+		color: #fff;
+		display: block;
+
+		&:before {
+			@include cover;
+
+			background:
+				linear-gradient(
+					to bottom,
+						rgba(#000, .35),
+						rgba(#000, 0) 35%
+				);
+			content: "";
+		}
+	}
+
+		.social_nav_highlight_image {
+			width: 100%;
+		}
+
+		.social_nav_highlight_caption {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			padding: 12px 15px;
+		}
+
+			.social_nav_highlight_icon {
+				display: inline-block;
+				margin-right: 12px;
+				vertical-align: middle;
+			}
+
+			.social_nav_highlight_label {
+				display: inline-block;
+				vertical-align: middle;
+			}

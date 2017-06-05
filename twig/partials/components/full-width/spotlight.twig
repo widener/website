@@ -1,0 +1,57 @@
+<section class="spotlight">
+  <div class="spotlight_switches_wrapper">
+    <div class="js-carousel spotlight_switches" data-carousel-options='{
+      "contained": false,
+      "controls": false,
+      "show": {
+        "500px": 2
+      }
+    }'>
+      {% for panel in panels %}
+        <div class="js-swap spotlight_switch theme_{{panel.theme}}" data-swap-target=".spotlight_panel_{{loop.index}}" data-swap-group="spotlight_panels" data-swap-options='{"collapse": false}'{% if loop.first %} data-swap-active="true"{% endif %}>
+          {% include "../shared/background.twig" with {
+            class: "spotlight_switch",
+        		image: panel.image,
+            sources: {
+              "0px": img.wide.xxsml
+            }
+          } %}
+          <div class="spotlight_switch_body">
+            <h2 class="spotlight_switch_title">{{panel.label}}</h2>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="spotlight_panels">
+    {% for panel in panels %}
+      <div class="spotlight_panel spotlight_panel_{{loop.index}} theme_{{panel.theme}}">
+        {% include "../shared/background.twig" with {
+      		class: "spotlight_panel",
+      		image: panel.image,
+      		sources: {
+      			"0px": img.square.sml,
+      			"500px": img.wide.xsml,
+      			"740px": img.wide.sml,
+      			"980px": img.wide.med,
+      			"1220px": img.wide.xlrg
+      		}
+      	} %}
+        <div class="spotlight_panel_inner">
+          <div class="row">
+            <div class="spotlight_panel_body">
+              <h2 class="spotlight_panel_label">{{panel.label}}</h2>
+              <h3 class="spotlight_panel_title">
+                <a class="spotlight_panel_title_link" href="#">
+                  <span class="spotlight_panel_title_label">{{panel.title}}</span>
+                  <span class="spotlight_panel_title_icon">{{site.symbol("caret_right")}}</span>
+                </a>
+              </h3>
+              <a class="spotlight_panel_link" href="#">{{panel.link}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

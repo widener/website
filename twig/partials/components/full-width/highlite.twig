@@ -1,0 +1,28 @@
+<section class="highlite">
+  {% include "../shared/background.twig" with {
+    class: "highlite",
+    image: image,
+    sources: {
+      "0px": img.square.sml,
+      "500px": img.wide.xsml,
+      "740px": img.wide.sml,
+      "980px": img.wide.med,
+      "1220px": img.ultrawide.xlrg
+    }
+  } %}
+  <div class="highlite_inner">
+    <div class="row">
+      <div class="highlite_body">
+        <header class="highlite_header">
+          <h2 class="highlite_title">{{title}}</h2>
+        </header>
+        <p class="highlite_description">{{description}}</p>
+        <footer class="highlite_footer">
+          {% for link in links %}
+            <a class="highlite_link" href="#">{{link}}</a>
+          {% endfor %}
+        </footer>
+      </div>
+    </div>
+  </div>
+</section>

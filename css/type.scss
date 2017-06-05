@@ -1,0 +1,369 @@
+/* ==========================================================================
+	Type Base
+============================================================================= */
+
+@mixin h1() {
+	@include garamond(400);
+
+	color: inherit;
+	font-size: 36px;
+	line-height: (38 / 36);
+
+	@media #{$min_md} {
+		font-size: 48px;
+		line-height: (50 / 48);
+	}
+
+	@media #{$min_lg} {
+		font-size: 58px;
+		line-height: (60 / 58);
+		// font-size: 64px;
+		// line-height: (66 / 64);
+	}
+}
+
+@mixin h2() {
+	@include garamond(400);
+
+	color: inherit;
+	font-size: 32px;
+	line-height: (42 / 32);
+
+	@media #{$min_lg} {
+		font-size: 48px;
+		line-height: (58 / 48);
+	}
+}
+
+@mixin h3() {
+	@include garamond(400);
+
+	color: inherit;
+	font-size: 20px;
+	line-height: (26 / 20);
+
+	@media #{$min_lg} {
+		font-size: 32px;
+		line-height: (42 / 32);
+	}
+}
+
+@mixin h4() {
+	@include garamond(400);
+
+	color: inherit;
+	font-size: 20px;
+	line-height: (26 / 20);
+
+	@media #{$min_lg} {
+		font-size: 26px;
+		line-height: (32 / 26);
+	}
+}
+
+@mixin h5() {
+	@include univers(700);
+
+	color: inherit;
+	font-size: 11px;
+	letter-spacing: 1.3px;
+	line-height: (16 / 11);
+	text-transform: uppercase;
+
+	@media #{$min_md} {
+		font-size: 16px;
+		letter-spacing: 1.5px;
+		line-height: (22 / 16);
+	}
+}
+
+@mixin h6() {
+	@include univers(700);
+
+	color: inherit;
+	font-size: 11px;
+	letter-spacing: 1.3px;
+	line-height: (15 / 11);
+	text-transform: uppercase;
+}
+
+@mixin intro_text() {}
+
+@mixin body_text() {
+	@include univers(300);
+
+	font-size: 15px;
+	line-height: (23 / 15);
+
+	@media #{$min_lg} {
+		font-size: 18px;
+		line-height: (26 / 18);
+	}
+}
+
+@mixin label_text() {}
+
+@mixin caption_text() {
+	font-size: 14px;
+	line-height: (22 / 14);
+}
+
+a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	.touch &[href^=tel] {
+		color: inherit;
+	}
+}
+
+strong {
+	font-weight: 700;
+}
+
+
+// typography
+// =============================================================================
+
+.typography {
+	@include body_text;
+
+	h1, h2, h3, h4, h5, h6 {}
+
+	h1 {
+		@include h1;
+	}
+
+	h2 {
+		@include h2;
+	}
+
+	h3 {
+		@include h3;
+	}
+
+	h4 {
+		@include h4;
+	}
+
+	h5 {
+		@include h5;
+	}
+
+	h6 {
+		@include h6;
+	}
+
+	a {
+		transition:
+			color .25s,
+			background .25s;
+	}
+
+	p {}
+}
+
+
+// WYSIWYG Images
+// =============================================================================
+
+.typography {
+
+	img {
+		height: auto;
+		max-width: 50%;
+	}
+
+	.block_left,
+	.block_right,
+	.block_center {
+		width: auto;
+
+		display: table;
+		table-layout: fixed;
+
+		img {
+			display: block;
+			max-width: 100%;
+		}
+
+		figcaption {
+			@include caption_text;
+
+			caption-side: bottom;
+			display: table-caption;
+		}
+	}
+
+	.block_left,
+	.block_right {
+		max-width: 50%;
+
+		@media #{$max_sm} {
+			max-width: none;
+
+			float: none;
+			margin-right: 0;
+			margin-left: 0;
+		}
+	}
+
+	.block_center {
+		text-align: center;
+
+		img {
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+}
+
+
+// Blockquote
+// =============================================================================
+
+.typography {
+
+	blockquote {
+		margin: 20px 0;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.quote {}
+
+		.quote_content {
+
+			p {}
+		}
+
+		.quote_caption {}
+
+			.quote_caption_name {}
+
+			.quote_caption_title {}
+}
+
+
+// Lists
+// =============================================================================
+
+.typography {
+
+	ol,
+	ul {
+		list-style: none;
+
+		li {}
+	}
+
+	ol {
+		counter-reset: listing-counter;
+
+		> li {
+
+			&:before {
+				content: counter(listing-counter, decimal) ".";
+
+				@at-root [type="A"] & {
+					content: counter(listing-counter, upper-latin);
+				}
+
+				@at-root [type="a"] & {
+					content: counter(listing-counter, lower-latin);
+				}
+			}
+		}
+	}
+
+	ul {
+
+		li {
+
+			&:before {
+				width: 5px;
+				height: 5px;
+
+				background: #444;
+				border-radius: 50%;
+				content: "";
+				display: block;
+				float: left;
+				margin: 10px 0 0 -15px;
+			}
+		}
+	}
+}
+
+
+// Tables
+// =============================================================================
+
+.typography {
+
+	table {
+		@include margined;
+
+		width: 100%;
+
+		border-collapse: collapse;
+
+		tr {
+
+			&:nth-child(odd) {
+				background: #fafafa;
+			}
+		}
+
+		th,
+		td {
+			padding: 10px 20px;
+		}
+
+		th {
+			@include h6;
+
+			background: $gray_10;
+			text-align: left;
+		}
+
+		td {}
+	}
+}
+
+// 1. Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
+.table_wrapper {
+	@include margined;
+
+	min-height: .01%; // 1
+
+	&.table_wrapper_overflow {
+		position: relative;
+
+		border: 1px solid #ccc;
+
+		&:after {
+			@include gradient_horizontal(rgba(#000, 0), rgba(#000, .1));
+
+			width: 20px;
+			height: 100%;
+
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			content: "";
+		}
+
+		.table_wrapper_inner {
+			overflow-y: hidden;
+			-ms-overflow-style: -ms-autohiding-scrollbar;
+		}
+	}
+}

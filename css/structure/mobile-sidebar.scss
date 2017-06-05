@@ -1,0 +1,133 @@
+/* ==========================================================================
+	Mobile Sidebar
+============================================================================= */
+
+.mobile_sidebar_handle_wrapper {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	z-index: 300;
+
+	transform: translate(0, -50%);
+	transition: transform .25s;
+
+	@media print {
+		display: none;
+	}
+
+	@media #{$min_lg} {
+		display: none;
+	}
+
+	.fs-navigation-open & {
+		transform: translate(10px, -50%);
+	}
+
+	.fs-navigation-open .show_alert + .hat & {
+		position: fixed;
+		top: 12px;
+
+		transform: none;
+	}
+}
+
+	.mobile_sidebar_handle {
+		@include button_inline;
+		@include button_color(transparent, $yellow);
+
+		height: 38px;
+		width: 38px;
+
+		z-index: 2;
+
+		margin-right: 0;
+		margin-bottom: 0;
+
+		.fs-navigation-open & {
+			border-color: transparent;
+
+			&:after {
+				opacity: 0;
+			}
+		}
+	}
+
+	.mobile_sidebar_icon {
+		height: 12px;
+		width: 14px;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		pointer-events: none;
+		transform: translate(-50%, -50%);
+
+		&:before,
+		&:after {
+			height: 2px;
+			width: 100%;
+
+			position: absolute;
+			top: 50%;
+			left: 0;
+
+			background: $black;
+			content: "";
+			transform:
+				translate(0, -50%)
+				rotate(0);
+			transition:
+				box-shadow .25s,
+				transform .25s;
+
+			.fs-navigation-open & {
+				background: $blue;
+				box-shadow: 0 0 0 0 $black;
+			}
+		}
+
+		&:before {
+			box-shadow: 0 -5px 0 0 $black;
+
+			.fs-navigation-open & {
+				transform:
+					translate(0, -50%)
+					rotate(-45deg);
+			}
+		}
+
+		&:after {
+			box-shadow: 0 5px 0 0 $black;
+
+			.fs-navigation-open & {
+				transform:
+					translate(0, -50%)
+					rotate(45deg);
+			}
+		}
+	}
+
+
+// Sidebar
+// =============================================================================
+
+.mobile_sidebar {
+	@include focus_outline_none;
+
+	background: #fff;
+	box-shadow: 0 0 5px 5px rgba(#000, .05);
+	padding-bottom: 80px;
+
+	@media print {
+		display: none;
+	}
+}
+
+	.mobile_sidebar_ribbon {
+		padding: 11px 20px 6px;
+	}
+
+	.mobile_sidebar_group {
+		padding: 0 20px;
+	}

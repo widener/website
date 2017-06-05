@@ -1,0 +1,97 @@
+{% macro stat(data) %}
+  <div class="stat_wrapper">
+    {% if data.theme == "expanded" %}
+      <div class="stat_body">
+        <h2 class="stat_title">{{data.title}}</h2>
+        <p class="stat_caption">{{data.caption}}</p>
+        <a class="stat_link" href="#">{{data.link}}</a>
+      </div>
+    {% endif %}
+    <div class="js-carousel stat_aside" {% if data.theme == "expanded" %}data-carousel-options='{
+      "contained": false,
+      "controls": false,
+      "show": {
+        "740px": 2,
+        "980px": 1
+      }
+    }'{% elseif data.theme == "condensed" %}data-carousel-options='{
+      "contained": false,
+      "controls": false,
+      "show": {
+        "740px": 2,
+        "980px": 3,
+        "1260px": 4
+      }
+    }'{% endif %}>
+      {% for stat in data.stats %}
+        <div class="stat_item">
+          <div class="stat_item_details">
+            <h3 class="stat_item_title_wrapper">
+              {% if stat.label %}
+                <span class="stat_item_title_label">{{stat.label}}</span>
+              {% endif %}
+              <span class="stat_item_title">{{stat.title}}</span>
+            </h3>
+            {% if stat.image %}
+              <img class="stat_item_image" src="//images.fastspot.com/widener/210x140/{{stat.image}}.jpg" alt="">
+            {% endif %}
+            <p class="stat_item_caption">{{stat.caption}}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% import _self as stats %}
+
+<section class="stats theme_{{theme}}">
+  <div class="row">
+    {% if title %}
+      <header class="stats_header">
+        <h2 class="stats_title">{{title}}</h2>
+      </header>
+    {% endif %}
+    <div class="stats_inner">
+      {% if theme == "expanded" %}
+        {{site.dropdown("base", [
+          "Points of Pride",
+          "National Honors",
+          "Academic Excellence",
+          "Vibrant Campus",
+          "Real-world Sucess"
+        ])}}
+        <div class="stats_accordion_wrapper">
+          {% for article in articles %}
+            <div class="js-stats-accordion-{{loop.index}} stats_accordion">
+              <div class="stats_accordion_indicator"></div>
+              <h3 class="js-swap stats_accordion_title" data-swap-target=".js-stats-accordion-{{loop.index}}" data-swap-group="accordion_group" data-swap-options='{"collapse": false}'{% if loop.first %} data-swap-active="true"{% endif %}>
+                <span class="stats_accordion_icon">{{site.symbol("caret_down")}}</span>
+                <span class="stats_accordion_label">{{article.label}}</span>
+              </h3>
+              {{stats.stat({
+                theme: theme,
+                title: article.title,
+                caption: article.caption,
+                link: article.link,
+                stats: article.stats
+              })}}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="stats_list">
+        {% for article in articles %}
+          {{stats.stat({
+            theme: theme,
+            title: article.title,
+            image: article.image,
+            caption: article.caption,
+            link: article.link,
+            stats: article.stats
+          })}}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

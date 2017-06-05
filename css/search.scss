@@ -1,0 +1,220 @@
+/* ==========================================================================
+	Site Search
+============================================================================= */
+
+.mini_search {
+	position: relative;
+
+	display: block;
+
+	&:before {
+
+		@media #{$min_lg} {
+			height: 85%;
+			width: 85%;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+
+			background: $mist;
+			border-radius: 50%;
+			content: "";
+			transform:
+				translate(-50%, -50%)
+				scale(0);
+			transition: transform .25s;
+		}
+	}
+
+	&:focus,
+	&:hover,
+	&[data-toggled="on"] {
+
+		&:before {
+			transform:
+				translate(-50%, -50%)
+				scale(1);
+		}
+	}
+
+	&_sm {
+		@include button_inline;
+		@include button_color($blue, $yellow);
+
+		height: 38px;
+		width: 38px;
+
+		vertical-align: top;
+	}
+
+	&_lg {
+
+		@media #{$max_lg} {
+			display: none;
+		}
+
+		@media #{$min_lg} {
+			height: 48px;
+			width: 48px;
+
+			position: absolute;
+			top: 50%;
+			right: -15px;
+			z-index: 2;
+
+			transform: translate(0, -50%);
+		}
+	}
+}
+
+	.mini_search_label {
+		@include visually_hide;
+	}
+
+	.mini_search_icon {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		pointer-events: none;
+		transform:
+			translate(-50%, -50%)
+			scale(.785);
+		transition: transform .25s;
+
+		&_search {
+
+			@media #{$min_lg} {
+				transform:
+					translate(-50%, -50%)
+					scale(1);
+			}
+
+			[data-toggled="on"] & {
+
+				@media #{$min_lg} {
+					transform:
+						translate(-50%, -50%)
+						scale(0);
+				}
+			}
+		}
+
+		&_close {
+
+			@media #{$min_lg} {
+				transform:
+					translate(-50%, -50%)
+					scale(0);
+			}
+
+			[data-toggled="on"] & {
+
+				@media #{$min_lg} {
+					transform:
+						translate(-50%, -50%)
+						scale(.85);
+				}
+			}
+		}
+	}
+
+
+// Search Handle
+// =============================================================================
+
+.site_search_handle {
+	position: relative;
+}
+
+	.site_search_handle_label {
+		@include visually_hide;
+	}
+
+	.site_search_handle_icon {}
+
+
+// Search Form
+// =============================================================================
+
+.site_search {
+	position: absolute;
+	top: 0;
+	right: 40px;
+
+	opacity: 0;
+	pointer-events: none;
+	transform:
+		translate(10px, 0)
+		scale(.85);
+	transform-origin: right center;
+	transition:
+		opacity .25s,
+		transform .25s;
+
+	&.swap-active {
+		opacity: 1;
+		pointer-events: auto;
+		transform:
+			translate(0, 0)
+			scale(1);
+	}
+}
+
+	.site_search_form {}
+
+		.site_search_label {
+			@include visually_hide;
+		}
+
+		.site_search_input {
+			@include focus_outline_none;
+			@include h6;
+
+			background: $mist;
+			border: 0;
+			color: $blue;
+			padding: 18px 20px 15px;
+			text-transform: none;
+
+			&::placeholder {
+				color: $black;
+				text-overflow: ellipsis;
+			}
+
+			&[placeholder] {
+				text-overflow: ellipsis;
+			}
+		}
+
+		.site_search_button {
+			height: 100%;
+			width: 40px;
+
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			cursor: pointer;
+			transition: color .25s;
+
+			&:focus,
+			&:hover {
+				color: $blue;
+			}
+		}
+
+			.site_search_button_label {
+				@include visually_hide;
+			}
+
+			.site_search_button_icon {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+
+				color: inherit;
+				pointer-events: none;
+				transform: translate(-50%, -50%);
+			}

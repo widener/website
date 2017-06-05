@@ -1,0 +1,368 @@
+/* ==========================================================================
+  Spotlight
+============================================================================= */
+
+.spotlight {
+  @include max-row;
+
+  position: relative;
+
+  overflow: hidden;
+  padding-bottom: 120px;
+
+  @media print {
+    display: none;
+  }
+
+  @media #{$min_sm} {
+    padding-bottom: 175px;
+  }
+
+  @media #{$min_md} {
+    padding-bottom: 15px;
+  }
+}
+
+
+// Switches
+// =============================================================================
+
+.spotlight_switches_wrapper {
+  width: 100%;
+  width: calc(100% - 15px);
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 4;
+
+  background: $black;
+  margin-bottom: 20px;
+  padding-top: 15px;
+  padding-left: 15px;
+
+  @media #{$min_md} {
+    height: 100%;
+    width: 200px;
+
+    top: 0;
+    bottom: auto;
+
+    padding: 0;
+  }
+
+  @media screen and (min-width: 1280px) and (min-height: 700px) {
+    width: 315px;
+  }
+
+  &:after {
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    border-bottom: 15px solid $black;
+    border-left: 15px solid $black;
+    content: "";
+    display: none;
+    pointer-events: none;
+
+    @media #{$min_md} {
+      display: block;
+    }
+  }
+}
+
+  .spotlight_switches {
+    max-width: 170px;
+
+    position: static;
+
+    @media #{$min_sm} {
+      max-width: 100%;
+    }
+
+    @media #{$min_md} {
+      height: 100%;
+    }
+
+    .fs-carousel-viewport,
+    .fs-carousel-wrapper,
+    .fs-carousel-container,
+    .fs-carousel-canister {
+
+      @media #{$min_md} {
+        height: 100%;
+      }
+    }
+
+    .fs-carousel-pagination {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+
+      padding-top: 2px;
+      transform: translate(-50%, 0);
+    }
+  }
+
+    .spotlight_switch {
+      @include theme-direct;
+
+      height: 100px;
+
+      position: relative;
+
+      cursor: pointer;
+
+      @media #{$min_sm} {
+        height: 155px;
+      }
+
+      @media #{$min_md} {
+        height: 24%;
+        height: calc(25% - (15px / 4));
+      }
+
+      &:before {
+        @include cover;
+
+        z-index: 2;
+
+        background: $blue;
+        content: "";
+        opacity: 0;
+        transition: opacity .25s;
+      }
+
+      &:after {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        z-index: 2;
+
+        border: 8px solid transparent;
+        border-bottom-color: $blue;
+        content: "";
+        transform:
+          translate(-50%, 0)
+          scale(0);
+        transform-origin: center bottom;
+        transition: transform .25s;
+
+        @media #{$min_md} {
+          top: 50%;
+          right: 100%;
+          bottom: auto;
+          left: auto;
+
+          border-right-color: $blue;
+          border-bottom-color: transparent;
+          transform:
+            translate(0, -50%)
+            scale(0);
+          transform-origin: right center;
+        }
+      }
+
+      &:focus,
+      &:hover {
+
+        &:before {
+          opacity: .9;
+        }
+      }
+
+      &.fs-swap-active {
+
+        &:before {
+          opacity: .975;
+        }
+
+        &:after {
+          transform:
+            translate(-50%, 0)
+            scale(1);
+
+          @media #{$min_md} {
+            transform:
+              translate(0, -50%)
+              scale(1);
+          }
+        }
+      }
+    }
+
+      .spotlight_switch_background {
+        @include cover;
+      }
+
+      .spotlight_switch_body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+
+        text-align: center;
+        transform: translate(-50%, -50%);
+      }
+
+        .spotlight_switch_title {
+          @include univers(700);
+
+          color: #fff;
+          font-size: 11px;
+          letter-spacing: 1px;
+          line-height: (15 / 11);
+          opacity: 0;
+          text-transform: uppercase;
+          transition: opacity .25s;
+
+          @media screen and (min-width: 1280px) and (min-height: 700px) {
+            font-size: 16px;
+          }
+
+          .spotlight_switch:focus &,
+          .spotlight_switch:hover &,
+          .fs-swap-active & {
+            opacity: 1;
+          }
+        }
+
+
+// Panels
+// =============================================================================
+
+.spotlight_panels {
+  position: relative;
+}
+
+  .spotlight_panel {
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    padding: 68% 0 20px;
+    visibility: hidden;
+    transition:
+      opacity .25s,
+      visibility .25s;
+
+    @media #{$min_lg} {
+      padding-top: 45%;
+    }
+
+    @media screen and (min-width: 980px) and (min-height: 800px) {
+      padding-top: 50%;
+    }
+
+    &.fs-swap-active {
+      position: relative;
+
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+    .spotlight_panel_background {
+      @include cover;
+
+      background: $blue;
+
+      &:before {
+        @include cover;
+
+        z-index: 2;
+
+        background:
+          linear-gradient(
+            45deg,
+              rgba(#000, .65),
+              rgba(#000, 0) 50%
+          );
+        content: "";
+      }
+    }
+
+    .spotlight_panel_inner {
+      width: 100%;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+      .spotlight_panel_body {
+        max-width: 740px;
+
+        position: relative;
+        z-index: 2;
+
+        padding-bottom: 35px;
+
+        @media #{$min_md} {
+          padding-right: 215px;
+        }
+
+        @media #{$min_lg} {
+          padding-bottom: 35px;
+        }
+
+        @media screen and (min-width: 1280px) and (min-height: 700px) {
+          padding-right: 300px;
+        }
+      }
+
+        .spotlight_panel_label {
+          @include h5;
+
+          color: #fff;
+          margin: 0 0 13px;
+
+          @media #{$min_lg} {
+            margin-bottom: 16px;
+          }
+        }
+
+        .spotlight_panel_title {
+          @include h1;
+
+          color: #fff;
+          margin: 0;
+
+          @media #{$min_lg} {
+            margin-bottom: 15px;
+          }
+        }
+
+          .spotlight_panel_title_link {
+            color: inherit;
+          }
+
+            .spotlight_panel_title_label {}
+
+            .spotlight_panel_title_icon {
+              @include theme;
+
+              display: inline-block;
+              vertical-align: middle;
+
+              @media #{$min_lg} {
+                display: none;
+              }
+            }
+
+        .spotlight_panel_link {
+          @include button_inline;
+          @include button-color(#fff, $yellow);
+
+          display: none;
+
+          @media #{$min_lg} {
+            display: inline-block;
+          }
+        }

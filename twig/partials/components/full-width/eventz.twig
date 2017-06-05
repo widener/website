@@ -1,0 +1,35 @@
+<section class="eventz">
+  <div class="row">
+    <div class="eventz_inner">
+      <header class="eventz_header">
+        <h2 class="eventz_title">{{title}}</h2>
+      </header>
+      <div class="js-carousel event_carousel" data-carousel-options='{
+        "contained": false,
+        "show": {
+          "740px": 2,
+          "980px": 3
+        }
+      }'>
+        {% for event in eventz %}
+          <article class="event">
+            <time class="event_date">
+              <span class="event_month">{{event.month}}</span>
+              <span class="event_day">{{event.day}}</span>
+            </time>
+            <h3 class="event_title">
+              <a class="event_title_link" href="#">{{event.title}}</a>
+            </h3>
+            <h4 class="event_location">
+              <span class="event_location_icon">{{site.symbol("location")}}</span>
+              <span class="event_location_label">{{event.location}}</span>
+            </h4>
+          </article>
+        {% endfor %}
+      </div>
+      <footer class="eventz_footer">
+        <a class="eventz_discovery" href="#">View All Events</a>
+      </footer>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+<section class="gallery">
+  <button class="js-swap gallery_switches_trigger" data-swap-target=".gallery_switches_wrapper" data-swap-linked="swap_gallery">
+    <span class="gallery_switches_trigger_label">Explore Widener</span>
+    <span class="gallery_switches_trigger_icon">{{site.symbol("plus")}}</span>
+  </button>
+  <div class="gallery_switches_wrapper">
+    <div class="gallery_switches">
+      <div class="row">
+        <button class="js-swap gallery_switches_close" data-swap-target=".gallery_switches_wrapper" data-swap-linked="swap_gallery">
+          <span class="gallery_switches_close_icon">{{site.symbol("close")}}</span>
+        </button>
+        <header class="gallery_switches_header">
+          <h2 class="gallery_switches_label">Explore Widener</h2>
+          <h3 class="gallery_switches_title">We are located on a beautiful 110-acre campus in the metropolitan Philadelphia area.</h3>
+        </header>
+        <div class="js-carousel gallery_switches_carousel" data-carousel-options='{
+          "contained": false,
+          "show": {
+            "740px": 2,
+            "1220px": 3
+          }
+        }'>
+          {% for gallery in galleries %}
+            <div class="js-swap gallery_switch theme_{{gallery.theme}}" data-swap-target=".gallery_panel_{{loop.index}}" data-swap-group="gallery_panels" {% if loop.first %} data-swap-active="true"{% endif %} data-swap-options='{"collapse": false}'>
+              <header class="gallery_switch_header">
+                {% include "../shared/background.twig" with {
+              		class: "gallery_switch",
+              		image: gallery.image,
+                  lazy: "true",
+              		lazyEdge: "100",
+              		sources: {
+              			"0px": img.wide.xsml
+              		}
+              	} %}
+                <h4 class="gallery_switch_label">{{gallery.label}}</h4>
+              </header>
+              <p class="gallery_switch_caption">{{gallery.caption}}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gallery_panels">
+    {% for gallery in galleries %}
+      <div class="js-carousel gallery_panel gallery_panel_{{loop.index}} theme_{{gallery.theme}}" data-carousel-options='{
+        "contained": false,
+        "pagination": false,
+        "single": true
+      }'>
+        {% for slide in gallery.slides %}
+          <div class="gallery_slide">
+            {% include "../shared/background.twig" with {
+          		class: "gallery_slide",
+          		image: slide.image,
+              lazy: "true",
+          		lazyEdge: "100",
+          		sources: {
+          			"0px": img.square.sml,
+          			"500px": img.wide.xsml,
+          			"740px": img.wide.sml,
+          			"980px": img.wide.med,
+          			"1220px": img.wide.xlrg
+          		}
+          	} %}
+            <div class="row">
+              <div class="gallery_slide_details">
+                <div class="gallery_slide_details_inner">
+                  <div class="gallery_slide_header">
+                    <h5 class="gallery_slide_label">{{gallery.label}}</h5>
+                    <p class="gallery_slide_position">
+                      <span class="gallery_slide_position_icon">{{site.symbol("grid")}}</span>
+                      <span class="gallery_slide_position_label">{{loop.index}}/{{gallery.slides|length}}</span>
+                    </p>
+                  </div>
+                  <p class="gallery_slide_caption">{{slide.caption}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</section>

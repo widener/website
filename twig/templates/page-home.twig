@@ -1,0 +1,439 @@
+{% extends "_base.twig" %}
+
+{% set pageTitle = "Home" %}
+
+{% block layout %}
+	{% set layout = "home" %}
+{% endblock %}
+
+{% block alert %}
+	{% set alert = true %}
+{% endblock %}
+
+{% block full_width_callouts %}
+	{% include '../partials/components/full-width/spotlight.twig' with {
+		panels: [
+			{
+				theme: "blue",
+				image: 1,
+				label: "On The Job Experience",
+				title: "Students Pursue Dream Co-ops",
+				link: "Read the Story"
+			},
+			{
+				theme: "yellow",
+				image: 2,
+				label: "Student Faculty Collaboration",
+				title: "Preserving the Planet",
+				link: "Read the Story"
+			},
+			{
+				theme: "orange",
+				image: 3,
+				label: "On The Job Experience",
+				title: "Students Pursue Dream Co-ops",
+				link: "Read the Story"
+			},
+			{
+				theme: "green",
+				image: 4,
+				label: "Student Faculty Collaboration",
+				title: "Preserving the Planet",
+				link: "Read the Story"
+			}
+		]
+	} %}
+
+	{% include '../partials/components/full-width/stats.twig' with {
+		theme: "expanded",
+		articles: [
+			{
+				label: "Points of Pride",
+				title: "At Widener",
+				caption: "We take great pride in supporting our students. Through academic excellence, immersive career preparation, and a passion for bettering our world, we foster leaders who shine bright.",
+				link: "More About Us",
+				stats: [
+					{
+						label: "top",
+						title: "10",
+						caption: "Widener is a <a href>top 10 college</a> in the Philadelphia-area"
+					},
+					{
+						title: "13:1",
+						caption: "We have an outstanding 13 to 1 student-to-faculty ratio"
+					},
+					{
+						title: "89%",
+						caption: "89 percent of grads are employed or pursuing graduate or <a href>professional studies</a> 6 months after graduation"
+					},
+					{
+						label: "top",
+						title: "20%",
+						caption: "Widener is in the top 20 percent nationally in salaries earned at mid-career"
+					}
+				]
+			},
+			{
+				label: "National Honors",
+				title: "At Widener",
+				caption: "Our top-ranked programs feature hands-on coursework, small classes, and supportive faculty that prepare you to take the lead in your life and your career.",
+				link: "More About Us",
+				stats: [
+					{
+						label: "top",
+						title: "10",
+						caption: "Widener is top 10 in Pennslyvania for online learning"
+					},
+					{
+						title: "60+",
+						caption: "Widener offers 60+ degrees options"
+					},
+					{
+						title: "#1",
+						caption: "Widener has the #1 online social work graduate program"
+					},
+					{
+						label: "top",
+						title: "40",
+						caption: "Widener is top 40 nationally for  our graduate physical therapy program"
+					}
+				]
+			},
+			{
+				label: "Academic Excellence",
+				title: "At Widener",
+				caption: "Our top-ranked programs feature hands-on coursework, small classes, and supportive faculty that prepare you to take the lead in your life and your career.",
+				link: "More About Us",
+				stats: [
+					{
+						label: "top",
+						title: "10",
+						caption: "Widener is top 10 in Pennslyvania for online learning"
+					},
+					{
+						title: "60+",
+						caption: "Widener offers 60+ degrees options"
+					},
+					{
+						title: "#1",
+						caption: "Widener has the #1 online social work graduate program"
+					},
+					{
+						label: "top",
+						title: "40",
+						caption: "Widener is top 40 nationally for  our graduate physical therapy program"
+					}
+				]
+			},
+			{
+				label: "Vibrant Campus",
+				title: "At Widener",
+				caption: "Our top-ranked programs feature hands-on coursework, small classes, and supportive faculty that prepare you to take the lead in your life and your career.",
+				link: "More About Us",
+				stats: [
+					{
+						label: "top",
+						title: "10",
+						caption: "Widener is top 10 in Pennslyvania for online learning"
+					},
+					{
+						title: "60+",
+						caption: "Widener offers 60+ degrees options"
+					},
+					{
+						title: "#1",
+						caption: "Widener has the #1 online social work graduate program"
+					},
+					{
+						label: "top",
+						title: "40",
+						caption: "Widener is top 40 nationally for  our graduate physical therapy program"
+					}
+				]
+			},
+			{
+				label: "Real-world Success",
+				title: "At Widener",
+				caption: "Our top-ranked programs feature hands-on coursework, small classes, and supportive faculty that prepare you to take the lead in your life and your career.",
+				link: "More About Us",
+				stats: [
+					{
+						label: "top",
+						title: "10",
+						caption: "Widener is top 10 in Pennslyvania for online learning"
+					},
+					{
+						title: "60+",
+						caption: "Widener offers 60+ degrees options"
+					},
+					{
+						title: "#1",
+						caption: "Widener has the #1 online social work graduate program"
+					},
+					{
+						label: "top",
+						title: "40",
+						caption: "Widener is top 40 nationally for  our graduate physical therapy program"
+					}
+				]
+			}
+		]
+	} %}
+
+	{% include '../partials/components/full-width/explorer.twig' with {
+		theme: "expanded",
+		undergraduate: {
+			image: 1,
+			title: "Undergraduate",
+			caption: "Explore the possibilities. Not matter your focus, our top-ranking liberal arts programs prepare you to be a critical thinker and thoughtful leader both in and out of the classroom.",
+			links: [
+				"Learn More",
+				"Apply Now",
+				"Visit Us"
+			],
+			panel: {
+				class: "undergraduate",
+				title: "Undergraduate Programs",
+				links: [
+					"Accounting",
+					"Anthropology",
+					"Biochemistry",
+					"Biomedical Engineering",
+					"Biology",
+					"Business Informatics",
+					"Chemical Engineering",
+					"Communication Studies",
+					"Computer Information Systems",
+					"Computer Science",
+					"Criminal Justice",
+					"Digital Medica Informatics",
+					"Economics",
+					"Electrical Engineering"
+				]
+			}
+		},
+		graduate: {
+			image: 2,
+			title: "Graduate",
+			caption: "Become the leader you want to be through a flexible, academically rigorous program that meets your needs wherever you are in your career.",
+			links: [
+				"Learn More",
+				"Apply Now"
+			],
+			panel: {
+				class: "graduate",
+				title: "Graduate Programs",
+				links: [
+					"Accounting",
+					"Anthropology",
+					"Biochemistry",
+					"Biomedical Engineering",
+					"Biology",
+					"Business Informatics",
+					"Chemical Engineering",
+					"Communication Studies",
+					"Computer Information Systems",
+					"Computer Science",
+					"Criminal Justice",
+					"Digital Medica Informatics",
+					"Economics",
+					"Electrical Engineering"
+				]
+			}
+		},
+		list: [
+			{
+				label: "Widener University",
+				title: "Delaware Law School"
+			},
+			{
+				label: "Widener University",
+				title: "Commonwealth Law School"
+			}
+		]
+	} %}
+
+	{% include '../partials/components/full-width/announcement.twig' with {
+		label: "Announcement",
+		title: "Commencement",
+		caption: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.",
+		image: 1,
+    link: "Learn More"
+	} %}
+
+	{% include '../partials/components/full-width/news.twig' with {
+		title: "Recent News",
+		highlight: {
+			image: 2,
+			date: "03.15. 017",
+			title: "Understanding the Injured Brain",
+			caption: "Widener alumni, faculty, and students on the cutting edge of research and treatment of traumatic brain injuries.",
+			link: "Read the Story"
+		},
+		articles: [
+			{
+				date: "03.29. 017",
+				link: "#",
+				title: "Students at Widener are Serving up Flavors From Around the World",
+				image: 3
+			},
+			{
+				date: "03.27. 017",
+				title: "Biology Professor Named Next Cynthia H. Sarnoski Science Faculty Fellow",
+				image: 4
+			},
+			{
+				date: "03.20. 017",
+				link: "#",
+				title: "Widener Law Commonwealth Ranked in Top Five for Bar Exam Preparation"
+			}
+		],
+		links: [
+			"View News Stories",
+			"View Press Releases"
+		]
+	} %}
+
+	{% include '../partials/components/full-width/eventz.twig' with {
+		title: "Upcoming Events",
+		eventz: [
+			{
+				month: "March",
+				day: 27,
+				title: "Philadelphia Speakers Series: Ted Koppel, Former Anchor of Nightline",
+				location: "Kimmel Center for the Performing Arts"
+			},
+			{
+				month: "March",
+				day: 27,
+				title: "The Second Annual Widener University Sustainability Showcase",
+				location: "University Center"
+			},
+			{
+				month: "April",
+				day: 17,
+				title: "UCONN's Dr. Cato Laurencin to speak at Widener",
+				location: "University Center"
+			},
+			{
+				month: "April",
+				day: 27,
+				title: "University Cake Boss Competition",
+				location: "University Center"
+			},
+			{
+				month: "March",
+				day: 27,
+				title: "The Second Annual Widener University Sustainability Showcase",
+				location: "University Center"
+			},
+			{
+				month: "April",
+				day: 17,
+				title: "UCONN's Dr. Cato Laurencin to speak at Widener",
+				location: "University Center"
+			},
+			{
+				month: "April",
+				day: 27,
+				title: "University Cake Boss Competition",
+				location: "University Center"
+			},
+			{
+				month: "March",
+				day: 27,
+				title: "The Second Annual Widener University Sustainability Showcase",
+				location: "University Center"
+			},
+			{
+				month: "April",
+				day: 17,
+				title: "UCONN's Dr. Cato Laurencin to speak at Widener",
+				location: "University Center"
+			},
+			{
+				month: "April",
+				day: 27,
+				title: "University Cake Boss Competition",
+				location: "University Center"
+			}
+		]
+	} %}
+
+	{% include '../partials/components/full-width/gallery.twig' with {
+		galleries: [
+			{
+				theme: "blue",
+				image: 1,
+				label: "On Campus",
+				caption: "Nullam id dolor id nibh ultricies vehicula ut id elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia.",
+				slides: [
+					{
+						image: 2,
+						caption: "<a href>Start by exploring</a> the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					},
+					{
+						image: 3,
+						caption: "Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					},
+					{
+						image: 4,
+						caption: "Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					},
+					{
+						image: 1,
+						caption: "Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					}
+				]
+			},
+			{
+				theme: "orange",
+				image: 2,
+				label: "In the Classroom",
+				caption: "Maecenas sed diam eget risus varius blandit sit amet non magna.",
+				slides: [
+					{
+						image: 3,
+						caption: "Start by exploring the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					},
+					{
+						image: 4,
+						caption: "Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					}
+				]
+			},
+			{
+				theme: "green",
+				image: 3,
+				label: "In our Community",
+				caption: "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis.",
+				slides: [
+					{
+						image: 4,
+						caption: "Start by exploring the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					},
+					{
+						image: 1,
+						caption: "Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					}
+				]
+			},
+			{
+				theme: "blue",
+				image: 4,
+				label: "In our Community",
+				caption: "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis.",
+				slides: [
+					{
+						image: 1,
+						caption: "Start by exploring the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					},
+					{
+						image: 2,
+						caption: "Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					}
+				]
+			}
+		]
+	} %}
+{% endblock %}

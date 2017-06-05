@@ -1,0 +1,272 @@
+{% extends "_base.twig" %}
+
+{% set pageTitle = "Undergraduate Admissions" %}
+{% set pageBackground = 1 %}
+
+{% block page_feature %}
+{% endblock %}
+
+{% block typography %}
+{% endblock %}
+
+{% block in_content_callouts %}
+  {% include "../partials/components/in-content/topics.twig" with {
+    topics: [
+      {
+        theme: "simple",
+        title: "Some people are doers. Others are thinkers. At Widener University, we believe that great leaders excel at being both.",
+        description: "Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.",
+        links: [
+          {
+            href: "#",
+            theme: "yellow",
+            name: "Apply Now"
+          },
+          {
+            href: "#",
+            theme: "orange",
+            name: "Request Info"
+          },
+          {
+            href: "#",
+            theme: "green",
+            name: "Plan a Visit"
+          }
+        ]
+      },
+      {
+        theme: "complex",
+        title: "How to Apply",
+        image: 2,
+        description: "We offer more than 60-degree options that are built on foundations of leadership, career readiness, and civic engagement.",
+        links: [
+          {
+            href: "#",
+            theme: "blue",
+            name: "Learn More"
+          }
+        ]
+      },
+      {
+        theme: "complex",
+        title: "Tuition & Aid",
+        image: 3,
+        description: "We understand that when deciding whether Widener is the right fit for you, it takes more than considering the value of the Widener experience. Money matters.",
+        links: [
+          {
+            href: "#",
+            theme: "green",
+            name: "Financial Aid"
+          },
+          {
+            href: "#",
+            theme: "green",
+            name: "Tuition Calculator"
+          }
+        ]
+      }
+    ]
+  } %}
+{% endblock %}
+
+{% block sidebar %}
+  {% include '../partials/components/sidebar/linked-list.twig' with {
+    title: "Information For",
+    links: [
+      {
+        href: "#",
+        name: "Admitted Students"
+      },
+      {
+        href: "#",
+        name: "International Students"
+      },
+      {
+        href: "#",
+        name: "Transfer Students"
+      },
+      {
+        href: "#",
+        name: "School Counselors"
+      },
+      {
+        href: "#",
+        name: "Veterans"
+      }
+    ]
+  } %}
+
+  {% include '../partials/components/sidebar/contact-card.twig' with {
+    title: "Office of Admissions",
+    address: "Muller Hall<br>One University Place<br>Chester, PA 19013",
+    phone: "610-499-4126",
+    fax: "610-499-4676",
+    email: "admissions@widener.edu",
+    external: "Meet the Team"
+  } %}
+
+  {% include '../partials/components/sidebar/social-card.twig' with {
+    title: "Connect With Us",
+    links: [
+      {
+        icon: "facebook",
+        name: "Facebook"
+      },
+      {
+        icon: "twitter",
+        name: "Twitter"
+      },
+      {
+        icon: "linkedin",
+        name: "LinkedIn"
+      }
+    ]
+  } %}
+{% endblock %}
+
+{% block full_width_callouts %}
+  {% include '../partials/components/full-width/announcement.twig' with {
+    label: "Digital Viewbook",
+    title: "Get to Know Us",
+    caption: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.",
+    image: 1,
+    link: "Download PDF"
+  } %}
+
+  {% include '../partials/components/full-width/highlite.twig' with {
+    image: 2,
+    title: "Explore the Campus",
+    description: "The best way to get to know Widener University is by visiting us. Take advantage of the many options to get to know our campus.",
+    links: [
+      "Plan a Visit",
+      "Virtual Tour"
+    ]
+  } %}
+
+  {% include '../partials/components/full-width/dates.twig' with {
+		title: "Important Dates",
+		highlight: {
+			image: 1,
+			month: "March",
+      day: 25,
+			title: "Accepted Student Day",
+			caption: "Widener invites admitted students and parents to connect with our community of current students, faculty, and staff.",
+			link: "Learn More"
+		},
+		articles: [
+			{
+				month: "October",
+        day: 21,
+				title: "Application Deadline for Early Decision Students",
+        link: "#"
+			},
+      {
+				month: "November",
+        day: 01,
+				title: "Application Deadline for Early Action Students"
+			},
+      {
+				month: "November",
+        day: 15,
+				title: "Priority FAFSA Date",
+        link: "#"
+			},
+      {
+				month: "April",
+        day: 01,
+				title: "Admissions Office April Saturdays Begin"
+			},
+      {
+				month: "April",
+        day: 01,
+				title: "Admissions Office April Saturdays Begin"
+			}
+		],
+		links: [
+			"View News Stories",
+			"View Press Releases"
+		]
+	} %}
+
+  {% include '../partials/components/full-width/collage.twig' with {
+    spotlight: 2,
+    label: "A Vibrant Community",
+    title: "Widener is more than just a beautiful campus.",
+    galleries: [
+      {
+        image: 1,
+        images: [
+          {
+            image: 1,
+            caption: "Start by exploring the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+          },
+          {
+            image: 2,
+            caption: "Start by exploring the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet"
+          },
+          {
+            image: 3,
+            caption: "From 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet"
+          }
+        ]
+      },
+      {
+        image: 2,
+        video: "//www.youtube.com/embed/zsJpUCWfyPE?rel=0&autoplay=1&fs=1"
+      },
+      {
+        image: 3
+      },
+      {
+        image: 4
+      }
+    ]
+  } %}
+
+  {% include '../partials/components/full-width/stats.twig' with {
+    title: "Point of Pride",
+    theme: "condensed",
+		articles: [
+      {
+				stats: [
+					{
+						label: "top",
+						title: "10",
+            image: 1,
+						caption: "Widener is a top 10 college in the Philadelphia-area for career preparation"
+					},
+					{
+						title: "84%",
+						caption: "Majority of Widener seniors have participated in real-world, hands-on learning experiences"
+					},
+					{
+						title: "89%",
+            image: 2,
+						caption: "89 percent of grads are employed or pursuing graduate or <a href>professional studies</a> 6 months after graduation"
+					},
+					{
+						label: "top",
+						title: "20%",
+						caption: "Widener is in the top 20 percent nationally in salaries earned at mid-career"
+					}
+				]
+			}
+		]
+	} %}
+
+  {% include '../partials/components/full-width/quote.twig' with {
+    quote: "This experience will not be forgotten unless we forget it. And these four years will not be meaningless unless we do not actively choose for it to produce something meaningful.",
+    cite: "Nicole Gilette",
+    year: "‘16",
+    video: "//www.youtube.com/embed/zsJpUCWfyPE?rel=0&autoplay=1&fs=1",
+    image: 2
+  } %}
+
+  {% include '../partials/components/full-width/quote.twig' with {
+    quote: "And these four years will not be meaningless unless we do not actively choose for it to produce something meaningful.",
+    cite: "Gilette Nicole",
+    year: "‘18",
+    video: "//www.youtube.com/embed/zsJpUCWfyPE?rel=0&autoplay=1&fs=1",
+    image: 2
+  } %}
+{% endblock %}

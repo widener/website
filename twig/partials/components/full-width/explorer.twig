@@ -1,0 +1,203 @@
+{% macro discovery(data) %}
+  <div class="explorer_discovery_wrapper">
+    <button class="js-swap explorer_discovery" data-swap-target=".explorer_panel_{{data.class}}" data-swap-linked="swap_group_{{data.class}}">
+      <span class="explorer_discovery_label">Explore Programs</span>
+      <span class="explorer_discovery_icon">
+        <svg class="symbol symbol_plus">
+    			<use xlink:href="#plus"></use>
+    		</svg>
+      </span>
+    </button>
+  </div>
+{% endmacro %}
+
+{% macro panel(data) %}
+  <div class="explorer_panel explorer_panel_{{data.class}}">
+    <header class="explorer_panel_header">
+      <h3 class="explorer_panel_title">{{data.title}}</h3>
+      <button class="js-swap explorer_panel_close" data-swap-target=".explorer_panel_{{data.class}}" data-swap-linked="swap_group_{{data.class}}">
+        <span class="explorer_panel_close_icon">
+          <svg class="symbol symbol_plus">
+      			<use xlink:href="#close"></use>
+      		</svg>
+        </span>
+      </button>
+    </header>
+    <div class="explorer_panel_list">
+      {% for link in data.links %}
+        <a class="explorer_panel_item" href="#">
+          <span class="explorer_panel_item_label">{{link}}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% import _self as explorer %}
+
+<section class="explorer theme_{{theme}}">
+  {% if theme == "condensed" %}
+  <div class="row">
+  {% endif %}
+  {% if callout %}
+    <div class="explorer_callout explorer_callout_sm">
+      <h2 class="explorer_callout_title">{{callout.title}}</h2>
+      <p class="explorer_callout_caption">{{callout.caption}}</p>
+    </div>
+  {% endif %}
+  <div class="explorer_inner">
+    <div class="explorer_body">
+      <div class="explorer_item">
+        {% include "../shared/background.twig" with {
+          class: "explorer_item",
+          image: undergraduate.image,
+      		lazy: "true",
+          sources: {
+            "0px": img.square.sml,
+            "740px": img.square.med
+          }
+        } %}
+        <div class="explorer_item_body">
+          <div class="explorer_item_details">
+            <h2 class="explorer_item_title">
+              <a class="explorer_item_title_link" href="#">
+                <span class="explorer_item_title_label">{{undergraduate.title}}</span>
+                <span class="explorer_item_title_icon">{{site.symbol("caret_right")}}</span>
+              </a>
+            </h2>
+            <p class="explorer_item_caption">{{undergraduate.caption}}</p>
+            <div class="explorer_item_links">
+              {% for link in undergraduate.links %}
+                <a class="explorer_item_link" href="#">{{link}}</a>
+              {% endfor %}
+            </div>
+          </div>
+          {% if undergraduate.panel %}
+            {{explorer.discovery({
+              class: undergraduate.panel.class
+            })}}
+          {% endif %}
+        </div>
+        {% if undergraduate.panel %}
+          {{explorer.panel({
+            class: undergraduate.panel.class,
+            title: undergraduate.panel.title,
+            links: undergraduate.panel.links
+          })}}
+        {% endif %}
+      </div>
+      {% if minis %}
+        <div class="explorer_minis explorer_minis_lg">
+          {% for item in minis %}
+            <div class="explorer_mini">
+              {% include "../shared/background.twig" with {
+                class: "explorer_mini",
+                image: item.image,
+                lazy: "true",
+                sources: {
+                  "0px": img.wide.xsml,
+                  "980px": img.full.xxsml
+                }
+              } %}
+              <a class="explorer_mini_link" href="#">
+                <h4 class="explorer_mini_title">
+                  <span class="explorer_mini_title_label">{{item.title}}</span>
+                  <span class="explorer_mini_title_icon">{{site.symbol("caret_right")}}</span>
+                </h4>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="explorer_aside">
+      {% if callout %}
+        <div class="explorer_callout explorer_callout_lg">
+          <h2 class="explorer_callout_title">{{callout.title}}</h2>
+          <p class="explorer_callout_caption">{{callout.caption}}</p>
+        </div>
+      {% endif %}
+      <div class="explorer_item">
+        {% include "../shared/background.twig" with {
+          class: "explorer_item",
+          image: graduate.image,
+      		lazy: "true",
+      		lazyEdge: "100",
+          sources: {
+            "0px": img.square.sml,
+            "740px": img.square.med
+          }
+        } %}
+        <div class="explorer_item_body">
+          <div class="explorer_item_details">
+            <h2 class="explorer_item_title">
+              <a class="explorer_item_title_link" href="#">
+                <span class="explorer_item_title_label">{{graduate.title}}</span>
+                <span class="explorer_item_title_icon">{{site.symbol("caret_right")}}</span>
+              </a>
+            </h2>
+            <p class="explorer_item_caption">{{graduate.caption}}</p>
+            <div class="explorer_item_links">
+              {% for link in graduate.links %}
+                <a class="explorer_item_link" href="#">{{link}}</a>
+              {% endfor %}
+            </div>
+          </div>
+          {% if graduate.panel %}
+            {{explorer.discovery({
+              class: graduate.panel.class
+            })}}
+          {% endif %}
+        </div>
+        {% if graduate.panel %}
+          {{explorer.panel({
+            class: graduate.panel.class,
+            title: graduate.panel.title,
+            links: graduate.panel.links
+          })}}
+        {% endif %}
+      </div>
+      {% if minis %}
+        <div class="explorer_minis explorer_minis_sm">
+          {% for item in minis %}
+            <div class="explorer_mini">
+              {% include "../shared/background.twig" with {
+                class: "explorer_mini",
+                image: item.image,
+                lazy: "true",
+                sources: {
+                  "0px": img.wide.xsml,
+                  "980px": img.full.xxsml
+                }
+              } %}
+              <a class="explorer_mini_link" href="#">
+                <h4 class="explorer_mini_title">
+                  <span class="explorer_mini_title_label">{{item.title}}</span>
+                  <span class="explorer_mini_title_icon">{{site.symbol("caret_right")}}</span>
+                </h4>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if list %}
+        <div class="explorer_list">
+          <div class="explorer_list_body">
+            {% for item in list %}
+              <a class="explorer_list_item" href="#">
+                <h2 class="explorer_list_item_label">{{item.label}}</h2>
+                <h3 class="explorer_list_item_title_wrapper">
+                  <span class="explorer_list_item_title">{{item.title}}</span>
+                  <span class="explorer_list_item_icon">{{site.symbol("caret_right")}}</span>
+                </h3>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% if theme == "condensed" %}
+  </div>
+  {% endif %}
+</section>

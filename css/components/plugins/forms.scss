@@ -1,0 +1,91 @@
+/* ==========================================================================
+	Dropdowns
+============================================================================= */
+
+.base_dropdown_wrapper {
+	position: relative;
+
+	border-bottom: 1px solid $mist;
+	margin-bottom: 15px;
+
+	.fs-dropdown-selected {
+		@include univers(700);
+
+		font-size: 11px;
+		letter-spacing: 1px;
+		padding: 14px 0;
+		text-transform: uppercase;
+		transition: color .25s;
+
+		&:focus,
+		&:hover {
+			color: $blue;
+		}
+	}
+
+	.fs-dropdown-options {
+		background: $mist;
+		padding: 10px 0;
+	}
+
+		.fs-dropdown-item {
+			@include univers;
+
+			font-size: 13px;
+			padding: 12px 20px 9px;
+			transition:
+				background .25s,
+				color .25s;
+
+			&:not(.fs-dropdown-item_selected):focus,
+			&:not(.fs-dropdown-item_selected):hover {
+				background: rgba($blue, .15);
+			}
+
+			&_selected {
+				background: $blue;
+				color: #fff;
+			}
+		}
+}
+
+	.base_dropdown_icon {
+		position: absolute;
+		top: 50%;
+		right: 0;
+
+		color: $blue;
+		transform:
+			translate(0, -50%)
+			scaleY(1);
+		transition: transform .25s;
+
+		@at-root .base_dropdown_wrapper .fs-dropdown-open + & {
+			transform:
+				translate(0, -50%)
+				scaleY(-1);
+		}
+	}
+
+// Checkboxes & Radios
+// =============================================================================
+
+.fs-checkbox {
+	margin-bottom: 10px;
+}
+
+	.fs-checkbox-marker {
+		margin-right: 10px;
+
+		.fs-checkbox-checked & {}
+	}
+
+		.fs-checkbox-flag {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			&:before {}
+
+			.fs-checkbox-radio & {}
+		}

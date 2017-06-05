@@ -1,0 +1,53 @@
+/* ==========================================================================
+	Symbols
+============================================================================= */
+
+.symbol {
+	display: block;
+	stroke: inherit;
+	fill: currentColor;
+	transition: fill .25s;
+
+	@media print {
+		display: none;
+	}
+
+	$symbols: (
+		(alert, 34px, 34px),
+		(caret_up, 10px, 10px),
+		(caret_down, 10px, 10px),
+		(caret_left, 10px, 10px),
+		(caret_right, 10px, 10px),
+		(close, 20px, 20px),
+		(envelope, 13px, 13px),
+		(ext, 15px, 12px),
+		(facebook, 18px, 18px),
+		(fax, 13px, 13px),
+		(flickr, 18px, 10px),
+		(grid, 16px, 16px),
+		(instagram, 18px, 18px),
+		(linkedin, 18px, 18px),
+		(location, 10px, 14px),
+		(logo_crest, 33px, 40px),
+		(logo_name, 200px, 30px),
+		(logo_group_white, 280px, 34px),
+		(logo_group_blue, 400px, 48px),
+		(phone, 14px, 14px),
+		(play, 11px, 11px),
+		(plus, 20px, 20px),
+		(quote, 18px, 14px),
+		(search, 17px, 17px),
+		(twitter, 18px, 16px),
+		(video, 16px, 10px),
+		(virtual_tour, 22px, 22px),
+		(youtube, 18px, 14px)
+	);
+
+	@each $label, $w, $h in $symbols {
+
+		&_#{$label} {
+			height: $h;
+			width: $w;
+		}
+	}
+}

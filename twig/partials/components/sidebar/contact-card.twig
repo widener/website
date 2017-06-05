@@ -1,0 +1,39 @@
+<div class="contact_card{% if theme %} theme_{{theme}}{% endif %}">
+	<header class="contact_card_header">
+		<h2 class="contact_card_title">{{title}}</h2>
+	</header>
+	<div class="contact_card_body">
+		<div class="contact_card_types">
+			{% if address %}
+				<span class="contact_card_type contact_card_address">
+					<span class="contact_card_icon">{{site.symbol("location")}}</span>
+					<span class="contact_card_label">{{address}}</span>
+				</span>
+			{% endif %}
+			{% if phone %}
+				<span class="contact_card_type contact_card_phone">
+					<span class="contact_card_icon">{{site.symbol("phone")}}</span>
+					<span class="contact_card_label">{{phone}}</span>
+				</span>
+			{% endif %}
+			{% if fax %}
+				<span class="contact_card_type contact_card_phone">
+					<span class="contact_card_icon">{{site.symbol("fax")}}</span>
+					<span class="contact_card_label">{{fax}}</span>
+				</span>
+			{% endif %}
+			{% if email %}
+				<a class="contact_card_type contact_card_email" href="mailto:{{email}}">
+					<span class="contact_card_icon">{{site.symbol("envelope")}}</span>
+					<span class="contact_card_label">{{email}}</span>
+				</a>
+			{% endif %}
+			{% if external %}
+				<a class="contact_card_type contact_card_external" href="#">
+					<span class="contact_card_icon">{{site.symbol("ext")}}</span>
+					<span class="contact_card_label">{{external}}</span>
+				</a>
+			{% endif %}
+		</div>
+	</div>
+</div>

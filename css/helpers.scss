@@ -1,0 +1,103 @@
+// Helper Mixins
+// =============================================================================
+
+@mixin nav_header() {
+  border-bottom: 1px solid rgba(#fff, .4);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
+@mixin nav_title() {
+  @include univers(700);
+
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+@mixin play_wrapper() {
+  height: 50px;
+  width: 50px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+
+  background: #fff;
+  border-radius: 50%;
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+  transition: transform .25s;
+}
+
+@mixin play() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  margin-left: 2px;
+  transform:
+    translate(-50%, -50%)
+    scale(1.5);
+}
+
+@mixin invisible_controls() {
+
+  .fs-carousel-controls {
+    height: 100%;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+
+    border: 0;
+    display: block;
+    pointer-events: none;
+    transform: translate(-50%, 0);
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+
+    .fs-carousel-control {
+      height: 100%;
+      width: 15%;
+
+      position: absolute;
+      top: 0;
+
+      &_previous {
+        left: 0;
+
+        cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArCAYAAADhXXHAAAAABGdBTUEAALGPC/xhBQAAAYNJREFUWAljZCja859haIBFTEPDnRBXjjqWVrE1GrKjIQsMgdFkMJoMRpMBrdLAaMgO5ZBlpKLjaVrOCnKyMKxP1KOac1moZhKaQQZSPAxrE/QY5ATY0WTI59LEsfEmEgzTQzQYOFmZGf78/Ue+69B0UtWxbMyMDJMC1RjSLWXQrKEOl2qOlQVG95p4XQYzOX7quAyLKVRxrIuqIMPyGB0GER42LFZQT4gqpYGhNC+DIBcr9VyFwySqOLb7wCMGt5nnGV5/+YXDGuoIU8WxIKfsu/OewajvFMPJhx+p4zIsplDNsSCzn3z8yWA39SzD9KNPsFhFuRBVHQtyzq+//xmy1t1kiFt2leH777+UuxDJBKo7Fmb24rMvGCwnnmG4+/Y7TIhimmaOBbns4vMvDGYTTlPsSJgBNHUsyJJPP6mXFGjuWFioUIMedSw1QhGbGaMhiy1UqCE2GrLUCEVsZoyGLLZQoYbYaMhSIxSxmTEasthChRpioN7tImoYRHMzmBiPAAAy9T38G2Mq2wAAAABJRU5ErkJggg==') 20 20, auto;
+      }
+
+      &_next {
+        right: 0;
+
+        cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArCAYAAADhXXHAAAAABGdBTUEAALGPC/xhBQAAAXJJREFUWAljZCja859haIBFTEPDnRBXjjqWVrE1GrKjIQsMgdFkMJoMRpMBrdLAaMgOhZBlpKEjYUZTrZydEaLBoC7KBTOXJjTVHKsjwc1wusCUIUhXlCYOBRlKNceCDOPlYGFYm6DH0OmtzMBMg3RBVceCHAwCZU4KDLszDBnEeFghAlQiaeJYkNscVYQYzhWZMVjK81HJqVROBuiukubnYDiYbcyQbS2DLkUWn2YhC3MNKzMTg7kcHwMbFRIxC8xQWtC//vxjKNx4i2HasadUMZ5mjn3y4QdDyMLLDCcffaKKQ0GG0MSx+26/Y4hYfIXh9dffVHMoTRzbue8BQ/W2uwx/aTB0QrWQ/fjjD0Pg/EsMG668pmpoIhtGNceCov3Tz7/IZlOdTbWii9YOBfmcao6lejBiMXDUsVgChSpCoyFLlWDEYshoyGIJFKoIjYYsVYIRiyGjIYslUKgiNBqyVAlGLIaAmoiLsIgPPiEmxiMAvGY8glOP2cIAAAAASUVORK5CYII=') 20 20, auto;
+      }
+    }
+
+      .fs-carousel-icon {
+        display: none;
+      }
+}
+
+@mixin squincher() {
+  width: 100%;
+
+  position: absolute;
+  left: 0;
+
+  content: "";
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform .25s;
+}

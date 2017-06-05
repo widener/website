@@ -1,0 +1,281 @@
+/* ==========================================================================
+	Main Navigation
+============================================================================= */
+
+.main_nav {
+
+	&_sm {
+		border-bottom: 1px solid $mist;
+		margin-bottom: 20px;
+
+		@media #{$min_lg} {
+			display: none;
+		}
+	}
+
+	&_lg {
+
+		@media #{$max_lg} {
+			display: none;
+		}
+	}
+}
+
+	.main_nav_header {}
+
+		.main_nav_title {
+			@include visually_hide;
+		}
+
+
+// Main Nav Links
+// =============================================================================
+
+.main_nav_list {
+
+	@media #{$min_lg} {
+		display: flex;
+		justify-content: space-between;
+		padding-right: 68px;
+	}
+
+	@media #{$min_xl} {
+		padding-right: 78px;
+	}
+}
+
+	.main_nav_item {
+		position: relative;
+
+		.main_nav_sm & {
+
+			&.fs-swap-enabled {
+
+				.main_nav_children_wrapper {
+					display: none;
+				}
+			}
+
+			&.fs-swap-active {
+
+				.main_nav_children_wrapper {
+					display: block;
+				}
+			}
+		}
+
+		.main_nav_lg & {
+
+			@media #{$min_lg} {
+				display: inline-block;
+			}
+
+			&.focused,
+			&:active,
+			&:hover {
+
+				.main_nav_children_wrapper {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
+
+	.main_nav_item_wrapper {
+		position: relative;
+	}
+
+		.main_nav_link {
+			@include garamond(700);
+
+			border-top: 1px solid $mist;
+			color: $black;
+			display: block;
+			font-size: 15px;
+			letter-spacing: 1.15px;
+			padding: 15px 70px 15px 20px;
+			text-transform: uppercase;
+			transition:
+				box-shadow .25s,
+				color .25s;
+
+			@media #{$min_lg} {
+				border-top: 0;
+				padding: 16px 10px 15px;
+			}
+
+			@media #{$min_xl} {
+				padding-right: 25px;
+				padding-left: 25px;
+			}
+
+			.main_nav_item.focused &,
+			.main_nav_item:active &,
+			.main_nav_item:hover & {
+				color: $blue;
+
+				@media #{$min_lg} {
+					box-shadow: inset 0 -4px 0 0 $blue;
+				}
+			}
+
+			.main_nav_item:first-child & {
+
+				@media #{$min_lg} {
+					padding-left: 0;
+				}
+			}
+		}
+
+		.main_nav_toggle {
+			height: 100%;
+			width: 90px;
+
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			cursor: pointer;
+
+			.main_nav_lg & {
+				display: none;
+			}
+
+			&:before {
+				height: 100%;
+				width: 4px;
+
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				background: $blue;
+				content: "";
+				transform: scaleY(0);
+				transform-origin: top center;
+			}
+
+			&:focus,
+			&:hover {
+
+				&:before {
+					animation: dropdown .5s forwards;
+				}
+			}
+		}
+
+		@keyframes dropdown {
+
+			50%,
+			75% {
+				transform: scaleY(1);
+				transform-origin: top center;
+			}
+
+			76% {
+				transform-origin: bottom center;
+			}
+
+			100% {
+				transform: scaleY(0);
+				transform-origin: bottom center;
+			}
+		}
+
+			.main_nav_toggle_label {
+				@include visually_hide;
+			}
+
+			.main_nav_toggle_icon {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+
+				color: $blue;
+				transform:
+					translate(-50%, -50%)
+					scaleY(1);
+				transition: transform .25s;
+
+				.fs-swap-active & {
+					transform:
+						translate(-50%, -50%)
+						scaleY(-1);
+				}
+			}
+
+
+// Main Nav Children
+// =============================================================================
+
+.main_nav_children_wrapper {
+	background: #F6F6F6;
+	padding: 16px 20px;
+
+	.main_nav_lg & {
+		width: 260px;
+
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 20;
+
+		opacity: 0;
+		padding: 20px 0;
+		transition:
+			opacity $base_speed,
+			visibility $base_speed;
+		visibility: hidden;
+	}
+
+	.main_nav_item:last-child & {
+		right: 0;
+		left: auto;
+	}
+}
+
+	.main_nav_children {
+		border-left: 4px solid $blue;
+		padding: 6px 0 2px;
+
+		@media #{$min_lg} {
+			border-left: 0;
+			padding: 0;
+		}
+	}
+
+		.main_nav_child_item {}
+
+			.main_nav_child_link {
+				@include univers(400);
+
+				color: $black;
+				display: block;
+				font-size: 13px;
+				padding: 9px 20px 7px;
+				transition:
+					background .25s,
+					color .25s;
+
+				@media #{$min_lg} {
+					font-size: 15px;
+				}
+
+				@media #{$min_xl} {
+					padding-right: 25px;
+					padding-left: 25px;
+				}
+
+				&:focus,
+				&:hover {
+
+					@media #{$max_lg} {
+						color: $blue;
+					}
+
+					@media #{$min_lg} {
+						background: $mist;
+					}
+				}
+			}

@@ -1,0 +1,298 @@
+/* ==========================================================================
+  Dates
+============================================================================= */
+
+.dates {
+  @include padded_lg;
+
+  background: $mist;
+}
+
+  .dates_inner {}
+
+    .dates_header {
+      margin-bottom: 24px;
+
+      @media #{$min_md} {
+        padding-top: 40px;
+      }
+
+      @media #{$min_lg} {
+        margin-bottom: 32px;
+      }
+    }
+
+      .dates_title {
+        @include h5;
+
+        color: $black;
+      }
+
+    .dates_body {
+      @include clearfix;
+    }
+
+
+// News Highight
+// =============================================================================
+
+.dates_highlight_wrapper {
+  margin-bottom: 30px;
+
+  @media #{$min_md} {
+    width: 50%;
+
+    float: right;
+
+    margin-top: -44px;
+    padding-left: 20px;
+  }
+
+  @media #{$min_lg} {
+    width: 42%;
+
+    margin-top: -52px;
+  }
+}
+
+  .dates_higlight {
+    background: $robbin;
+    padding: 15px 15px 20px 20px;
+
+    @media print {
+      padding: 0;
+    }
+
+    @media #{$min_xl} {
+      padding: 30px 30px 24px;
+    }
+  }
+
+    .dates_highlight_image {
+      width: 100%;
+      width: calc(100% + 20px);
+
+      display: block;
+      margin-left: -20px;
+
+      @media print {
+        display: none;
+      }
+
+      @media #{$min_md} {
+        width: calc(100% + 35px);
+
+        margin-left: -35px;
+      }
+
+      @media #{$min_xl} {
+        width: calc(100% + 60px);
+
+        margin-left: -60px;
+      }
+    }
+
+    .dates_highlight_body {
+      position: relative;
+
+      padding-top: 20px;
+
+      @media print {
+        padding: 0;
+      }
+
+      @media #{$min_xl} {
+        padding-top: 22px;
+      }
+    }
+
+      .dates_highlight_date {
+        @include garamond(400);
+
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+
+        background: $robbin;
+        color: #000;
+        font-size: 15px;
+        letter-spacing: .5px;
+        margin: 0;
+        padding: 17px 20px 0;
+
+        @media print {
+          position: static;
+
+          display: block;
+          padding: 0 0 10px;
+        }
+
+        @media #{$min_md} {
+          left: -20px;
+        }
+
+        @media #{$min_xl} {
+          left: -30px;
+
+          padding-right: 30px;
+          padding-left: 30px;
+        }
+      }
+
+        .dates_highlight_month {
+          @include garamond(700);
+
+          color: #fff;
+          font-size: 15px;
+          line-height: (20 / 15);
+          letter-spacing: .5px;
+          margin-right: 5px;
+          text-transform: uppercase;
+        }
+
+        .dates_highlight_day {
+          @include univers(700);
+
+          color: $yellow;
+          font-size: 20px;
+        }
+
+      .dates_highlight_title {
+        @include h4;
+
+        color: #fff;
+        margin: 0 0 8px;
+      }
+
+      .dates_highlight_caption {
+        @include body_text;
+
+        color: #fff;
+
+        @media #{$min_md} {
+          margin-bottom: 20px;
+        }
+      }
+
+      .dates_highlight_link {
+        display: none;
+
+        @media #{$min_md} {
+          @include button_inline;
+          @include button_color(#fff, $yellow);
+        }
+      }
+
+
+// News List
+// =============================================================================
+
+.dates_list_wrapper {
+
+  @media #{$min_md} {
+    width: 50%;
+
+    float: right;
+
+    padding-right: 20px;
+  }
+
+  @media #{$min_lg} {
+    width: 58%;
+
+    padding-top: 8px;
+    padding-right: 100px;
+  }
+}
+
+  .dates_list {
+
+    @media #{$min_xl} {
+      padding-bottom: 20px;
+    }
+  }
+
+    .dates_item {
+      margin-bottom: 35px;
+    }
+
+      .dates_item_date {
+        border-bottom: 1px solid #FFAB22;
+        display: inline-block;
+        margin-bottom: 12px;
+        padding-right: 20px;
+        padding-bottom: 3px;
+      }
+
+        .dates_item_month {
+          @include garamond(700);
+
+          color: #000;
+          font-size: 15px;
+          letter-spacing: .5px;
+          margin-right: 5px;
+          text-transform: uppercase;
+        }
+
+        .dates_item_day {
+          @include univers(700);
+
+          color: $blue;
+          font-size: 20px;
+        }
+
+      .dates_item_body {
+
+        @media #{$min_xl} {
+          align-items: center;
+          display: flex;
+        }
+      }
+
+        .dates_item_image {
+          display: none;
+
+          @media #{$min_xl} {
+            width: 120px;
+
+            display: block;
+          }
+        }
+
+        .dates_item_title {
+          @include garamond(400);
+
+          color: $black;
+          font-size: 20px;
+          line-height: (28 / 20);
+          margin: 0;
+
+          @media #{$min_xl} {
+            padding-right: 20px;
+          }
+        }
+
+          .dates_item_title_link {
+            color: inherit;
+            display: block;
+            transition: color .25s;
+
+            &:focus,
+            &:hover {
+              color: $blue;
+            }
+          }
+
+            .dates_item_title_label {
+              display: inline;
+            }
+
+            .dates_item_title_icon {
+              color: $blue;
+              display: inline-block;
+
+              .dates_item_title_link:focus &,
+              .dates_item_title_link:hover & {
+                animation: pinch 1s 3;
+              }
+            }

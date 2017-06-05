@@ -1,0 +1,54 @@
+/* ==========================================================================
+	Logo
+============================================================================= */
+
+.logo {
+	margin: 0;
+
+	&_header_sm {
+		padding-right: 58px;
+
+		@media #{$min_lg} {
+			display: none;
+		}
+	}
+
+	&_header_lg {
+
+		@media #{$max_lg} {
+			display: none;
+		}
+
+		@media #{$min_lg} {
+			float: left;
+		}
+	}
+}
+
+	.logo_link {
+		background-position: 0 50%;
+		background-repeat: no-repeat;
+		background-size: contain;
+		color: transparent;
+		display: block;
+		user-select: none;
+	}
+
+		.logo_link_label {
+
+			.logo_symbol & {
+				@include visually_hide;
+			}
+		}
+
+		.logo_link_symbol {
+			color: $blue;
+		}
+
+	.logo_print {
+		display: none;
+
+		@media print {
+			display: block;
+		}
+	}

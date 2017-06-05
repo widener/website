@@ -1,0 +1,127 @@
+/* ==========================================================================
+	Secondary Navigation Common
+============================================================================= */
+
+.quick_nav {
+	margin-bottom: 22px;
+
+	@media #{$min_lg} {
+		width: 50%;
+
+		float: left;
+
+		padding-right: 20px;
+	}
+}
+
+	.quick_nav_header {
+		@include nav_header;
+	}
+
+		.quick_nav_title {
+			@include nav_title;
+		}
+
+
+// Seconadry Links
+// =============================================================================
+
+.quick_nav_list {}
+
+	.quick_nav_item {
+		position: relative;
+	}
+
+		.quick_nav_link {
+			@include univers(400);
+
+			position: relative;
+
+      color: rgba(#fff, .8);
+			display: inline-block;
+			font-size: 15px;
+			padding: 12px 0;
+			transition:
+				box-shadow .25s,
+				color .25s;
+
+			&:after {
+				@include squincher;
+
+				height: 4px;
+
+				bottom: 0;
+
+				background: $yellow;
+			}
+
+			.quick_nav_item:hover &,
+			.quick_nav_item:focus & {
+
+				&:after {
+					transform: scaleX(1);
+				}
+			}
+		}
+
+			.quick_nav_link_label {
+				display: inline-block;
+				margin-right: 5px;
+				vertical-align: middle;
+			}
+
+			.quick_nav_link_icon {
+				color: #fff;
+				display: inline-block;
+				vertical-align: middle;
+				transition: transform .25s;
+
+				.quick_nav_item:hover &,
+				.quick_nav_item:focus & {
+					transform: scaleY(-1);
+				}
+			}
+
+
+// Children
+// =============================================================================
+
+.quick_nav_children {
+	width: 280px;
+
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 2;
+
+	background: #fff;
+	opacity: 0;
+	padding: 15px 0;
+	visibility: hidden;
+	transition:
+		opacity .25s,
+		visibility .25s;
+
+	.quick_nav_item:hover &,
+	.quick_nav_item:focus & {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+	.quick_nav_child_item {}
+
+		.quick_nav_child_link {
+			@include univers(400);
+
+			color: $black;
+			display: block;
+			font-size: 15px;
+			padding: 9px 20px 7px;
+			transition: background .25s;
+
+			&:focus,
+			&:hover {
+				background: $mist;
+			}
+		}

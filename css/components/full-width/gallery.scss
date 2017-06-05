@@ -1,0 +1,624 @@
+/* ==========================================================================
+  Gallery
+============================================================================= */
+
+.gallery {
+  @include max-row;
+
+  position: relative;
+
+  overflow: hidden;
+
+  @media print {
+    display: none;
+  }
+
+  @media #{$min_lg} {
+    padding-bottom: 0 !important;
+  }
+}
+
+
+// Switches Trigger
+// =============================================================================
+
+.gallery_switches_trigger {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  z-index: 2;
+
+  background: #fff;
+  cursor: pointer;
+  padding: 20px;
+  transform: translate(-50%, 0);
+  white-space: nowrap;
+
+  @media #{$min_md} {
+    right: 0;
+    bottom: 100%;
+    left: auto;
+
+    margin-bottom: -40px;
+    transform: rotate(-90deg);
+    transform-origin: right bottom;
+  }
+
+  @media #{$min_lg} {
+    padding: 26px 35px;
+  }
+}
+
+  .gallery_switches_trigger_label {
+    @include h6;
+
+    color: $black;
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: middle;
+
+    @media #{$min_lg} {
+      margin-right: 25px;
+    }
+  }
+
+  .gallery_switches_trigger_icon {
+    position: relative;
+    top: -2px;
+
+    color: $blue;
+    display: inline-block;
+    vertical-align: middle;
+
+    &:after {
+      height: 40px;
+      width: 40px;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      background: $blue;
+      border-radius: 50%;
+      content: "";
+      transform:
+        translate(-50%, -50%)
+        scale(0);
+    }
+
+    .gallery_switches_trigger:focus &,
+    .gallery_switches_trigger:hover & {
+
+      &:after {
+        animation: burst 1s forwards;
+      }
+    }
+  }
+
+
+// Switches Container
+// =============================================================================
+
+.gallery_switches_wrapper {
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 8;
+
+  background: #fff;
+  opacity: 0;
+  transform: scale(.975);
+  visibility: hidden;
+  transition:
+    opacity .25s,
+    transform .25s,
+    visibility .25s;
+
+  @media #{$min_xl} {
+    background: none;
+    padding: 40px 0 40px 40px;
+  }
+
+  &.fs-swap-active {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+  }
+}
+
+  .gallery_switches {
+    position: relative;
+
+    background: #fff;
+    overflow: hidden;
+    padding: 28px 0;
+    transform: translateZ(0);
+
+    @media #{$min_lg} {
+      padding: 63px 0 56px 20px;
+    }
+  }
+
+    .gallery_switches_close {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      color: $blue;
+      cursor: pointer;
+      padding: 15px 20px;
+      transform: scale(.75);
+      transform-origin: right center;
+      transition: opacity .25s;
+
+      @media #{$min_lg} {
+        padding: 30px 20px;
+      }
+
+      &:focus,
+      &:hover {
+        opacity: .5;
+      }
+    }
+
+      .gallery_switches_close_icon {
+        display: block;
+        pointer-events: none;
+      }
+
+    .gallery_switches_header {
+      margin: 0 0 40px;
+
+      @media #{$min_xl} {
+        margin-bottom: 55px;
+        padding-left: 30px;
+      }
+    }
+
+      .gallery_switches_label {
+        @include h5;
+
+        color: $black;
+        margin: 0 0 15px;
+
+        @media #{$min_lg} {
+          margin-bottom: 18px;
+        }
+      }
+
+      .gallery_switches_title {
+        @include garamond(400);
+
+        color: $black;
+        font-size: 20px;
+        line-height: (28 / 20);
+        margin: 0;
+
+        @media #{$min_sm} {
+          padding-right: 100px;
+        }
+
+        @media #{$min_md} {
+          padding-right: 240px;
+        }
+
+        @media #{$min_lg} {
+          max-width: 670px;
+
+          font-size: 36px;
+          line-height: (50 / 36);
+          padding-right: 0;
+        }
+
+        @media #{$min_xl} {
+          max-width: 900px;
+
+          font-size: 48px;
+          line-height: (60 / 48);
+        }
+      }
+
+
+// Switches Carousel
+// =============================================================================
+
+.gallery_switches_carousel {
+  max-width: 285px;
+
+  @media #{$min_md} {
+    max-width: 285px * 2;
+  }
+
+  @media #{$min_lg} {
+    max-width: 410px * 2;
+  }
+
+  @media #{$min_xl} {
+    max-width: 410px * 3;
+  }
+
+  .fs-carousel-controls {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+
+    color: $blue;
+    display: none;
+    margin-right: 30px;
+    margin-bottom: 20px;
+
+    @media #{$min_lg} {
+      display: block;
+      margin-bottom: 44px;
+    }
+
+    @media #{$min_xl} {
+      margin-bottom: 58px;
+    }
+  }
+
+    .fs-carousel-control {
+      color: $black;
+      transition: background .25s;
+
+      &:focus,
+      &:hover {
+        background: rgba($blue, .2);
+      }
+    }
+
+  .fs-carousel-pagination {
+    width: 100%;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    @media #{$min_lg} {
+      display: none;
+    }
+  }
+}
+
+  .gallery_switch {
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding-right: 15px;
+
+    @media #{$min_lg} {
+      padding-right: 30px;
+    }
+  }
+
+    .gallery_switch_header {
+      height: 180px;
+
+      position: relative;
+
+      box-shadow: 0 0 10px 0 rgba(#000, .25);
+      margin-bottom: 20px;
+
+      @media #{$min_lg} {
+        height: 260px;
+
+        margin-bottom: 28px;
+      }
+
+      &:after {
+        @include theme;
+
+        height: 100%;
+        width: 100%;
+
+        position: absolute;
+        top: 5px;
+        left: -5px;
+
+        border-bottom: 5px solid;
+        border-left: 5px solid;
+        content: "";
+        pointer-events: none;
+
+        @media #{$min_lg} {
+          top: 10px;
+          left: -10px;
+
+          border-bottom-width: 10px;
+          border-left-width: 10px;
+        }
+      }
+    }
+
+      .gallery_switch_background {
+        @include cover;
+
+        &:before {
+          @include cover;
+          @include theme($style: "background");
+
+          z-index: 2;
+
+          content: "";
+          opacity: 0;
+          transition: opacity .25s;
+
+          .gallery_switch:focus &,
+          .gallery_switch:hover & {
+            opacity: .35;
+          }
+
+          .gallery_switch.fs-swap-active & {
+            opacity: .7;
+          }
+        }
+      }
+
+      .gallery_switch_label {
+        @include h5;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+
+        color: #fff;
+        padding: 9px 15px 6px;
+        text-align: center;
+        text-transform: uppercase;
+        transform: translate(-50%, -50%);
+
+        @media #{$min_lg} {
+          padding: 15px 20px 14px;
+        }
+
+        &:before {
+          @include cover;
+          @include theme($style: "background");
+
+          z-index: -2;
+
+          content: "";
+          opacity: .7;
+          transition: opacity .25s;
+
+          .gallery_switch.fs-swap-active & {
+            opacity: 0;
+          }
+        }
+      }
+
+    .gallery_switch_caption {
+      @include univers(300);
+
+      color: $black;
+      font-size: 16px;
+      line-height: (24 / 16);
+    }
+
+
+// Slides
+// =============================================================================
+
+.gallery_panels {
+  position: relative;
+}
+
+  .gallery_panel {
+    @include theme-direct;
+
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: $blue;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+
+    &.fs-swap-active {
+      position: relative;
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .fs-carousel-viewport,
+    .fs-carousel-wrapper,
+    .fs-carousel-container,
+    .fs-carousel-canister {
+      height: 100%;
+    }
+
+    .fs-carousel-controls-wrapper {
+      display: none;
+
+      @media #{$min_lg} {
+        width: 100%;
+
+        position: absolute;
+        left: 0;
+
+        display: block;
+      }
+    }
+
+      .fs-carousel-controls {
+        color: $yellow;
+      }
+
+        .fs-carousel-control {
+          position: relative;
+
+          &:before {
+            @include cover;
+
+            background: currentColor;
+            content: "";
+            opacity: 0;
+            transition: opacity .25s;
+          }
+
+          &:focus,
+          &:hover {
+
+            &:before {
+              opacity: .5;
+            }
+          }
+        }
+
+          .fs-carousel-icon {
+            color: #fff;
+            transform:
+              translate(-50%, -50%)
+              scale(1.25);
+          }
+  }
+
+    .gallery_slide {
+      height: 100%;
+
+      position: relative;
+
+      .row {
+        height: 100%;
+      }
+    }
+
+      .gallery_slide_background {
+        @include cover;
+
+        &:before {
+          @include cover;
+
+          z-index: 2;
+
+          background:
+            linear-gradient(
+              to top,
+                rgba(#000, .75),
+                rgba(#000, 0) 25%
+            );
+          content: "";
+          pointer-events: none;
+        }
+      }
+
+      .gallery_slide_details {
+        height: 100%;
+
+        position: relative;
+        z-index: 4;
+
+        color: #fff;
+      }
+
+        .gallery_slide_details_inner {
+          width: 100%;
+
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          border-top: 1px solid rgba(#fff, .4);
+          padding-top: 20px;
+
+          @media #{$min_md} {
+            padding: 20px;
+          }
+
+          @media #{$min_lg} {
+            padding: 40px 0 35px 120px;
+          }
+        }
+
+          .gallery_slide_header {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px 40px;
+
+            @media #{$min_md} {
+              padding: 0 0 18px;
+            }
+
+            @media #{$min_lg} {
+              padding-bottom: 10px;
+            }
+          }
+
+            .gallery_slide_label {
+              @include h5;
+
+              color: inherit;
+            }
+
+            .gallery_slide_position {
+              color: inherit;
+            }
+
+              .gallery_slide_position_icon {
+                position: relative;
+                top: -2px;
+
+                display: inline-block;
+                margin-right: 6px;
+                vertical-align: middle;
+                transform: scale(.75);
+
+                @media #{$min_lg} {
+                  margin-right: 10px;
+                  transform: scale(1);
+                }
+              }
+
+              .gallery_slide_position_label {
+                @include h5;
+
+                color: inherit;
+                display: inline-block;
+                vertical-align: middle;
+              }
+
+          .gallery_slide_caption {
+            @include body_text;
+
+            width: 100%;
+
+            position: absolute;
+            top: 100%;
+            left: 0;
+
+            background: $black;
+            color: inherit;
+            margin-top: -20px;
+            padding: 20px 20px 90px;
+
+            @media #{$min_md} {
+              position: relative;
+              top: 0;
+
+              background: none;
+              margin-top: 0;
+              padding: 0;
+            }
+
+            a {
+              border-bottom: 1px solid;
+              color: inherit;
+              transition:
+                background .25s,
+                color .25s;
+
+              &:focus,
+              &:hover {
+                background: $blue;
+                color: #fff;
+              }
+            }
+          }

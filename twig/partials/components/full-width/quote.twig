@@ -1,0 +1,30 @@
+<section class="quote">
+  <div class="row">
+    <div class="quote_body">
+      <span class="quote_mark">{{site.symbol("quote")}}</span>
+      <blockquote class="quote_content">
+        <p>{{quote}}</p>
+      </blockquote>
+      <cite class="quote_cite">
+        <span class="quote_cite_label">{{cite}}</span>
+        {% if year %}
+          <span class="quote_cite_year">{{year}}</span>
+        {% endif %}
+      </cite>
+    </div>
+    <div class="quote_aside">
+      {% if video %}
+        <a class="js-lightbox quote_figure" href="{{video}}">
+          <span class="quote_play_wrapper">
+            <span class="quote_play">{{site.symbol("play")}}</span>
+          </span>
+          {{site.image("quote", img.full.xsml, image)}}
+        </a>
+      {% else %}
+        <figure class="quote_figure">
+          {{site.image("quote", img.classic.sml, image)}}
+        </figure>
+      {% endif %}
+    </div>
+  </div>
+</section>

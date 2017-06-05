@@ -1,0 +1,98 @@
+/* ==========================================================================
+	Sub Navigation
+============================================================================= */
+
+.sub_nav {
+
+	@media print {
+		display: none;
+	}
+}
+
+	.sub_nav_header {}
+
+		.sub_nav_title {
+			@include visually_hide;
+		}
+
+
+// Sub Nav Handle
+// =============================================================================
+
+.sub_nav_handle_wrapper {
+	position: relative;
+
+	margin-bottom: 20px;
+
+	@media print {
+		display: none;
+	}
+
+	@media #{$min_lg} {
+		display: none;
+	}
+}
+
+	.sub_nav_handle {
+		@include button_block;
+		@include button_color($black, $blue);
+
+		position: relative;
+
+		padding-right: 40px;
+		text-align: left;
+
+		@media #{$min_lg} {
+			display: none;
+		}
+
+		&.fs-navigation-open {}
+	}
+
+	.sub_nav_handle_icon {
+		position: absolute;
+		top: 50%;
+		right: 20px;
+
+		color: $black;
+		transform:
+			translate(0, -50%)
+			rotateX(0);
+		transition: transform .25s;
+
+		.fs-navigation-open + & {
+			transform:
+				translate(0, -50%)
+				rotateX(180deg);
+		}
+	}
+
+
+// Sub Nav Links
+// =============================================================================
+
+.sub_nav_list {
+	@include focus_outline_none();
+
+	background: $blue;
+	margin-bottom: 20px;
+	padding: 20px 0;
+}
+
+	.sub_nav_item {}
+
+		.sub_nav_link {
+			@include univers(400);
+
+			color: #fff;
+			display: block;
+			font-size: 15px;
+			padding: 9px 30px;
+			transition: color .25s;
+
+			&:focus,
+			&.active,
+			&:hover {
+				color: $yellow;
+			}
+		}

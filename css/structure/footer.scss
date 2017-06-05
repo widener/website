@@ -1,0 +1,220 @@
+/* ==========================================================================
+	Footer
+============================================================================= */
+
+.shoe {
+	background: $blue;
+	color: #fff;
+
+	@media print {
+		display: none;
+	}
+}
+
+	.footer_ribbon {
+		padding: 40px 0 34px;
+
+		@media #{$min_md} {
+			padding: 60px 0 52px;
+		}
+	}
+
+		.footer_grouping {
+			@include clearfix;
+		}
+
+			.footer_aside {
+				margin-bottom: 30px;
+
+				@media #{$min_md} {
+					width: 50%;
+
+					float: left;
+
+					padding-right: 20px;
+				}
+
+				@media #{$min_lg} {
+					width: 320px;
+				}
+
+				@media #{$min_xl} {
+					width: 430px;
+				}
+			}
+
+			.footer_group {
+				@include clearfix;
+
+				@media #{$min_md} {
+					width: 50%;
+
+					float: left;
+				}
+
+				@media #{$min_lg} {
+					width: calc(100% - 320px);
+				}
+
+				@media #{$min_xl} {
+					width: calc(100% - 430px);
+				}
+			}
+
+	.footer_sole {
+		background: #fff;
+	}
+
+		.footer_tread {
+			border-bottom: 1px solid rgba(#DCECF8, .7);
+
+			@media #{$min_lg} {
+				border-bottom: 0;
+			}
+		}
+
+		.footer_mark {}
+
+			.footer_base {
+				display: flex;
+				justify-content: space-between;
+			}
+
+// Address
+// =============================================================================
+
+.footer_address {
+	@include univers(400);
+
+	font-size: 15px;
+	line-height: (23 / 15);
+	margin-bottom: 16px;
+
+	@media #{$min_md} {
+		margin-bottom: 26px;
+	}
+}
+
+	.footer_address_name {
+		display: block;
+		margin-bottom: 30px;
+
+		@media #{$min_md} {
+			margin-bottom: 40px;
+		}
+	}
+
+	.footer_address_item {
+		position: relative;
+
+		margin-bottom: 10px;
+		padding-left: 25px;
+
+		@media #{$min_md} {
+			margin-bottom: 15px;
+		}
+	}
+
+		.footer_address_icon {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			color: $yellow;
+		}
+
+		.footer_address_street {}
+
+		.footer_address_city {}
+
+		.footer_address_state {}
+
+		.footer_address_zip {}
+
+		.footer_address_phone {
+			color: inherit;
+			text-transform: uppercase;
+
+			a {
+				color: inherit;
+			}
+		}
+
+
+// Button
+// =============================================================================
+
+.footer_button {
+	@include button_inline;
+	@include button_color(#fff, $yellow);
+}
+
+
+// Rocket
+// =============================================================================
+
+.rocket {
+	color: $black;
+	display: block;
+	padding: 11px 0 10px;
+	transition: color .25s;
+
+	@media #{$min_lg} {
+		display: none;
+	}
+
+	&:focus,
+	&:hover {
+		color: $blue;
+	}
+}
+
+	.rocket_label {
+		@include univers;
+
+		color: inherit;
+		display: inline-block;
+		font-size: 13px;
+		margin-right: 10px;
+	}
+
+	.rocket_icon {
+		color: $blue;
+		display: inline-block;
+	}
+
+
+
+// Copyright
+// =============================================================================
+
+.copyright {
+	@include univers(300);
+
+	color: rgba($black, 60%);
+	font-size: 13px;
+	padding: 13px 0;
+
+	&:focus,
+	&:hover {
+		color: $blue;
+	}
+
+	&_sm {
+
+		@media #{$min_lg} {
+			display: none;
+		}
+	}
+
+	&_lg {
+		display: none;
+
+		@media #{$min_lg} {
+			float: right;
+
+			display: block;
+			padding: 20px 0;
+		}
+	}
+}

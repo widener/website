@@ -1,0 +1,104 @@
+/* ==========================================================================
+  Highlite
+============================================================================= */
+
+.highlite {
+  @include max-row;
+  @include padded_bottom;
+  @include margined_xl_top;
+
+  position: relative;
+
+  @media #{$min_md} {
+    padding-bottom: 0;
+  }
+}
+
+  .highlite_background {
+    height: 300px;
+
+    @media print {
+      display: none;
+    }
+
+    @media #{$min_md} {
+      height: 100%;
+      width: 100%;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .highlite_inner {
+    position: relative;
+
+    margin-top: -30px;
+
+    @media print {
+      margin-top: 0;
+    }
+
+    @media #{$min_md} {
+      margin-top: 0;
+      padding-top: 200px;
+    }
+
+    @media #{$min_lg} {
+      padding-top: 260px;
+    }
+  }
+
+    .highlite_body {
+      max-width: 540px;
+
+      background: $black;
+      color: #fff;
+      padding: 30px;
+
+      @media print {
+        padding: 0;
+      }
+
+      @media #{$min_md} {
+        background: rgba($black, .9);
+        padding: 40px;
+      }
+
+      @media #{$min_lg} {
+        padding: 65px 60px 55px;
+      }
+    }
+
+      .highlite_header {}
+
+        .highlite_title {
+          @include h2;
+
+          color: inherit;
+          margin: 0 0 16px;
+        }
+
+      .highlite_description {
+        @include body_text;
+
+        color: inherit;
+      }
+
+      .highlite_footer {
+        border-top: 1px solid rgba(#fff, .4);
+        margin-top: 24px;
+        padding-top: 28px;
+
+        @media print {
+          border-top: 0;
+          margin-top: 20px;
+          padding-top: 0;
+        }
+      }
+
+        .highlite_link {
+          @include button_inline;
+          @include button_color(#fff, $yellow);
+        }

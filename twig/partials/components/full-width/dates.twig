@@ -1,0 +1,49 @@
+<section class="dates">
+  <div class="row">
+    <div class="dates_inner">
+      <header class="dates_header">
+        <h2 class="dates_title">{{title}}</h2>
+      </header>
+      <div class="dates_body">
+        <div class="dates_highlight_wrapper">
+          <article class="dates_higlight">
+            {{site.image("dates_highlight", img.wide.xsml, highlight.image)}}
+            <div class="dates_highlight_body">
+              <time class="dates_highlight_date">
+                <span class="dates_highlight_month">{{highlight.month}}</span>
+                <span class="dates_highlight_day">{{highlight.day}}</span>
+              </time>
+              <h3 class="dates_highlight_title">{{highlight.title}}</h3>
+              <p class="dates_highlight_caption">{{highlight.caption}}</p>
+              <a class="dates_highlight_link" href="#">{{highlight.link}}</a>
+            </div>
+          </article>
+        </div>
+        <div class="dates_list_wrapper">
+          <div class="dates_list">
+            {% for article in articles %}
+              <article class="dates_item">
+                <time class="dates_item_date">
+                  <span class="dates_item_month">{{article.month}}</span>
+                  <span class="dates_item_day">{{article.day}}</span>
+                </time>
+                <div class="dates_item_body">
+                  {% if article.link %}
+                    <h3 class="dates_item_title">
+                      <a class="dates_item_title_link" href="#">
+                        <span class="dates_item_title_label">{{article.title}}</span>
+                        <span class="dates_item_title_icon">{{site.symbol("caret_right")}}</span>
+                      </a>
+                    </h3>
+                  {% else %}
+                    <h3 class="dates_item_title">{{article.title}}</h3>
+                  {% endif %}
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,379 @@
+/* ==========================================================================
+  Collage
+============================================================================= */
+
+.collage {
+  @include padded_xl;
+
+  @media print {
+    display: none;
+  }
+}
+
+  .collage_inner {}
+
+    .collage_aside {
+      display: none;
+
+      @media #{$min_lg} {
+        width: 50%;
+
+        float: left;
+
+        display: block;
+        padding-right: 10px;
+      }
+    }
+
+      .collage_aside_image {
+        width: 100%;
+      }
+
+    .collage_body {
+
+      @media #{$min_lg} {
+        width: 50%;
+
+        float: left;
+
+        padding-top: 38px;
+        padding-left: 10px;
+      }
+
+      @media #{$min_xl} {
+        padding-top: 58px;
+      }
+    }
+
+
+// Details
+// =============================================================================
+
+.collage_header {
+  margin-bottom: 40px;
+
+  @media #{$min_lg} {
+    padding-left: 20px;
+  }
+
+  @media #{$min_xl} {
+    margin-bottom: 80px;
+    padding-left: 40px;
+  }
+}
+
+  .collage_details_wrapper {
+    @include h5;
+
+    align-items: center;
+    color: $black;
+    display: flex;
+    margin-bottom: 25px;
+    justify-content: space-between;
+  }
+
+    .collage_label {
+      color: inherit;
+      font: inherit;
+    }
+
+    .collage_details {}
+
+      .collage_detail {
+        display: inline-block;
+        vertical-align: middle;
+
+        &:first-child {
+
+          &:after {
+            height: 30px;
+            width: 1px;
+
+            background: rgba($black, .2);
+            content: "";
+            display: inline-block;
+            margin: 0 8px 0 6px;
+            vertical-align: middle;
+          }
+        }
+      }
+
+        .collage_detail_icon {
+          position: relative;
+          top: -2px;
+
+          display: inline-block;
+          margin-right: 3px;
+          vertical-align: middle;
+        }
+
+        .collage_detail_label {
+          @include visually_hide;
+        }
+
+        .collage_detail_count {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+  .collage_title {
+    @include h2;
+
+    color: $black;
+  }
+
+
+/* ==========================================================================
+  Section comment block
+============================================================================= */
+
+.collage_content {
+
+  @media #{$min_sm} {
+    margin: 0 -10px;
+  }
+}
+
+  .collage_item {
+    position: relative;
+
+    margin-bottom: 20px;
+
+    @media #{$min_sm} {
+      width: 50%;
+
+      float: left;
+
+      padding: 0 10px;
+    }
+
+    &:nth-child(n+3) {
+      display: none;
+
+      @media #{$min_sm} {
+        display: block;
+      }
+    }
+  }
+
+    .collage_item_link {
+      width: 100%;
+
+      cursor: pointer;
+      display: block;
+    }
+
+      .collage_item_play_wrapper {
+        @include play_wrapper;
+
+        .collage_item_link:focus &,
+        .collage_item_link:hover & {
+          transform:
+            translate(-50%, -50%)
+            scale(1.15);
+        }
+      }
+
+        .collage_item_play {
+          @include play;
+        }
+
+      .collage_item_open_wrapper {
+        height: 60px;
+        width: 60px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        background: rgba($blue, .8);
+        transform:
+          translate(-50%, -50%)
+          scale(0);
+        transition:
+          background .25s,
+          transform .25s;
+
+        .collage_item_link:focus &,
+        .collage_item_link:hover & {
+          background: $blue;
+          transform:
+            translate(-50%, -50%)
+            scale(1);
+        }
+      }
+
+        .collage_item_open {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+
+          color: #fff;
+          transform: translate(-50%, -50%);
+        }
+
+      .collage_item_image {
+        width: 100%;
+      }
+
+
+// Gallery
+// =============================================================================
+
+.collage_gallery {
+  height: 100%;
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 400;
+
+  background: #fff;
+  opacity: 0;
+  padding: 20px 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity .25s,
+    visibility .25s;
+
+  &.fs-swap-active {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  @media screen and (min-width: 1280px) and (min-height: 900px) {
+    padding: 80px 0;
+  }
+}
+
+  .collage_gallery_inner {
+    position: relative;
+  }
+
+    .collage_gallery_header {
+      margin-bottom: 20px;
+
+      @media screen and (min-width: 1280px) and (min-height: 900px) {
+        margin-bottom: 30px;
+      }
+    }
+
+      .collage_gallery_label {
+        @include h5;
+
+        color: $black;
+      }
+
+      .collage_gallery_close {
+        position: absolute;
+        top: -2px;
+        right: 0;
+
+        color: $blue;
+        cursor: pointer;
+        transform-origin: right center;
+        transform: scale(.75);
+        transition: opacity .25s;
+
+        @media #{$min_md} {
+          transform: scale(1);
+        }
+
+        @media screen and (min-width: 1500px) {
+          right: auto;
+          left: 100%;
+
+          margin-left: 50px;
+        }
+
+        &:focus,
+        &:hover {
+          opacity: .5;
+        }
+      }
+
+    .collage_gallery_carousel {
+
+      .fs-carousel-canister,
+      .fs-carousel-item {
+        width: 100% !important;
+      }
+
+      .fs-carousel-controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        color: $yellow;
+
+        @media screen and (min-width: 1500px) {
+          left: -40px;
+        }
+      }
+
+        .fs-carousel-control {
+          color: $black;
+          transition: background .25s;
+
+          &:focus,
+          &:hover {
+            background: rgba($yellow, .5);
+          }
+        }
+
+          .fs-carousel-icon {
+            transform:
+              translate(-50%, -50%)
+              scale(1.15);
+          }
+    }
+
+      .collage_gallery_image {}
+
+        .collage_gallery_background {
+          height: 50vh;
+
+          margin-bottom: 40px;
+        }
+
+        .collage_gallery_details {
+          display: flex;
+          justify-content: space-between;
+        }
+
+          .collage_gallery_caption {
+            @include body_text;
+
+            color: $black;
+            padding-right: 20px;
+            padding-left: 110px;
+
+            @media screen and (min-width: 1500px) {
+              padding-left: 70px;
+            }
+          }
+
+          .collage_gallery_position {
+            @include h5;
+
+            color: $black;
+            padding-top: 2px;
+            white-space: nowrap;
+          }
+
+            .collage_gallery_position_icon {
+              position: relative;
+              top: -2px;
+
+              display: inline-block;
+              margin-right: 5px;
+              vertical-align: middle;
+            }
+
+            .collage_gallery_position_label {
+              display: inline-block;
+              vertical-align: middle;
+            }

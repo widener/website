@@ -1,0 +1,17 @@
+<div class="social_card">
+  <header class="social_card_header">
+    <h2 class="social_card_title"><span>{{title}}</span></h2>
+  </header>
+  <div class="social_card_body">
+    <ul class="social_card_group">
+      {% for link in links %}
+        <li class="social_card_item">
+          <a class="social_card_link" href="#">
+            <span class="social_card_link_icon">{{site.symbol(link.icon)}}</span>
+            <span class="social_card_link_label">{{link.name}}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

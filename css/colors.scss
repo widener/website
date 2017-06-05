@@ -1,0 +1,88 @@
+// Colors
+//==============================================================================
+
+$true_black: #000;
+$true_white: #fff;
+
+$black: #00244F;
+$white: #fff;
+
+$mist: #DCECF8;
+$robbin: #6699CC;
+$blue: #0072BC;
+$green: #4EC24F;
+$yellow: #FFDA00;
+$orange: #F88720;
+
+$gray_10: #EAEAEA;
+$gray_20: #CCCCCC;
+$gray_30: #B2B2B2;
+$gray_40: #999999;
+$gray_50: #808080;
+$gray_60: #666666;
+$gray_70: #4D4D4D;
+$gray_80: #333333;
+$gray_90: #222222;
+
+
+// Themes
+// =============================================================================
+
+$theme_colors: (
+	(black, $black),
+	(white, $white),
+	(mist, #DCECF8),
+	(robbin, #6699CC),
+	(blue, #0072BC),
+	(green, #4EC24F),
+	(yellow, #FFDA00),
+	(orange, #F88720)
+);
+
+@mixin theme($list: $theme_colors, $style: "color") {
+
+	@each $label, $color in $list {
+
+		.theme_#{$label} & {
+			@if($style == "color") {
+				color: $color;
+			} @else if($style == "background") {
+				background: $color;
+			}
+		}
+	}
+}
+
+@mixin theme-direct($list: $theme_colors, $style: "color") {
+
+	@each $label, $color in $list {
+
+		&.theme_#{$label} {
+			@if($style == "color") {
+				color: $color;
+			} @else if($style == "background") {
+				background: $color;
+			}
+		}
+	}
+}
+
+@mixin button-theme($list: $theme_colors, $style: "color") {
+
+	@each $label, $color in $list {
+
+		.theme_#{$label} & {
+			@include button_color(#fff, $color);
+		}
+	}
+}
+
+@mixin button-theme-alternate($list: $theme_colors, $style: "color") {
+
+	@each $label, $color in $list {
+
+		&.theme_#{$label} {
+			@include button_color($black, $color);
+		}
+	}
+}

@@ -1,0 +1,64 @@
+/* ==========================================================================
+	Footer Navigation
+============================================================================= */
+
+.footer_nav {
+	padding: 14px 0 12px;
+
+	@media #{$min_lg} {
+		float: left;
+	}
+}
+
+	.footer_nav_header {}
+
+		.footer_nav_title {
+			@include visually_hide;
+		}
+
+
+// Footer Links
+// =============================================================================
+
+.footer_nav_list {}
+
+	.footer_nav_item {
+
+		@media #{$min_md} {
+			display: inline-block;
+			margin-right: 20px;
+		}
+	}
+
+		.footer_nav_link {
+			@include univers(400);
+
+			position: relative;
+
+			color: $black;
+			display: inline-block;
+			font-size: 13px;
+			line-height: (17 / 13);
+			padding: 6px 0;
+			transition: box-shadow .25s;
+
+			&:after {
+				@include squincher;
+
+				height: 4px;
+
+				bottom: 0;
+
+				background: $blue;
+			}
+
+			&:focus,
+			&:active,
+			&:hover {
+				color: $blue;
+
+				&:after {
+					transform: scaleX(1);
+				}
+			}
+		}

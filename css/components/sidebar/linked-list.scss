@@ -1,0 +1,59 @@
+/* ==========================================================================
+	Linked List
+============================================================================= */
+
+.linked_list {
+  background: #eee;
+  border-left: 5px solid $yellow;
+  margin-bottom: 20px;
+  padding: 30px 0 20px;
+}
+
+  .linked_list_header {
+    margin-bottom: 10px;
+    padding: 0 25px;
+  }
+
+    .linked_list_title {
+      @include h6;
+
+      color: $black;
+      font-size: 12px;
+    }
+
+
+// Body
+// =============================================================================
+
+.linked_list_body {}
+
+  .linked_list_group {}
+
+    .linked_list_item {}
+
+      .linked_list_link {
+        @include univers(400);
+
+        color: $black;
+        display: block;
+        font-size: 15px;
+        padding: 9px 25px;
+        transition: color .25s;
+
+        &:focus,
+        &:hover {
+          color: $blue;
+        }
+      }
+
+        .linked_list_link_label {
+          display: inline-block;
+          margin-right: 5px;
+          vertical-align: middle;
+        }
+
+        .linked_list_link_icon {
+          color: $blue;
+          display: inline-block;
+          vertical-align: middle;
+        }

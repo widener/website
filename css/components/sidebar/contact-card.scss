@@ -1,0 +1,80 @@
+/* ==========================================================================
+  Contact Card
+============================================================================= */
+
+.contact_card {
+  background: #eee;
+  border-left: 5px solid $black;
+  margin-bottom: 20px;
+  padding: 30px 0 20px;
+}
+
+  .contact_card_header {
+    margin-bottom: 18px;
+    padding: 0 25px;
+  }
+
+    .contact_card_title {
+      @include h6;
+
+      color: $black;
+      font-size: 12px;
+    }
+
+
+// Body
+// =============================================================================
+
+.contact_card_body {}
+
+  .contact_card_types {
+    padding: 0 25px;
+  }
+
+    .contact_card_type {
+      position: relative;
+
+      color: $black;
+      display: block;
+      margin: 9px 0;
+      padding-left: 28px;
+
+      @media print {
+        padding-left: 0;
+      }
+
+      @at-root a#{&} {
+        transition: color .25s;
+
+        &:focus,
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+
+      .contact_card_icon {
+        position: absolute;
+        top: 2px;
+        left: 0;
+
+        color: $blue;
+        transform: scale(.85);
+        transform-origin: left center;
+      }
+
+      .contact_card_label {
+        @include univers(400);
+
+        color: inherit;
+        font-size: 15px;
+        line-height: (23 / 15);
+      }
+
+      .contact_card_address {}
+
+      .contact_card_phone {}
+
+      .contact_card_email {}
+
+      .contact_card_external {}

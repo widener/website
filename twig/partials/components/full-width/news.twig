@@ -1,0 +1,59 @@
+<section class="news">
+  <div class="row">
+    <div class="news_inner">
+      <header class="news_header">
+        <h2 class="news_title">{{title}}</h2>
+      </header>
+      <div class="news_body">
+        <div class="news_highlight_wrapper">
+          <article class="news_higlight">
+            <a class="news_highlight_figure" href="#">
+              {{site.image("news_highlight", img.wide.xsml, highlight.image)}}
+            </a>
+            <div class="news_highlight_body">
+              <time class="news_highlight_date">{{highlight.date}}</time>
+              <h3 class="news_highlight_title">
+                <a class="news_highlight_title_link" href="#">{{highlight.title}}</a>
+              </h3>
+              <p class="news_highlight_caption">{{highlight.caption}}</p>
+              <a class="news_highlight_link" href="#">{{highlight.link}}</a>
+            </div>
+          </article>
+        </div>
+        <div class="news_list_wrapper">
+          <div class="news_list">
+            {% for article in articles %}
+              <article class="news_item">
+                <time class="news_item_date">{{article.date}}</time>
+                <div class="news_item_body">
+                  <h3 class="news_item_title">
+                    {% if article.link %}
+                    <a class="news_item_title_link" href="#">
+                    {% endif %}
+                      <span class="news_item_title_label">{{article.title}}</span>
+                      {% if article.link %}
+                        <span class="news_item_title_icon">{{site.symbol("caret_right")}}</span>
+                      {% endif %}
+                    {% if article.link %}
+                    </a>
+                    {% endif %}
+                  </h3>
+                  {% if article.image %}
+                    <a class="news_item_figure" href="#">
+                      {{site.image("news_item", img.full.xxsml, article.image)}}
+                    </a>
+                  {% endif %}
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+          <footer class="news_list_footer">
+            {% for link in links %}
+              <a class="news_list_discovery" href="#">{{link}}</a>
+            {% endfor %}
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

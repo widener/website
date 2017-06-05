@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" itemscope="" itemtype="http://schema.org/WebPage">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<title>{{pageTitle|default("Page")}} | {{vars.name}}</title>
+		<meta name="description" content="">
+
+		{% include "../partials/favicons.html" %}
+
+		<!-- G+ & Facebook -->
+		<meta property="og:title" content="{{vars.name}}">
+		<meta property="og:url" content="//{{vars.domain}}/">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="//{{vars.domain}}/images/social-rectangle.png">
+		<meta property="og:description" content="">
+		<meta property="og:site_name" content="{{vars.name}}">
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@{{vars.twitter}}">
+		<meta name="twitter:creator" content="@{{vars.twitter}}">
+		<meta name="twitter:url" content="//twitter.com/{{vars.twitter}}">
+		<meta name="twitter:title" content="{{vars.name}}">
+		<meta name="twitter:description" content="">
+		<meta name="twitter:image" content="//{{vars.domain}}/images/social-rectangle.png">
+
+		<script src="../js/modernizr.js"></script>
+
+		{% block stylesheets %}
+		{% endblock %}
+
+		<!--[if gt IE 8]><!-->
+			<link rel="stylesheet" href="http://www.widener.edu/_resources/css/reset.css">
+			<link rel="stylesheet" href="http://www.widener.edu/_resources/css/style.css">
+			<link rel="stylesheet" href="http://www.widener.edu/_resources/css/print.css">
+			<link rel="stylesheet" href="../css/site.css">
+		<!--<![endif]-->
+		<!--[if IE 8]>
+			<script>var IE8 = true;</script>
+			<script src="../../js/site-ie8.js"></script>
+			<link rel="stylesheet" href="../../css/site-ie8.css">
+		<![endif]-->
+		<!--[if IE 9]>
+			<script>var IE9 = true;</script>
+			<script src="../../js/site-ie9.js"></script>
+			<link rel="stylesheet" href="../../css/site-ie9.css">
+		<![endif]-->
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="../../css/site-ie.css">
+		<![endif]-->
+	</head>
+
+	{% block layout %}
+		{% set layout = "default" %}
+	{% endblock %}
+
+	<body class="layout_{{layout}}">
+
+		<figure style="display: none;">
+			{% include '../../static/svg/sprite.symbol.svg' %}
+		</figure>
+
+		{#
+			TODO:
+				Update Navigation Blocks in package.json
+				Backend Devs can remove this section
+		#}
+
+		{% block alert %}
+			{% set alert = false %}
+		{% endblock %}
+
+		{% block activePage %}
+			{% set activePage = 0 %}
+		{% endblock %}
+
+		{% block sectionTitle %}
+			{% set sectionTitle = "" %}
+		{% endblock %}
+
+		{% block mainNavLinks %}
+			{% set mainNavLinksAlias = links.mainNav %}
+		{% endblock %}
+
+		{% block breadcrumbNavLinks %}
+			{% set breadcrumbNavLinks = [
+				pageTitle|default("Page")
+			] %}
+		{% endblock %}
+
+		{% block subNavLinks %}
+			{% set subNavLinksAlias = links.subNav %}
+		{% endblock %}
+
+		{% block secondaryNavLinks %}
+			{% set secondaryNavLinksAlias = links.secondaryNav %}
+		{% endblock %}
+
+		{% block utilityNavLinks %}
+			{% set utilityNavLinksAlias = links.utilityNav %}
+		{% endblock %}
+
+		{% block quickNavLinks %}
+			{% set quickNavLinksAlias = links.quickNav %}
+		{% endblock %}
+
+		{% block footerNavLinks %}
+			{% set footerNavLinksAlias = links.footerNav %}
+		{% endblock %}
+
+		{% block socialNavLinks %}
+			{% set socialNavLinksAlias = links.socialNav %}
+		{% endblock %}
+
+		{% include '../partials/update-notice.twig' %}
+
+		{% import '../partials/macros.twig' as site %}
+
+		{# End: Backend Dev removable blocks #}
+
+		<!-- Skip-to-Content Link -->
+		<a class="skip_link" id="skip_to_content" href="#main_content" >Skip to Main Content</a>
+
+		<!-- Page Wrapper -->
+		<div class="js-navigation_push page_wrapper">
+			{% if alert %}
+				{% include '../partials/components/feature/alert.twig' with {
+					title: "Campus will be closed today, April 19, due to inclement weather."
+				} %}
+			{% endif %}
+
+			<!-- Header -->
+			{% if layout != "style-guide" %}
+				<header class="hat" id="header" itemscope itemtype="http://schema.org/WPHeader">
+					<div class="header_ribbon_wrapper">
+						<div class="row">
+							<div class="header_ribbon">
+								{% include "../partials/logo.twig" with {
+									modifier: "header logo_header_lg",
+									symbol: true,
+									logo: "logo_group_blue"
+								} %}
+
+								{% include "../partials/logo.twig" with {
+									modifier: "header logo_header_sm",
+									symbol: true,
+									logo: "logo_name"
+								} %}
+
+								<div class="header_grouping">
+									{% include "../partials/navigation/basic.twig" with {
+										class: "secondary_nav",
+										modifier: "lg",
+										title: "Secondary Navigation",
+										links: secondaryNavLinksAlias
+									} %}
+
+									{% include "../partials/navigation/persona.twig" with {
+										modifier: "lg"
+									} %}
+
+									<a class="apply_button apply_button_lg" href="">Apply Now</a>
+								</div>
+
+								<a class="mobile_sidebar_handle_wrapper" href="#mobile_sidebar">
+									<span class="js-nav_handle mobile_sidebar_handle">Menu</span>
+									<span class="mobile_sidebar_icon"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="header_brim_wrapper">
+						<div class="row">
+							<div class="header_brim">
+								{% include "../partials/navigation/main.twig" with {
+									modifier: "lg",
+									title: "Site Navigation",
+									links: mainNavLinksAlias,
+									active: activePage
+								} %}
+
+								<a class="mini_search mini_search_lg" href="#">
+									<span class="mini_search_label">Search</span>
+									<span class="mini_search_icon mini_search_icon_search">{{site.symbol("search")}}</span>
+									<span class="mini_search_icon mini_search_icon_close">{{site.symbol("close")}}</span>
+								</a>
+
+								{% include "../partials/search.twig" with {
+									modifier: "lg",
+									placeholder: "Search",
+									buttonText: "submit"
+								} %}
+							</div>
+						</div>
+					</div>
+				</header>
+			{% endif %}
+			<!-- END: Header -->
+
+			<!-- Page -->
+			<div class="page">
+				<!-- Page Feature -->
+				<div class="page_feature">
+					<div class="page_header">
+						<div class="row">
+							{% if layout == "full" %}
+								{% if pageTitle %}
+									{% include "../partials/components/shared/background.twig" with {
+										class: "page_header",
+										image: pageBackground,
+										sources: {
+											"0px": img.classic.sml,
+											"740px": img.classic.med,
+											"980px": img.ultrawide.lrg,
+											"1220px": img.ultrawide.xlrg
+										}
+									} %}
+									<h1 class="page_title" id="page_title">{{pageTitle}}</h1>
+								{% endif %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<!-- END: Page Feature -->
+
+				<!-- Page Content -->
+				<div class="page_content">
+					<div class="row">
+						{% if layout == "default" or layout == "style-guide" %}
+							<!-- Sub Nav -->
+							<div class="aside_cell subnav_cell">
+								{% block subNav %}
+									{% include "../partials/navigation/sub.twig" with {
+										title: sectiontitle,
+										links: subNavLinksAlias
+									} %}
+								{% endblock %}
+							</div>
+							<!-- END: Sub Nav -->
+						{% endif %}
+
+						<!-- Main Content -->
+						<div class="content_cell">
+							<main class="main_content" id="main_content" itemprop="mainContentOfPage">
+								{% if layout != "home" and layout != "full" %}
+									<!-- Page Header -->
+									{% block page_header %}
+										<div class="page_header">
+											{% if pageTitle %}
+												{% include "../partials/components/shared/background.twig" with {
+													class: "page_header",
+													image: pageBackground,
+													sources: {
+														"0px": img.wide.sml,
+														"740px": img.wide.med
+													}
+												} %}
+												<h1 class="page_title" id="page_title">{{pageTitle}}</h1>
+											{% endif %}
+										</div>
+									{% endblock %}
+									<!-- END: Page Header -->
+								{% endif %}
+
+								<!-- WYSIWYG - wrap all WYSIWYG text areas in `.typography` -->
+								<div class="typography">
+									{% block typography %}{% endblock %}
+								</div>
+								<!-- END: WYSIWYG -->
+
+								<!-- In Content Callouts -->
+								<div class="in_content_callouts">
+									{% block in_content_callouts %}{% endblock %}
+								</div>
+								<!-- END: In Content Callouts -->
+							</main>
+						</div>
+						<!-- END: Main Content -->
+
+						{% if layout == "default" or layout == "style-guide" %}
+							<!-- Sidebar Callouts -->
+							<div class="aside_cell sidebar_cell">
+								<div class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+									{% block sidebar %}{% endblock %}
+								</div>
+							</div>
+							<!-- END: Sidebar Callouts -->
+						{% endif %}
+					</div>
+
+					<!-- Full Width Callouts -->
+					<div class="full_width_callouts">
+						{% block full_width_callouts %}{% endblock %}
+					</div>
+					<!-- END: Full Width Callouts -->
+				</div>
+				<!-- END: Page Content -->
+			</div>
+			<!-- END: Page -->
+
+			<!-- Footer -->
+			{% if layout != "style-guide" %}
+				<footer class="shoe" id="footer" itemscope itemtype="http://schema.org/WPFooter">
+					<div class="footer_ribbon">
+						<div class="row">
+							<div class="footer_grouping">
+								<div class="footer_aside">
+									{% include "../partials/address.twig" with {
+										name: "Widener",
+										street: "One University Place",
+										city: "Chester",
+										state: "PA",
+										zip: "19013",
+										tel: "1-888-Widener"
+									} %}
+									<a class="footer_button" href="">Maps & Directions</a>
+								</div>
+
+								<div class="footer_group">
+									{% include "../partials/navigation/basic.twig" with {
+										class: "quick_nav",
+										title: "Quick Links",
+										links: quickNavLinksAlias
+									} %}
+
+									{% include "../partials/navigation/social.twig" with {
+										title: "Connect With Us",
+										links: socialNavLinksAlias
+									} %}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer_sole">
+						<div class="footer_tread">
+							<div class="row">
+								{% include "../partials/navigation/basic.twig" with {
+									class: "footer_nav",
+									title: "Footer Navigation",
+									links: footerNavLinksAlias
+								} %}
+								<a href="#" class="copyright copyright_lg">© 2017</a>
+							</div>
+						</div>
+						<div class="footer_mark">
+							<div class="row">
+								<div class="footer_base">
+									<a class="rocket" href="#">
+										<span class="rocket_label">Back to top</span>
+										<span class="rocket_icon">{{site.symbol("caret_up")}}</span>
+									</a>
+									<a href="#" class="copyright copyright_sm">© 2017</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			{% endif %}
+			<!-- END: Footer -->
+		</div>
+		<!-- END: page_wrapper -->
+
+		<div class="js-navigation mobile_sidebar" id="mobile_sidebar" hidden data-navigation-handle=".js-nav_handle" data-navigation-content=".js-navigation_push" data-navigation-options='{"type": "overlay", "gravity": "right"}'>
+			<div class="mobile_sidebar_ribbon">
+				<a class="apply_button apply_button_sm" href="">Apply Now</a>
+				<a class="mini_search mini_search_sm" href="#">
+					<span class="mini_search_label">Search</span>
+					<span class="mini_search_icon">{{site.symbol("search")}}</span>
+				</a>
+			</div>
+
+			{% include "../partials/navigation/main.twig" with {
+				modifier: "sm",
+				links: mainNavLinksAlias,
+				active: activePage
+			} %}
+
+			<div class="mobile_sidebar_group">
+				{% include "../partials/navigation/persona.twig" with {
+					modifier: "sm"
+				} %}
+
+				{% include "../partials/navigation/basic.twig" with {
+					class: "secondary_nav",
+					modifier: "sm",
+					title: "Secondary Navigation",
+					links: secondaryNavLinksAlias
+				} %}
+			</div>
+		</div>
+
+		<script src="../js/site.js"></script>
+
+		{% block javascript %}
+		{% endblock %}
+
+		{% include "../partials/grid.twig" %}
+	</body>
+</html>

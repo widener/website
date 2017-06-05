@@ -1,0 +1,99 @@
+<div class="collage">
+  <div class="row">
+    <div class="collage_inner">
+      <div class="collage_aside">
+        {{site.image("collage_aside", img.square.sml, spotlight)}}
+      </div>
+      <div class="collage_body">
+        <header class="collage_header">
+          <div class="collage_details_wrapper">
+            <h2 class="collage_label">{{label}}</h2>
+            <div class="collage_details">
+              <span class="collage_detail">
+                <span class="collage_detail_icon">{{site.symbol("grid")}}</span>
+                <span class="collage_detail_label">images</span>
+                <span class="collage_detail_count collage_detail_images">0</span>
+              </span>
+              <span class="collage_detail">
+                <span class="collage_detail_icon">{{site.symbol("video")}}</span>
+                <span class="collage_detail_label">videos</span>
+                <span class="collage_detail_count collage_detail_videos">0</span>
+              </span>
+            </div>
+          </div>
+          <h3 class="collage_title">{{title}}</h3>
+        </header>
+        <div class="collage_content">
+          {% for gallery in galleries %}
+            <article class="collage_item">
+              {% if gallery.video %}
+              <a class="js-lightbox collage_item_link" href="{{gallery.video}}">
+                <span class="collage_item_play_wrapper">
+                  <span class="collage_item_play">{{site.symbol("play")}}</span>
+                </span>
+              {% elseif gallery.images %}
+              <button class="js-swap collage_item_link" data-lightbox-gallery="collage_gallery_{{loop.index}}" data-swap-linked="collage_swap" data-swap-target=".collage_gallery_{{loop.index}}">
+                <span class="collage_item_open_wrapper">
+                  <span class="collage_item_open">{{site.symbol("plus")}}</span>
+                </span>
+              {% else %}
+              <a class="js-lightbox collage_item_link" href="//images.fastspot.com/widener/{{img.ultrawide.xlrg}}/{{gallery.image}}.jpg">
+                <span class="collage_item_open_wrapper">
+                  <span class="collage_item_open">{{site.symbol("plus")}}</span>
+                </span>
+              {% endif %}
+              {{site.image("collage_item", img.full.xxsml, gallery.image)}}
+              {% if gallery.video %}
+              </a>
+              {% elseif gallery.images %}
+              </button>
+              {% else %}
+              </a>
+              {% endif %}
+              {% set index = loop.index %}
+              {% if gallery.images %}
+                <div class="collage_gallery collage_gallery_{{index}}">
+                  <div class="row">
+                    <div class="collage_gallery_inner">
+                      <header class="collage_gallery_header">
+                        <h2 class="collage_gallery_label">{{label}}</h2>
+                        <button class="js-swap collage_gallery_close" data-swap-linked="collage_swap" data-swap-target=".collage_gallery_{{index}}">{{site.symbol("close")}}</button>
+                      </header>
+                      <div class="js-carousel collage_gallery_carousel" data-carousel-options='{
+                        "single": true,
+                        "pagination": false
+                      }'>
+                        {% for item in gallery.images %}
+                          <div class="collage_gallery_image" data-lightbox-gallery="collage_gallery_{{index}}">
+                            {% include "../shared/background.twig" with {
+                              class: "collage_gallery",
+                              image: item.image,
+                              sources: {
+                                "0px": img.square.sml,
+                                "500px": img.wide.xsml,
+                                "740px": img.wide.sml,
+                                "980px": img.wide.med,
+                                "1220px": img.ultrawide.xlrg
+                              }
+                            } %}
+                            <div class="collage_gallery_details">
+                              <p class="collage_gallery_caption">{{item.caption}}</p>
+                              <p class="collage_gallery_position">
+                                <span class="collage_gallery_position_icon">{{site.symbol("grid")}}</span>
+                                <span class="collage_gallery_position_label">{{loop.index}}/{{gallery.images|length}}</span>
+                              </p>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

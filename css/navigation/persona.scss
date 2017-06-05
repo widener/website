@@ -1,0 +1,131 @@
+/* ==========================================================================
+  Persona
+============================================================================= */
+
+.persona {
+  position: relative;
+
+  &_sm {
+    margin-bottom: 20px;
+
+    @media #{$min_lg} {
+      display: none;
+    }
+  }
+
+  &_lg {
+    border-left: 1px solid $mist;
+    display: inline-block;
+    margin-right: 4px;
+    vertical-align: middle;
+
+    @media #{$max_lg} {
+      display: none;
+    }
+  }
+}
+
+  .persona_switch {
+    @include univers(400);
+
+    width: 100%;
+
+    position: relative;
+
+    background: $mist;
+    color: $black;
+    cursor: pointer;
+    display: block;
+    font-size: 13px;
+    padding: 19px 40px 14px 20px;
+    text-align: left;
+    transition: background .25s;
+
+    @media #{$min_lg} {
+      background: none;
+      padding: 14px 40px 11px 20px;
+    }
+
+    @media #{$min_xl} {
+      font-size: 15px;
+      padding: 12px 40px 11px 25px;
+    }
+
+    .persona:focus &,
+    .persona:hover & {
+      background: $yellow;
+
+      @media #{$min_lg} {
+        background: $mist;
+      }
+    }
+  }
+
+    .persona_switch_label {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .persona_switch_icon {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+
+      color: $blue;
+      transform:
+        translate(0, -50%)
+        rotateX(0);
+      transition: transform .25s;
+
+      .persona:focus &,
+      .persona:hover & {
+        transform:
+          translate(0, -50%)
+          rotateX(180deg);
+       }
+    }
+
+  .persona_links {
+    width: 100%;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 20;
+
+    background: $mist;
+    padding-bottom: 11px;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity .25s,
+      visibility .25s;
+
+    @media #{$min_lg} {
+      width: calc(100% + 1px);
+    }
+
+    .persona:focus &,
+    .persona:hover & {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+    .persona_link {
+      color: $black;
+      display: block;
+      font-size: 13px;
+      padding: 14px 20px 12px;
+      transition: background .25s;
+
+      @media #{$min_xl} {
+        font-size: 15px;
+        padding: 12px 20px 11px 25px;
+      }
+
+      &:focus,
+      &:hover {
+        background: rgba($blue, .15);
+      }
+    }

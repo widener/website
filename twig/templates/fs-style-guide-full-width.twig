@@ -1,0 +1,152 @@
+{% extends "_base.twig" %}
+
+{% set pageTitle = "Style Guide Full Width" %}
+
+{% block layout %}
+	{% set layout = "style-guide" %}
+{% endblock %}
+
+{% block full_width_callouts %}
+	<div class="cr_heading">Announcement</div>
+	{% include '../partials/components/full-width/announcement.twig' with {
+		label: "Digital Viewbook",
+		title: "Get to Know Us",
+		caption: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.",
+		image: 1,
+		link: "Download PDF"
+	} %}
+
+	<div class="cr_heading">Highlite</div>
+	{% include '../partials/components/full-width/highlite.twig' with {
+		image: 2,
+		title: "Explore the Campus",
+		description: "The best way to get to know Widener University is by visiting us. Take advantage of the many options to get to know our campus.",
+		links: [
+			"Plan a Visit",
+			"Virtual Tour"
+		]
+	} %}
+
+	<div class="cr_heading">Dates</div>
+	{% include '../partials/components/full-width/dates.twig' with {
+		title: "Important Dates",
+		highlight: {
+			image: 1,
+			month: "March",
+			day: 25,
+			title: "Accepted Student Day",
+			caption: "Widener invites admitted students and parents to connect with our community of current students, faculty, and staff.",
+			link: "Learn More"
+		},
+		articles: [
+			{
+				month: "October",
+				day: 21,
+				title: "Application Deadline for Early Decision Students",
+				link: "#"
+			},
+			{
+				month: "November",
+				day: 01,
+				title: "Application Deadline for Early Action Students"
+			},
+			{
+				month: "November",
+				day: 15,
+				title: "Priority FAFSA Date",
+				link: "#"
+			},
+			{
+				month: "April",
+				day: 01,
+				title: "Admissions Office April Saturdays Begin"
+			},
+			{
+				month: "April",
+				day: 01,
+				title: "Admissions Office April Saturdays Begin"
+			}
+		],
+		links: [
+			"View News Stories",
+			"View Press Releases"
+		]
+	} %}
+
+	<div class="cr_heading">Collage</div>
+	{% include '../partials/components/full-width/collage.twig' with {
+		spotlight: 2,
+		label: "A Vibrant Community",
+		title: "Widener is more than just a beautiful campus.",
+		galleries: [
+			{
+				image: 1,
+				images: [
+					{
+						image: 1,
+						caption: "Start by exploring the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue."
+					},
+					{
+						image: 2,
+						caption: "Start by exploring the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet"
+					},
+					{
+						image: 3,
+						caption: "From 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet"
+					}
+				]
+			},
+			{
+				image: 2,
+				video: "//www.youtube.com/embed/zsJpUCWfyPE?rel=0&autoplay=1&fs=1"
+			},
+			{
+				image: 3
+			},
+			{
+				image: 4
+			}
+		]
+	} %}
+
+	<div class="cr_heading">Stats</div>
+	{% include '../partials/components/full-width/stats.twig' with {
+		title: "Point of Pride",
+		theme: "condensed",
+		articles: [
+			{
+				stats: [
+					{
+						label: "top",
+						title: "10",
+						image: 1,
+						caption: "Widener is a top 10 college in the Philadelphia-area for career preparation"
+					},
+					{
+						title: "84%",
+						caption: "Majority of Widener seniors have participated in real-world, hands-on learning experiences"
+					},
+					{
+						title: "89%",
+						image: 2,
+						caption: "89 percent of grads are employed or pursuing graduate or <a href>professional studies</a> 6 months after graduation"
+					},
+					{
+						label: "top",
+						title: "20%",
+						caption: "Widener is in the top 20 percent nationally in salaries earned at mid-career"
+					}
+				]
+			}
+		]
+	} %}
+
+	<div class="cr_heading">Quote</div>
+	{% include '../partials/components/full-width/quote.twig' with {
+		quote: "This experience will not be forgotten unless we forget it. And these four years will not be meaningless unless we do not actively choose for it to produce something meaningful.",
+		cite: "Nicole Gilette",
+		year: "‘16",
+		video: "//www.youtube.com/embed/zsJpUCWfyPE?rel=0&autoplay=1&fs=1",
+		image: 2
+	} %}
+{% endblock %}

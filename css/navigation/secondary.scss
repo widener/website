@@ -1,0 +1,67 @@
+/* ==========================================================================
+	Secondary Navigation Common
+============================================================================= */
+
+.secondary_nav {
+
+	&_lg {
+
+		@media #{$max_lg} {
+			display: none;
+		}
+
+		@media #{$min_lg} {
+			display: inline-block;
+			padding-right: 10px;
+			vertical-align: middle;
+		}
+
+		@media #{$min_xl} {
+			padding-right: 15px;
+		}
+	}
+}
+
+	.secondary_nav_header {}
+
+		.secondary_nav_title {
+			@include visually_hide;
+		}
+
+
+// Seconadry Links
+// =============================================================================
+
+.secondary_nav_list {}
+
+	.secondary_nav_item {
+
+		@media #{$min_lg} {
+			display: inline-block;
+		}
+	}
+
+		.secondary_nav_link {
+			@include univers(400);
+
+			color: $black;
+			display: block;
+			font-size: 13px;
+			padding: 8px 0;
+			transition: color .25s;
+
+			@media #{$min_lg} {
+				padding: 14px 8px 12px;
+			}
+
+			@media #{$min_xl} {
+				font-size: 15px;
+				padding: 12px 10px 11px;
+			}
+
+			&:focus,
+			&:active,
+			&:hover {
+				color: $blue;
+			}
+		}

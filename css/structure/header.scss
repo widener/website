@@ -1,0 +1,147 @@
+/* ==========================================================================
+	Header
+============================================================================= */
+
+.hat {
+	border-bottom: 1px solid $mist;
+
+	@media print {
+		display: none;
+	}
+
+	@media #{$min_lg} {
+		border-bottom: 0;
+	}
+}
+
+	.header_ribbon_wrapper {
+		position: relative;
+
+		padding: 15px 0 14px;
+
+		@media #{$min_lg} {
+			border-bottom: 1px solid $mist;
+			padding: 20px 0;
+		}
+	}
+
+		.header_ribbon {
+			@include clearfix;
+		}
+
+			.header_grouping {
+
+				@media #{$min_lg} {
+					float: right;
+
+					padding: 4px 0;
+				}
+			}
+
+	.header_brim_wrapper {}
+
+		.header_brim {
+			position: relative;
+		}
+
+
+// Persona Dropdown
+// =============================================================================
+
+.persona_dropdown_wrapper {
+	position: relative;
+
+	margin-bottom: 20px;
+
+	&_lg {
+		border-left: 1px solid $mist;
+		display: inline-block;
+		margin-right: 4px;
+		margin-bottom: 0;
+		vertical-align: middle;
+
+		@media #{$max_lg} {
+			display: none;
+		}
+	}
+
+	.fs-dropdown-selected {
+		@include univers;
+
+		background: $mist;
+		font-size: 13px;
+		padding: 18px 40px 16px 20px;
+		transition:
+			background .25s,
+			color .25s;
+
+		@media #{$min_lg} {
+			background: none;
+			padding: 14px 40px 12px 20px;
+		}
+
+		@media #{$min_xl} {
+			font-size: 15px;
+			padding: 12px 40px 11px 25px;
+		}
+
+		&:focus,
+		&:hover {
+
+			@media #{$max_lg} {
+				background: $yellow;
+			}
+
+			@media #{$min_lg} {
+				background: $mist;
+			}
+		}
+	}
+
+	.fs-dropdown-options {
+		background: $mist;
+		padding: 0 0 10px;
+	}
+
+		.fs-dropdown-item {
+			@include univers;
+
+			font-size: 13px;
+			padding: 12px 20px 9px;
+			transition:
+				background .25s,
+				color .25s;
+
+			@media #{$min_xl} {
+				font-size: 15px;
+			}
+
+			&:not(.fs-dropdown-item_selected):focus,
+			&:not(.fs-dropdown-item_selected):hover {
+				background: rgba($blue, .15);
+			}
+
+			&_selected {
+				background: $blue;
+				color: #fff;
+			}
+		}
+}
+
+	.persona_dropdown_icon {
+		position: absolute;
+		top: 50%;
+		right: 20px;
+
+		color: $blue;
+		transform:
+			translate(0, -50%)
+			scaleY(1);
+		transition: transform .25s;
+
+		.fs-dropdown-open + & {
+			transform:
+				translate(0, -50%)
+				scaleY(-1);
+		}
+	}

@@ -1,0 +1,171 @@
+/* ==========================================================================
+  Quote
+============================================================================= */
+
+.quote {
+  @include padded_lg;
+
+  background: $black;
+
+  @media print {
+    padding: 20px 0;
+  }
+}
+
+
+// Body
+// =============================================================================
+
+.quote_body {
+  margin-bottom: 33px;
+
+  @media #{$min_md} {
+    width: 66%;
+
+    float: left;
+    position: relative;
+    z-index: 2;
+
+    padding-top: 20px;
+  }
+
+  @media #{$min_xl} {
+    width: 64%;
+
+    padding-top: 30px;
+  }
+}
+
+  .quote_mark {
+    align-items: center;
+    color: $blue;
+    display: flex;
+    margin-bottom: 23px;
+
+    @media print {
+      display: none;
+    }
+
+    @media #{$min_md} {
+      margin-bottom: 43px;
+    }
+
+    &:after {
+      height: 2px;
+
+      background: $yellow;
+      content: "";
+      flex: auto;
+      margin-left: 30px;
+    }
+  }
+
+  .quote_content {
+    @include garamond(400);
+
+    color: #fff;
+    font-size: 26px;
+    line-height: (36 / 26);
+    margin-bottom: 23px;
+
+    @media #{$min_md} {
+      margin-bottom: 33px;
+      padding-right: 40px;
+    }
+
+    @media #{$min_lg} {
+      font-size: 32px;
+      line-height: (42 / 32);
+      // font-size: 36px;
+      // line-height: (46 / 36);
+      padding-right: 100px;
+    }
+
+    p {
+      color: inherit;
+      margin: 0;
+    }
+  }
+
+  .quote_cite {
+    font-style: normal;
+
+    &:before {
+      height: 1px;
+      width: 30px;
+
+      background: rgba(#fff, .45);
+      content: "";
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+  }
+
+    .quote_cite_label {
+      @include garamond(700);
+
+      color: #fff;
+      font-size: 15px;
+      letter-spacing: .5px;
+      margin-right: 5px;
+      text-transform: uppercase;
+    }
+
+    .quote_cite_year {
+      @include univers(700);
+
+      color: $yellow;
+      font-size: 15px;
+    }
+
+
+// Aside
+// =============================================================================
+
+.quote_aside {
+
+  @media print {
+    display: none;
+  }
+
+  @media #{$min_md} {
+    width: 33.33%;
+    width: calc(33.33% + 20px);
+
+    float: left;
+
+    margin-left: -20px;
+  }
+
+  @media #{$min_xl} {
+    width: calc(36% + 60px);
+
+    margin-left: -60px;
+  }
+}
+
+  .quote_figure {
+    position: relative;
+
+    display: block;
+  }
+
+    .quote_play_wrapper {
+      @include play_wrapper;
+
+      .quote_figure:focus &,
+      .quote_figure:hover & {
+        transform:
+          translate(-50%, -50%)
+          scale(1.15);
+      }
+    }
+
+      .quote_play {
+        @include play;
+      }
+
+    .quote_image {
+      width: 100%;
+    }

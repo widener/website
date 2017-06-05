@@ -1,0 +1,65 @@
+{% extends "_base.twig" %}
+
+{% set pageTitle = "Style Guide Sidebar" %}
+
+{% block layout %}
+	{% set layout = "style-guide" %}
+{% endblock %}
+
+{% block sidebar %}
+	<div class="cr_heading">Linked List</div>
+	{% include '../partials/components/sidebar/linked-list.twig' with {
+		title: "Information For",
+		links: [
+			{
+				href: "#",
+				name: "Admitted Students"
+			},
+			{
+				href: "#",
+				name: "International Students"
+			},
+			{
+				href: "#",
+				name: "Transfer Students"
+			},
+			{
+				href: "#",
+				name: "School Counselors"
+			},
+			{
+				href: "#",
+				name: "Veterans"
+			}
+		]
+	} %}
+
+	<div class="cr_heading">Contact Card</div>
+	{% include '../partials/components/sidebar/contact-card.twig' with {
+		title: "Office of Admissions",
+		address: "Muller Hall<br>One University Place<br>Chester, PA 19013",
+		phone: "610-499-4126",
+		fax: "610-499-4676",
+		email: "admissions@widener.edu",
+		external: "Meet the Team"
+	} %}
+
+	<div class="cr_heading">Social Card</div>
+	{% include '../partials/components/sidebar/social-card.twig' with {
+		title: "Connect With Us",
+		links: [
+			{
+				icon: "facebook",
+				name: "Facebook"
+			},
+			{
+				icon: "twitter",
+				name: "Twitter"
+			},
+			{
+				icon: "linkedin",
+				name: "Linkedin"
+			}
+		]
+	} %}
+{% endblock %}

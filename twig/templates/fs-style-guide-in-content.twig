@@ -1,0 +1,68 @@
+{% extends "_base.twig" %}
+
+{% set pageTitle = "Style Guide In Content" %}
+
+{% block layout %}
+	{% set layout = "style-guide" %}
+{% endblock %}
+
+{% block in_content_callouts %}
+	<div class="cr_heading">Topics</div>
+	{% include "../partials/components/in-content/topics.twig" with {
+		topics: [
+			{
+				theme: "simple",
+				title: "Some people are doers. Others are thinkers. At Widener University, we believe that great leaders excel at being both.",
+				description: "Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.",
+				links: [
+					{
+						href: "#",
+						theme: "yellow",
+						name: "Apply Now"
+					},
+					{
+						href: "#",
+						theme: "orange",
+						name: "Request Info"
+					},
+					{
+						href: "#",
+						theme: "green",
+						name: "Plan a Visit"
+					}
+				]
+			},
+			{
+				theme: "complex",
+				title: "How to Apply",
+				image: 2,
+				description: "We offer more than 60-degree options that are built on foundations of leadership, career readiness, and civic engagement.",
+				links: [
+					{
+						href: "#",
+						theme: "blue",
+						name: "Learn More"
+					}
+				]
+			},
+			{
+				theme: "complex",
+				title: "Tuition & Aid",
+				image: 3,
+				description: "We understand that when deciding whether Widener is the right fit for you, it takes more than considering the value of the Widener experience. Money matters.",
+				links: [
+					{
+						href: "#",
+						theme: "green",
+						name: "Financial Aid"
+					},
+					{
+						href: "#",
+						theme: "green",
+						name: "Tuition Calculator"
+					}
+				]
+			}
+		]
+	} %}
+{% endblock %}

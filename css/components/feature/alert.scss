@@ -1,0 +1,148 @@
+/* ==========================================================================
+	Component
+============================================================================= */
+
+.alert {
+  position: relative;
+
+  background: #C5192E;
+  color: #fff;
+  display: none;
+  overflow: hidden;
+
+  &.show_alert {
+    display: block;
+  }
+}
+
+  .alert_body {
+    padding: 36px 0 26px;
+
+    @media #{$min_xl} {
+      padding: 32px 0 28px;
+    }
+  }
+
+    .alert_content {}
+
+      .alert_header {
+        padding-right: 40px;
+      }
+
+        .alert_title {
+          @include h4;
+
+          position: relative;
+
+          color: inherit;
+          display: block;
+          margin: 0;
+
+          @media #{$min_xl} {
+            display: inline-block;
+          }
+        }
+
+          .alert_title_link {
+            color: inherit;
+            display: block;
+          }
+
+            .alert_title_icon {
+              position: absolute;
+              top: -2px;
+              left: 0;
+
+              transform-origin: left top;
+              transform: scale(.75);
+
+              @media #{$min_lg} {
+                transform: scale(1);
+              }
+            }
+
+            .alert_title_label {
+              display: block;
+              padding-left: 40px;
+
+              @media #{$min_lg} {
+                padding-left: 54px;
+              }
+            }
+
+        .alert_discovery {
+          @include h6;
+
+          position: relative;
+
+          color: inherit;
+          display: inline-block;
+          margin-left: 40px;
+          padding: 12px 0 8px;
+
+          @media #{$min_lg} {
+            font-size: 15px;
+            margin-left: 54px;
+          }
+
+          &:after {
+            height: 2px;
+            width: 100%;
+
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+
+            background: #fff;
+            content: "";
+            transform-origin: left center;
+            transform: scaleX(0);
+            transition: transform .25s;
+
+            @media #{$min_lg} {
+              height: 4px;
+            }
+          }
+
+          &:focus,
+          &:hover {
+
+            &:after {
+              transform: scaleX(1);
+            }
+          }
+        }
+
+    .alert_close {
+      height: 100%;
+      width: 40px;
+
+      position: absolute;
+      top: 0;
+      right: 20px;
+
+      color: $black;
+      cursor: pointer;
+      transition: color .25s;
+
+      &:focus,
+      &:hover {
+        color: #fff;
+      }
+    }
+
+      .alert_close_label {
+        @include visually_hide;
+      }
+
+      .alert_close_icon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+
+        pointer-events: none;
+        transform-origin: right center;
+        transform:
+          translate(0, -50%)
+          scale(.85);
+      }
