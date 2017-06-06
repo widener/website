@@ -76,8 +76,6 @@
 }
 
   .spotlight_switches {
-    max-width: 170px;
-
     position: static;
 
     @media #{$min_sm} {
@@ -171,7 +169,7 @@
       &:hover {
 
         &:before {
-          opacity: .9;
+          opacity: .8;
         }
       }
 
@@ -281,10 +279,19 @@
         background:
           linear-gradient(
             45deg,
-              rgba(#000, .65),
-              rgba(#000, 0) 50%
+              rgba(#000, .75),
+              rgba(#000, 0) 70%
           );
         content: "";
+
+        @media #{$min_md} {
+          background:
+            linear-gradient(
+              45deg,
+                rgba(#000, .75),
+                rgba(#000, 0) 50%
+            );
+        }
       }
     }
 
@@ -334,7 +341,7 @@
           color: #fff;
           margin: 0;
 
-          @media #{$min_lg} {
+          @media #{$min_md} {
             margin-bottom: 15px;
           }
         }
@@ -346,8 +353,9 @@
             .spotlight_panel_title_label {}
 
             .spotlight_panel_title_icon {
-              @include theme;
+              // @include theme;
 
+              color: $yellow;
               display: inline-block;
               vertical-align: middle;
 
@@ -362,7 +370,7 @@
 
           display: none;
 
-          @media #{$min_lg} {
+          @media #{$min_md} {
             display: inline-block;
           }
         }

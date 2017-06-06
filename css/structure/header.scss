@@ -87,14 +87,8 @@
 
 		&:focus,
 		&:hover {
-
-			@media #{$max_lg} {
-				background: $yellow;
-			}
-
-			@media #{$min_lg} {
-				background: $mist;
-			}
+			background: $blue;
+			color: #fff;
 		}
 	}
 

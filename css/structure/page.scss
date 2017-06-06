@@ -50,8 +50,6 @@
 
 				@media #{$min_lg} {
 					width: percentage(8 / 12);
-
-					padding-left: 45px;
 				}
 
 				@media #{$min_xl} {
@@ -132,10 +130,10 @@
 							}
 
 							.layout_full & {
-								padding: 45% 0 25px;
+								padding: 42% 0 25px;
 
 								@media #{$min_xl} {
-									padding-top: 35%;
+									padding-top: 33%;
 									padding-bottom: 48px;
 								}
 							}

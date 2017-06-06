@@ -88,11 +88,12 @@
 
   .fs-carousel-controls {
     position: relative;
-    float: right;
+    float: left;
     z-index: 2;
 
     color: $blue;
     display: none;
+    margin-right: 20px;
 
     @media #{$min_md} {
       display: block;

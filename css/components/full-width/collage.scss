@@ -331,10 +331,18 @@
           }
     }
 
-      .collage_gallery_image {}
+      .collage_gallery_image {
+
+        iframe {
+          height: 70vh;
+          width: 100%;
+
+          margin-bottom: 40px;
+        }
+      }
 
         .collage_gallery_background {
-          height: 50vh;
+          height: 70vh;
 
           margin-bottom: 40px;
         }

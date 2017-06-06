@@ -33,7 +33,9 @@
               <span class="stat_item_title">{{stat.title}}</span>
             </h3>
             {% if stat.image %}
-              <img class="stat_item_image" src="//images.fastspot.com/widener/210x140/{{stat.image}}.jpg" alt="">
+              <a class="stat_item_figure" href="#">
+                <img class="stat_item_image" src="//images.fastspot.com/widener/210x140/{{stat.image}}.jpg" alt="">
+              </a>
             {% endif %}
             <p class="stat_item_caption">{{stat.caption}}</p>
           </div>

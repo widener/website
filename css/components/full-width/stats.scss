@@ -464,9 +464,6 @@
                 .stat_item_title_label {
                   @include garamond(700);
 
-                  position: relative;
-                  top: -4px;
-
                   color: inherit;
                   display: inline-block;
                   font-size: 15px;
@@ -494,13 +491,18 @@
                   }
                 }
 
-              .stat_item_image {
+              .stat_item_figure {
+                display: block;
                 margin-bottom: 20px;
-
-                @media print {
-                  display: none;
-                }
               }
+
+                .stat_item_image {
+                  display: block;
+
+                  @media print {
+                    display: none;
+                  }
+                }
 
               .stat_item_caption {
                 @include body_text;

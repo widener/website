@@ -106,9 +106,14 @@
       }
     }
 
-      .announcement_image {
-
-        @media #{$min_md} {
-          width: 100%;
-        }
+      .announcement_figure_link {
+        display: block;
       }
+
+        .announcement_image {
+          display: block;
+
+          @media #{$min_md} {
+            width: 100%;
+          }
+        }

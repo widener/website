@@ -5,6 +5,16 @@
 .explorer {
   @include margined_xl;
   @include max-row;
+
+  overflow: hidden;
+
+  &.theme_expanded {
+    padding: 0 30px;
+
+    @media #{$min_lg} {
+      padding: 0;
+    }
+  }
 }
 
   .explorer_inner {
@@ -137,7 +147,7 @@
       }
 
       @media #{$min_xl} {
-        padding-top: 70%;
+        padding-top: 60%;
       }
 
       @media screen and (min-width: 1400px) {
@@ -170,7 +180,7 @@
       }
 
       @media #{$min_xl} {
-        padding-top: 35%;
+        padding-top: 30%;
       }
     }
 
@@ -425,11 +435,16 @@
 
       border-right: 10px solid #fff;
       border-left: 10px solid #fff;
+      margin-bottom: 0;
     }
 
     @media #{$min_xl} {
       border-right-width: 15px;
       border-left-width: 15px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -639,7 +654,7 @@
   }
 
   &:before {
-    height: 30%;
+    height: 15%;
     width: 100%;
 
     position: absolute;
@@ -757,10 +772,10 @@
     max-height: calc(100vh - 80px);
 
     overflow-y: auto;
-    padding: 20px 20px 40% 0;
+    padding: 20px 20px 20px 0;
 
     @media #{$min_xl} {
-      padding: 12px 20px 40% 0;
+      padding: 12px 20px 20px 0;
     }
   }
 
@@ -784,6 +799,10 @@
       //   font-size: 48px;
       //   line-height: (64 / 48);
       // }
+
+      &:last-child {
+        margin-bottom: 20%;
+      }
     }
 
       .explorer_panel_item_label {

@@ -37,27 +37,26 @@
     cursor: pointer;
     display: block;
     font-size: 13px;
-    padding: 19px 40px 14px 20px;
+    padding: 17px 40px 16px 20px;
     text-align: left;
-    transition: background .25s;
+    transition:
+      background .25s,
+      color .25s;
 
     @media #{$min_lg} {
       background: none;
-      padding: 14px 40px 11px 20px;
+      padding: 13px 40px 13px 20px;
     }
 
     @media #{$min_xl} {
       font-size: 15px;
-      padding: 12px 40px 11px 25px;
+      padding: 11px 40px 12px 25px;
     }
 
     .persona:focus &,
     .persona:hover & {
-      background: $yellow;
-
-      @media #{$min_lg} {
-        background: $mist;
-      }
+      background: $blue;
+      color: #fff;
     }
   }
 
@@ -75,10 +74,13 @@
       transform:
         translate(0, -50%)
         rotateX(0);
-      transition: transform .25s;
+      transition:
+        color .25s,
+        transform .25s;
 
       .persona:focus &,
       .persona:hover & {
+        color: #fff;
         transform:
           translate(0, -50%)
           rotateX(180deg);

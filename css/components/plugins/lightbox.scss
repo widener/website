@@ -10,7 +10,7 @@
 		color: $blue;
 		padding: 20px;
 		transition: opacity .25s;
-		
+
 		&:focus,
 		&:hover {
 			opacity: .5;
@@ -21,6 +21,10 @@
 
 		.fs-lightbox-content {
 			padding: 20px;
+
+			@media #{$min_xl} {
+				padding: 20px 40px;
+			}
 		}
 
 			.fs-lightbox-image_container {}
