@@ -249,11 +249,7 @@ gulp.task('reload', function(done) {
 
 gulp.task('package', function(done) {
 
-	return gulp.src([
-		'./**',
-		'!./node_modules',
-		'!./components'
-	])
+	return gulp.src('./**')
 		.pipe(gulp.dest('../widener-master'));
 
 	done();

@@ -250,12 +250,12 @@
       opacity .25s,
       visibility .25s;
 
-    @media #{$min_md} {
-      padding-top: 55%;
+    @media #{$min_sm} {
+      padding-top: 60%;
     }
 
     @media #{$min_lg} {
-      padding-top: 45%;
+      padding-top: 46%;
     }
 
     @media screen and (min-width: 980px) and (min-height: 800px) {
