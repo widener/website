@@ -27,6 +27,7 @@ $fs-navigation-offscreen-width: 300px;
 		content: '';
 		display: block;
 		opacity: 0;
+		pointer-events: none;
 		transition:
 			opacity .25s,
 			visibility .25s;

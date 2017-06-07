@@ -217,8 +217,7 @@
 										sources: {
 											"0px": img.classic.sml,
 											"740px": img.classic.med,
-											"980px": img.ultrawide.lrg,
-											"1220px": img.ultrawide.xlrg
+											"980px": img.ultrawide.lrg
 										}
 									} %}
 									<h1 class="page_title" id="page_title">{{pageTitle}}</h1>
@@ -369,11 +368,17 @@
 		<div class="js-navigation mobile_sidebar" id="mobile_sidebar" hidden data-navigation-handle=".js-nav_handle" data-navigation-content=".js-navigation_push" data-navigation-options='{"type": "overlay", "gravity": "right"}'>
 			<div class="mobile_sidebar_ribbon">
 				<a class="apply_button apply_button_sm" href="">Apply Now</a>
-				<a class="mini_search mini_search_sm" href="#">
+				<!-- <a class="mini_search mini_search_sm" href="#">
 					<span class="mini_search_label">Search</span>
 					<span class="mini_search_icon">{{site.symbol("search")}}</span>
-				</a>
+				</a> -->
 			</div>
+
+			{% include "../partials/search.twig" with {
+				modifier: "sm",
+				placeholder: "Search",
+				buttonText: "submit"
+			} %}
 
 			{% include "../partials/navigation/main.twig" with {
 				modifier: "sm",

@@ -100,7 +100,10 @@ gulp.task('sass', function() {
 				replace: false
 			}),
 			require('autoprefixer')({
-				browsers: ['> 1%']
+				browsers: [
+					'> 1%',
+					'last 4 versions'
+				]
 			})
 		]))
 		.pipe(gulpif(util.env.production, cssnano()))
@@ -238,6 +241,20 @@ gulp.task('browser-sync', function(done) {
 gulp.task('reload', function(done) {
 
 	browserSync.reload();
+
+	done();
+
+});
+
+
+gulp.task('package', function(done) {
+
+	return gulp.src([
+		'./**',
+		'!./node_modules',
+		'!./components'
+	])
+		.pipe(gulp.dest('../widener-master'));
 
 	done();
 

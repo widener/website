@@ -3,12 +3,18 @@
 ============================================================================= */
 
 .explorer {
-  @include margined_xl;
   @include max-row;
 
   overflow: hidden;
 
+  &.theme_condensed {
+    @include margined_top;
+    @include margined_xl_bottom;
+  }
+
   &.theme_expanded {
+    @include margined_xl;
+
     padding: 0 30px;
 
     @media #{$min_lg} {

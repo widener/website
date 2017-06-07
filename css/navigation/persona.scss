@@ -53,10 +53,21 @@
       padding: 11px 40px 12px 25px;
     }
 
+   &.fs-swap-active {
+
+     @media #{$max_lg} {
+       background: $blue;
+       color: #fff;
+     }
+   }
+
     .persona:focus &,
     .persona:hover & {
-      background: $blue;
-      color: #fff;
+
+      @media #{$min_lg} {
+        background: $blue;
+        color: #fff;
+      }
     }
   }
 
@@ -78,12 +89,25 @@
         color .25s,
         transform .25s;
 
+      .fs-swap-active & {
+
+        @media #{$max_lg} {
+          color: #fff;
+          transform:
+            translate(0, -50%)
+            rotateX(180deg);
+        }
+      }
+
       .persona:focus &,
       .persona:hover & {
-        color: #fff;
-        transform:
-          translate(0, -50%)
-          rotateX(180deg);
+
+        @media #{$min_lg} {
+          color: #fff;
+          transform:
+            translate(0, -50%)
+            rotateX(180deg);
+        }
        }
     }
 
@@ -107,10 +131,21 @@
       width: calc(100% + 1px);
     }
 
+    &.fs-swap-active {
+
+      @media #{$max_lg} {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
     .persona:focus &,
     .persona:hover & {
-      opacity: 1;
-      visibility: visible;
+
+      @media #{$min_lg} {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 

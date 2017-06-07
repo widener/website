@@ -121,7 +121,7 @@
 				tapTimer           : null
 			}, data);
 
-			Instance.isViewer = (Instance.isMobile && data.viewer && typeof $.fn.fsViewer !== "undefined");
+			Instance.isViewer = (Instance.isMobile && data.viewer && typeof $.fn.fsViewer !== undefined);
 
 			// Check target type
 			var $el            = data.$el,
@@ -429,7 +429,7 @@
 					restoreContents();
 				}
 
-				if (Instance.isViewer && Instance.$imageContainer && Instance.$imageContainer.length) {
+				if (Instance.isViewer && Instance.$imageContainer.length) {
 					Instance.$imageContainer.fsViewer("destroy");
 				}
 
@@ -442,9 +442,7 @@
 				Instance.$overlay.remove();
 				Instance.$lightbox.remove();
 
-				if (typeof Instance.$el !== "undefined" && Instance.$el && Instance.$el.length) {
-					Instance.$el.focus();
-				}
+				Instance.$el.focus();
 
 				// Reset Instance
 				Instance = null;

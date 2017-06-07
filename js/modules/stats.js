@@ -61,7 +61,7 @@ Site.modules.Stats = (function($, Site) {
 				});
 			}
 
-			$(".stats_list").css("height", height);
+			$(".stats_list").css("height", height + 30);
 			$(".stats_accordion_wrapper").css("min-height", height);
 		}
 

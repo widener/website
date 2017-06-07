@@ -137,7 +137,7 @@ http://realfavicongenerator.net/favicon/grunt -->
 </nav>
 
 									<div class="persona persona_lg">
-  <button class="persona_switch">
+  <button class="js-swap persona_switch" data-swap-target=".persona_links">
     <span class="persona_switch_label">Information For</span>
     <span class="persona_switch_icon">			<svg class="symbol symbol_caret_down">
 			<use xlink:href="#caret_down"></use>
@@ -706,7 +706,7 @@ http://realfavicongenerator.net/favicon/grunt -->
       </div>
       <figure class="announcement_figure">
         <a class="announcement_figure_link" href="#">
-          	<img class="announcement_image" src="//images.fastspot.com/widener/740x555/1" alt="">
+          	<img class="announcement_image" src="//images.fastspot.com/widener/500x375/1" alt="">
 
         </a>
       </figure>
@@ -718,7 +718,7 @@ http://realfavicongenerator.net/favicon/grunt -->
   
 
 <div class="js-background highlite_background" data-background-options='{"source": {
-"0px": "//images.fastspot.com/widener/740x740/2", "500px": "//images.fastspot.com/widener/500x282/2", "740px": "//images.fastspot.com/widener/740x416/2", "980px": "//images.fastspot.com/widener/980x552/2", "1220px": "//images.fastspot.com/widener/1440x617/2"}}'></div>
+"0px": "//images.fastspot.com/widener/740x740/2", "500px": "//images.fastspot.com/widener/500x282/2", "740px": "//images.fastspot.com/widener/740x416/2", "980px": "//images.fastspot.com/widener/980x552/2", "1220px": "//images.fastspot.com/widener/1220x523/2"}}'></div>
   <div class="highlite_inner">
     <div class="row">
       <div class="highlite_body">
@@ -928,7 +928,7 @@ http://realfavicongenerator.net/favicon/grunt -->
                                               
 
 <div class="js-background collage_gallery_background" data-background-options='{"source": {
-"0px": "//images.fastspot.com/widener/740x740/1", "500px": "//images.fastspot.com/widener/500x282/1", "740px": "//images.fastspot.com/widener/740x416/1", "980px": "//images.fastspot.com/widener/980x552/1", "1220px": "//images.fastspot.com/widener/1440x617/1"}}'></div>
+"0px": "//images.fastspot.com/widener/740x740/1", "500px": "//images.fastspot.com/widener/500x282/1", "740px": "//images.fastspot.com/widener/740x416/1", "980px": "//images.fastspot.com/widener/980x552/1", "1220px": "//images.fastspot.com/widener/1220x523/1"}}'></div>
                                             <div class="collage_gallery_details">
                         <p class="collage_gallery_caption">Start by exploring the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue.</p>
                         <p class="collage_gallery_position">
@@ -957,7 +957,7 @@ http://realfavicongenerator.net/favicon/grunt -->
                                               
 
 <div class="js-background collage_gallery_background" data-background-options='{"source": {
-"0px": "//images.fastspot.com/widener/740x740/3", "500px": "//images.fastspot.com/widener/500x282/3", "740px": "//images.fastspot.com/widener/740x416/3", "980px": "//images.fastspot.com/widener/980x552/3", "1220px": "//images.fastspot.com/widener/1440x617/3"}}'></div>
+"0px": "//images.fastspot.com/widener/740x740/3", "500px": "//images.fastspot.com/widener/500x282/3", "740px": "//images.fastspot.com/widener/740x416/3", "980px": "//images.fastspot.com/widener/980x552/3", "1220px": "//images.fastspot.com/widener/1220x523/3"}}'></div>
                                             <div class="collage_gallery_details">
                         <p class="collage_gallery_caption">Start by exploring the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue.</p>
                         <p class="collage_gallery_position">
@@ -973,7 +973,7 @@ http://realfavicongenerator.net/favicon/grunt -->
                                               
 
 <div class="js-background collage_gallery_background" data-background-options='{"source": {
-"0px": "//images.fastspot.com/widener/740x740/4", "500px": "//images.fastspot.com/widener/500x282/4", "740px": "//images.fastspot.com/widener/740x416/4", "980px": "//images.fastspot.com/widener/980x552/4", "1220px": "//images.fastspot.com/widener/1440x617/4"}}'></div>
+"0px": "//images.fastspot.com/widener/740x740/4", "500px": "//images.fastspot.com/widener/500x282/4", "740px": "//images.fastspot.com/widener/740x416/4", "980px": "//images.fastspot.com/widener/980x552/4", "1220px": "//images.fastspot.com/widener/1220x523/4"}}'></div>
                                             <div class="collage_gallery_details">
                         <p class="collage_gallery_caption">Start by exploring the possibilities that we offer – from 45 undergraduate majors to millions of dollars in financial aid. Lorem dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a augue.</p>
                         <p class="collage_gallery_position">
@@ -1009,6 +1009,7 @@ http://realfavicongenerator.net/favicon/grunt -->
       "contained": false,
       "controls": false,
       "show": {
+        "0px": 1,
         "740px": 2,
         "980px": 3,
         "1260px": 4
@@ -1367,14 +1368,30 @@ http://realfavicongenerator.net/favicon/grunt -->
 		<div class="js-navigation mobile_sidebar" id="mobile_sidebar" hidden data-navigation-handle=".js-nav_handle" data-navigation-content=".js-navigation_push" data-navigation-options='{"type": "overlay", "gravity": "right"}'>
 			<div class="mobile_sidebar_ribbon">
 				<a class="apply_button apply_button_sm" href="">Apply Now</a>
-				<a class="mini_search mini_search_sm" href="#">
+				<!-- <a class="mini_search mini_search_sm" href="#">
 					<span class="mini_search_label">Search</span>
 					<span class="mini_search_icon">			<svg class="symbol symbol_search">
 			<use xlink:href="#search"></use>
 		</svg>
 	</span>
-				</a>
+				</a> -->
 			</div>
+
+			<div class="site_search site_search_sm" id="search_sm" itemscope itemtype="http://schema.org/WebSite" role="search">
+	<meta itemprop="url" content="//http://www.widener.edu/">
+	<form class="site_search_form" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
+		<meta itemprop="target" content="//http://www.widener.edu//search?q={search_term_string}">
+		<label class="site_search_label" for="search_term_string_sm">Search</label>
+		<input class="site_search_input" itemprop="query-input" type="text" id="search_term_string_sm" name="search_term_string_sm" placeholder="Search" required aria-required="true">
+		<button class="site_search_button" type="submit" title="submit" aria-label="submit">
+			<span class="site_search_button_label">submit</span>
+			<span class="site_search_button_icon">			<svg class="symbol symbol_search">
+			<use xlink:href="#search"></use>
+		</svg>
+	</span>
+		</button>
+	</form>
+</div>
 
 			<nav class="js-main-nav main_nav main_nav_sm" aria-label="" itemscope itemtype="http://schema.org/SiteNavigationElement">
 		<div class="main_nav_list" role="navigation">
@@ -1555,7 +1572,7 @@ http://realfavicongenerator.net/favicon/grunt -->
 
 			<div class="mobile_sidebar_group">
 				<div class="persona persona_sm">
-  <button class="persona_switch">
+  <button class="js-swap persona_switch" data-swap-target=".persona_links">
     <span class="persona_switch_label">Information For</span>
     <span class="persona_switch_icon">			<svg class="symbol symbol_caret_down">
 			<use xlink:href="#caret_down"></use>

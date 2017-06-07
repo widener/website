@@ -3,13 +3,18 @@
 ============================================================================= */
 
 .fs-carousel {
+	width: 100%;
+
 	position: relative;
 
 	&-rtl {
 		direction: rtl;
 	}
 
-	&-viewport {
+	&-viewport,
+	&-wrapper,
+	&-container,
+	&-canister {
 		position: relative;
 	}
 

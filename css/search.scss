@@ -139,19 +139,38 @@
 // =============================================================================
 
 .site_search {
-	position: absolute;
-	top: 0;
-	right: 40px;
+	position: relative;
 
-	opacity: 0;
-	pointer-events: none;
-	transform:
-		translate(10px, 0)
-		scale(.85);
-	transform-origin: right center;
-	transition:
-		opacity .25s,
-		transform .25s;
+	@media #{$min_lg} {
+		position: absolute;
+		top: 0;
+		right: 40px;
+
+		opacity: 0;
+		pointer-events: none;
+		transform:
+			translate(10px, 0)
+			scale(.85);
+		transform-origin: right center;
+		transition:
+			opacity .25s,
+			transform .25s;
+	}
+
+	&_sm {
+
+		@media #{$min_lg} {
+			display: none;
+		}
+	}
+
+	&_lg {
+		display: none;
+
+		@media #{$min_lg} {
+			display: block;
+		}
+	}
 
 	&.swap-active {
 		opacity: 1;
@@ -190,14 +209,19 @@
 
 		.site_search_button {
 			height: 100%;
-			width: 40px;
+			width: 90px;
 
 			position: absolute;
 			top: 0;
 			right: 0;
 
+			color: $black;
 			cursor: pointer;
 			transition: color .25s;
+
+			@media #{$min_lg} {
+				width: 40px;
+			}
 
 			&:focus,
 			&:hover {
@@ -216,5 +240,12 @@
 
 				color: inherit;
 				pointer-events: none;
-				transform: translate(-50%, -50%);
+				transform-origin: right center;
+				transform:
+					translate(-50%, -50%)
+					scale(.85);
+
+				@media #{$min_lg} {
+					transform: translate(-50%, -50%);
+				}
 			}

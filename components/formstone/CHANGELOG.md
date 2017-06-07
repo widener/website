@@ -2,17 +2,6 @@
 
 <!-- -->
 
-### 1.3.3
-
-* Added compiled theme files for each component
-* Fixed issue with un-contained Carousel item focus
-
-### 1.3.2
-
-* Fixed issue with Viewer in Lightbox (Thanks @mackensen!)
-* Fixed issue with inline content in Lightbox
-* Fixed issue with focus in Lightbox
-
 ### 1.3.1
 
 * Added viewport and gesture locking for touch based components

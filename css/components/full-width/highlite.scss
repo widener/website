@@ -15,7 +15,7 @@
 }
 
   .highlite_background {
-    height: 300px;
+    padding-top: 60%;
 
     @media print {
       display: none;
@@ -28,6 +28,8 @@
       position: absolute;
       top: 0;
       left: 0;
+
+      padding-top: 0;
     }
   }
 
@@ -42,11 +44,7 @@
 
     @media #{$min_md} {
       margin-top: 0;
-      padding-top: 200px;
-    }
-
-    @media #{$min_lg} {
-      padding-top: 260px;
+      padding-top: 25%;
     }
   }
 

@@ -251,6 +251,14 @@
 
   .collage_gallery_inner {
     position: relative;
+
+    @media #{$min_xl} {
+      padding: 0 40px;
+    }
+
+    @media screen and (min-width: 1400px) {
+      padding: 0 80px;
+    }
   }
 
     .collage_gallery_header {

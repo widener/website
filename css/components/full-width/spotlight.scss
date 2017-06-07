@@ -250,6 +250,10 @@
       opacity .25s,
       visibility .25s;
 
+    @media #{$min_md} {
+      padding-top: 55%;
+    }
+
     @media #{$min_lg} {
       padding-top: 45%;
     }
