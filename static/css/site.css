@@ -4181,6 +4181,7 @@ body:not(.layout_home) .page_content {
   z-index: 400;
   background: #fff;
   opacity: 0;
+  overflow-y: auto;
   padding: 20px 0;
   pointer-events: none;
   visibility: hidden;
@@ -4262,7 +4263,18 @@ body:not(.layout_home) .page_content {
   position: absolute;
   bottom: 0;
   left: 0;
-  color: #FFDA00; }
+  color: #FFDA00;
+  -webkit-transform-origin: left top;
+      -ms-transform-origin: left top;
+          transform-origin: left top;
+  -webkit-transform: scale(0.75);
+      -ms-transform: scale(0.75);
+          transform: scale(0.75); }
+  @media screen and (min-width: 740px) {
+    .collage_gallery_carousel .fs-carousel-controls {
+      -webkit-transform: scale(1);
+          -ms-transform: scale(1);
+              transform: scale(1); } }
   @media screen and (min-width: 1500px) {
     .collage_gallery_carousel .fs-carousel-controls {
       left: -40px; } }
@@ -4280,11 +4292,13 @@ body:not(.layout_home) .page_content {
 
 .collage_gallery_image iframe {
   height: 70vh;
+  min-height: 240px;
   width: 100%;
   margin-bottom: 40px; }
 
 .collage_gallery_background {
   height: 70vh;
+  min-height: 240px;
   margin-bottom: 40px; }
 
 .collage_gallery_details {
@@ -4303,12 +4317,15 @@ body:not(.layout_home) .page_content {
   line-height: 1.53333;
   color: #00244F;
   padding-right: 20px;
-  padding-left: 110px; }
+  padding-left: 80px; }
   @media screen and (min-width: 980px) {
     .collage_gallery_caption {
       font-size: 18px;
       font-size: 1.125rem;
       line-height: 1.44444; } }
+  @media screen and (min-width: 740px) {
+    .collage_gallery_caption {
+      padding-left: 110px; } }
   @media screen and (min-width: 1500px) {
     .collage_gallery_caption {
       padding-left: 70px; } }
