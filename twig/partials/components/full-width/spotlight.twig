@@ -40,13 +40,18 @@
         <div class="spotlight_panel_inner">
           <div class="row">
             <div class="spotlight_panel_body">
-              <h2 class="spotlight_panel_label">{{panel.label}}</h2>
+              <!-- <h2 class="spotlight_panel_label">{{panel.label}}</h2> -->
               <h3 class="spotlight_panel_title">
                 <a class="spotlight_panel_title_link" href="#">
                   <span class="spotlight_panel_title_label">{{panel.title}}</span>
                   <span class="spotlight_panel_title_icon">{{site.symbol("caret_right")}}</span>
                 </a>
               </h3>
+              {% if panel.caption %}
+                <div class="spotlight_panel_caption">
+                  <p>{{panel.caption}}</p>
+                </div>
+              {% endif %}
               <a class="spotlight_panel_link" href="#">{{panel.link}}</a>
             </div>
           </div>

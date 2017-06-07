@@ -343,7 +343,6 @@
           @include h1;
 
           color: #fff;
-          margin: 0;
 
           @media #{$min_md} {
             margin-bottom: 15px;
@@ -367,6 +366,23 @@
                 display: none;
               }
             }
+
+        .spotlight_panel_caption {
+          @include body_text;
+
+          color: #fff;
+          margin-top: 10px;
+
+          @media #{$min_md} {
+            margin-top: -5px;
+            margin-bottom: 20px;
+          }
+
+          p {
+            color: inherit;
+            margin: 0;
+          }
+        }
 
         .spotlight_panel_link {
           @include button_inline;

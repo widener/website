@@ -7258,8 +7258,7 @@ body:not(.layout_home) .page_content {
   font-size: 36px;
   font-size: 2.25rem;
   line-height: 1.05556;
-  color: #fff;
-  margin: 0; }
+  color: #fff; }
   @media screen and (min-width: 740px) {
     .spotlight_panel_title {
       font-size: 48px;
@@ -7284,6 +7283,27 @@ body:not(.layout_home) .page_content {
   @media screen and (min-width: 980px) {
     .spotlight_panel_title_icon {
       display: none; } }
+
+.spotlight_panel_caption {
+  font-family: "LinotypeUniversW01-Ligh_723631", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.53333;
+  color: #fff;
+  margin-top: 10px; }
+  @media screen and (min-width: 980px) {
+    .spotlight_panel_caption {
+      font-size: 18px;
+      font-size: 1.125rem;
+      line-height: 1.44444; } }
+  @media screen and (min-width: 740px) {
+    .spotlight_panel_caption {
+      margin-top: -5px;
+      margin-bottom: 20px; } }
+  .spotlight_panel_caption p {
+    color: inherit;
+    margin: 0; }
 
 .spotlight_panel_link {
   font-family: "LinotypeUniversW01-Ligh_723631", sans-serif;
