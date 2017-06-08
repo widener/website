@@ -11,7 +11,7 @@
               {{site.image("news_highlight", img.wide.xsml, highlight.image)}}
             </a>
             <div class="news_highlight_body">
-              <time class="news_highlight_date">{{highlight.date}}</time>
+              <span class="news_highlight_date">{{highlight.date}}</span>
               <h3 class="news_highlight_title">
                 <a class="news_highlight_title_link" href="#">{{highlight.title}}</a>
               </h3>
@@ -24,7 +24,7 @@
           <div class="news_list">
             {% for article in articles %}
               <article class="news_item">
-                <time class="news_item_date">{{article.date}}</time>
+                <span class="news_item_date">{{article.date}}</span>
                 <div class="news_item_body">
                   <h3 class="news_item_title">
                     {% if article.link %}

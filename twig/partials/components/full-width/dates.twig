@@ -11,10 +11,10 @@
               {{site.image("dates_highlight", img.wide.xsml, highlight.image)}}
             </a>
             <div class="dates_highlight_body">
-              <time class="dates_highlight_date">
+              <span class="dates_highlight_date">
                 <span class="dates_highlight_month">{{highlight.month}}</span>
                 <span class="dates_highlight_day">{{highlight.day}}</span>
-              </time>
+              </span>
               <h3 class="dates_highlight_title">{{highlight.title}}</h3>
               <p class="dates_highlight_caption">{{highlight.caption}}</p>
               <a class="dates_highlight_link" href="#">{{highlight.link}}</a>
@@ -25,10 +25,10 @@
           <div class="dates_list">
             {% for article in articles %}
               <article class="dates_item">
-                <time class="dates_item_date">
+                <span class="dates_item_date">
                   <span class="dates_item_month">{{article.month}}</span>
                   <span class="dates_item_day">{{article.day}}</span>
-                </time>
+                </span>
                 <div class="dates_item_body">
                   {% if article.link %}
                     <h3 class="dates_item_title">
