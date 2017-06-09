@@ -5,6 +5,7 @@
 .shoe {
 	background: $blue;
 	color: #fff;
+	clear: both;
 
 	@media print {
 		display: none;

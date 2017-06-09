@@ -423,7 +423,7 @@ html {
 body {
   min-width: 300px;
   background: inherit;
-  font: inherit;
+  font-family: inherit;
   overflow-x: hidden; }
 
 ::-moz-selection {
@@ -2097,7 +2097,8 @@ select {
 ============================================================================= */
 .shoe {
   background: #0072BC;
-  color: #fff; }
+  color: #fff;
+  clear: both; }
   @media print {
     .shoe {
       display: none; } }
