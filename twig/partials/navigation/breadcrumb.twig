@@ -4,12 +4,13 @@
 #}
 
 <div class="breadcrumb_nav{% if modifier %} breadcrumb_nav_{{modifier}}{% endif %}">
-	<div class="breadcrumb_list" itemscope itemtype="http://schema.org/BreadcrumbList">
+	<div class="row breadcrumb_list" itemscope itemtype="http://schema.org/BreadcrumbList">
 		<div class="breadcrumb_item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
 			<a class="breadcrumb_link" href="page-home.html" itemprop="item">
 				<span class="breadcrumb_name" itemprop="name">Home</span>
 			</a>
 			<meta itemprop="position" content="1">
+			<span class="breadcrumb_icon">{{site.symbol("caret_right")}}</span>
 		</div>
 		{% for link in links %}
 			<div class="breadcrumb_item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
@@ -23,6 +24,9 @@
 					</a>
 				{% endif %}
 				<meta itemprop="position" content="{{loop.index + 1}}">
+				{% if not loop.last %}
+				<span class="breadcrumb_icon">{{site.symbol("caret_right")}}</span>
+				{% endif %}
 			</div>
 		{% endfor %}
 	</div>

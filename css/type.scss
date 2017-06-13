@@ -66,7 +66,7 @@
 
 	color: inherit;
 	font-size: 11px;
-	letter-spacing: 1.3px;
+	letter-spacing: 1px;
 	line-height: (16 / 11);
 	text-transform: uppercase;
 
@@ -82,12 +82,27 @@
 
 	color: inherit;
 	font-size: 11px;
-	letter-spacing: 1.3px;
+	letter-spacing: 1px;
 	line-height: (15 / 11);
 	text-transform: uppercase;
+
+	@media #{$min_md} {
+		letter-spacing: 1.3px;
+	}
 }
 
-@mixin intro_text() {}
+@mixin intro_text() {
+	@include garamond(400);
+
+	color: inherit;
+	font-size: 20px;
+	line-height: (26 / 20);
+
+	@media #{$min_lg} {
+		font-size: 32px;
+		line-height: (42 / 32);
+	}
+}
 
 @mixin body_text() {
 	@include univers(300);
@@ -97,7 +112,7 @@
 
 	@media #{$min_lg} {
 		font-size: 18px;
-		line-height: (26 / 18);
+		line-height: (28 / 18);
 	}
 }
 
@@ -131,7 +146,11 @@ strong {
 .typography {
 	@include body_text;
 
-	h1, h2, h3, h4, h5, h6 {}
+	color: $black;
+
+	h1, h2, h3, h4, h5, h6 {
+		margin: 40px 0 10px;
+	}
 
 	h1 {
 		@include h1;
@@ -158,12 +177,32 @@ strong {
 	}
 
 	a {
+		border-bottom: 1px solid $blue;
 		transition:
+			border .25s,
+			box-shadow .25s,
 			color .25s,
 			background .25s;
 	}
 
-	p {}
+	p {
+		margin: 10px 0 20px;
+	}
+
+	b,
+	strong {
+		@include univers(700);
+	}
+
+	.intro {
+		@include intro_text;
+
+		color: $blue;
+
+		@media #{$min_md} {
+			margin-bottom: 35px;
+		}
+	}
 }
 
 
@@ -228,25 +267,106 @@ strong {
 .typography {
 
 	blockquote {
+		@include garamond(400);
+
+		color: $black;
+		font-size: 26px;
+		line-height: (36 / 26);
 		margin: 20px 0;
+
+		@media #{$min_lg} {
+			font-size: 36px;
+			line-height: (46 / 36);
+		}
 
 		p {
 			margin: 0;
 		}
 	}
 
-	.quote {}
+	.blockquote {
+		@include margined_md;
+	}
 
-		.quote_content {
+		.blockquote_mark {
+			align-items: center;
+	    color: $blue;
+	    display: flex;
+	    margin-bottom: 23px;
+			margin-left: -8px;
 
-			p {}
+	    @media print {
+	      display: none;
+	    }
+
+	    @media #{$min_md} {
+	      margin-bottom: 43px;
+	    }
+
+	    &:after {
+	      height: 2px;
+
+	      background: $yellow;
+	      content: "";
+	      flex: auto;
+	      margin-left: 25px;
+	    }
 		}
 
-		.quote_caption {}
+		.blockquote_content {
+			@include garamond(400);
 
-			.quote_caption_name {}
+			color: $black;
+			font-size: 26px;
+			line-height: (36 / 26);
+			margin-bottom: 23px;
 
-			.quote_caption_title {}
+			@media #{$min_md} {
+				margin-bottom: 33px;
+			}
+
+			@media #{$min_lg} {
+				font-size: 36px;
+				line-height: (46 / 36);
+			}
+
+			p {
+				color: inherit;
+				margin: 0;
+			}
+		}
+
+		.blockquote_cite {
+			font-style: normal;
+
+	    &:before {
+	      height: 1px;
+	      width: 30px;
+
+	      background: rgba($black, .45);
+	      content: "";
+	      display: inline-block;
+	      margin-right: 10px;
+	      vertical-align: middle;
+	    }
+		}
+
+			.blockquote_cite_label {
+				@include garamond(700);
+
+	      color: $black;
+	      font-size: 15px;
+	      letter-spacing: .5px;
+	      margin-right: 5px;
+	      text-transform: uppercase;
+			}
+
+			.blockquote_cite_year {
+				@include univers(700);
+
+	      color: $blue;
+	      font-size: 15px;
+			}
 }
 
 
@@ -257,44 +377,62 @@ strong {
 
 	ol,
 	ul {
+		@include margined_md_bottom;
+
 		list-style: none;
 
-		li {}
+		li {
+			margin-bottom: 10px;
+		}
+
+		ol,
+		ul {
+			margin: 20px 0;
+		}
 	}
 
 	ol {
-		counter-reset: listing-counter;
+		counter-reset: li;
+		padding-left: 25px;
 
 		> li {
 
 			&:before {
-				content: counter(listing-counter, decimal) ".";
+				@include univers(700);
 
-				@at-root [type="A"] & {
-					content: counter(listing-counter, upper-latin);
+				float: left;
+
+				color: $blue;
+				margin: 0 0 0 -25px;
+				content: counter(li) ". ";
+				counter-increment: li;
+
+				@at-root ol[type="A"] li:before {
+					content: counter(li, upper-latin) ". ";
 				}
 
-				@at-root [type="a"] & {
-					content: counter(listing-counter, lower-latin);
+				@at-root ol[type="a"] li:before {
+					content: counter(li, lower-latin) ". ";
 				}
 			}
 		}
 	}
 
 	ul {
+		padding-left: 22px;
 
 		li {
 
 			&:before {
-				width: 5px;
-				height: 5px;
+				width: 8px;
+				height: 8px;
 
-				background: #444;
+				background: $yellow;
 				border-radius: 50%;
 				content: "";
 				display: block;
 				float: left;
-				margin: 10px 0 0 -15px;
+				margin: 10px 0 0 -22px;
 			}
 		}
 	}
@@ -307,7 +445,7 @@ strong {
 .typography {
 
 	table {
-		@include margined;
+		@include margined_md;
 
 		width: 100%;
 
@@ -316,23 +454,30 @@ strong {
 		tr {
 
 			&:nth-child(odd) {
-				background: #fafafa;
+				background: $mist;
 			}
 		}
 
 		th,
-		td {
-			padding: 10px 20px;
-		}
+		td {}
 
 		th {
 			@include h6;
 
-			background: $gray_10;
+			background: $blue;
+			color: #fff;
+			padding: 18px 20px 17px;
 			text-align: left;
 		}
 
-		td {}
+		td {
+			color: $black;
+			padding: 13px 20px 12px;
+
+			&:not(:last-child) {
+				border-right: 1px solid rgba($black, .1);
+			}
+		}
 	}
 }
 

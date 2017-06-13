@@ -20,32 +20,27 @@
 #}
 
 <div class="media_gallery{% if theme %} theme_{{theme}}{% endif %}">
-	{% if title %}
-		<header class="media_gallery_header">
-			<h2 class="media_gallery_title">{{title}}</h2>
-		</header>
-	{% endif %}
 	<div class="media_gallery_body">
 		<div class="js-carousel media_gallery_items" data-carousel-options='{"theme": "base_pagination", "contained": false, "matchHeight": true}'>
 			{% for item in items %}
-				<div class="media_gallery_item{% if item.caption is empty %} no_caption{% endif %}{% if item.video %} video{% endif %}">
-					<figure class="media_gallery_figure" role="group"{% if item.caption %} aria-label="{{item.caption|striptags}}"{% endif %}>
-						{% if item.video %}<a class="js-lightbox media_item_link" href="{{item.video}}" title="{{item.caption|striptags}}">{% endif %}
+				<div class="media_gallery_item">
+					<figure class="media_gallery_figure" role="group">
+						<a class="js-lightbox media_gallery_item_link" href="{{item.video}}" title="{{item.label|striptags}}">
 							{% include "../shared/picture.twig" with {
 								class: "media_gallery",
 								sources: {
-									"1220px": img.wide.med
+									"0px": "530x300"
 								},
-								fallback: img.wide.med,
+								fallback: "530x300",
 								image: item.image
 							} %}
-							<span class="media_gallery_symbol">{{site.symbol(symbol)}}</span>
-						{% if item.video %}</a>{% endif %}
-						{% if item.caption %}
-							<figcaption class="media_gallery_figcaption">
-								<p>{{item.caption}}</p>
+							<figcaption class="media_gallery_details">
+								<span class="media_gallery_play_wrapper">
+									<span class="media_gallery_play">{{site.symbol("play")}}</span>
+								</span>
+								<h4 class="media_gallery_label">{{item.label}}</h4>
 							</figcaption>
-						{% endif %}
+						</a>
 					</figure>
 				</div>
 			{% endfor %}

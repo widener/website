@@ -1,0 +1,44 @@
+/* ==========================================================================
+	Discover
+============================================================================= */
+
+.discover {
+  @include margined_lg;
+
+  align-items: center;
+  display: flex;
+  text-align: center;
+
+  &:before,
+  &:after {
+    height: 1px;
+
+    background: $mist;
+    content: "";
+    flex: auto;
+  }
+
+  &:before {
+    margin-right: 10px;
+
+    @media #{$min_md} {
+      margin-right: 20px;
+    }
+  }
+
+  &:after {
+    margin-left: 14px;
+
+    @media #{$min_md} {
+      margin-left: 24px;
+    }
+  }
+}
+
+  .discover_button {
+    @include button_inline;
+    @include button_color($black, $blue);
+
+    margin-right: 0;
+    margin-bottom: 0;
+  }

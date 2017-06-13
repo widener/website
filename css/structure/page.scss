@@ -17,6 +17,16 @@
 			body:not(.layout_home) & {
 				padding-top: 10px;
 			}
+
+			.row {
+
+				.layout_featured & {
+
+					@media #{$min_lg} {
+						max-width: 910px + ($space * 2);
+					}
+				}
+			}
 		}
 
 			.aside_cell {
@@ -55,10 +65,26 @@
 				@media #{$min_xl} {
 					width: percentage(9 / 12);
 				}
+
+				.layout_featured & {
+					width: 100%;
+
+					float: none;
+
+					padding-left: 0;
+				}
 			}
 
 				.main_content {
 					@include focus_outline_none;
+
+					.layout_featured & {
+						@include padded_bottom;
+
+						@media #{$min_md} {
+							padding-bottom: 0;
+						}
+					}
 				}
 
 					.page_header {
@@ -138,6 +164,39 @@
 								}
 							}
 						}
+
+					.content_aside {
+
+						@media print {
+							display: none;
+						}
+
+						&_lg {
+
+							@media #{$min_md} {
+								width: 340px;
+
+								float: right;
+
+								margin-left: 30px;
+							}
+
+							@media #{$min_lg} {
+								width: 500px;
+							}
+
+							@media #{$min_xl} {
+								width: 540px;
+
+								margin-right: -100px;
+							}
+
+							@media screen and (min-width: 1400px) {
+								margin-right: -170px;
+								margin-left: 60px;
+							}
+						}
+					}
 
 					.in_content_callouts {
 

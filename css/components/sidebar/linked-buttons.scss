@@ -1,0 +1,55 @@
+/* ==========================================================================
+  Linked Buttons
+============================================================================= */
+
+.linked_buttons {
+  background: $black;
+  margin-bottom: 20px;
+  padding: 30px 20px 20px;
+  text-align: center;
+
+  @media #{$min_md} {
+    padding-bottom: 16px;
+  }
+
+  &_sm {
+
+    @media #{$min_md} {
+      display: none;
+    }
+  }
+
+  &_lg {
+    display: none;
+
+    @media #{$min_md} {
+      display: block;
+    }
+  }
+}
+
+  .linked_buttons_body {}
+
+    .linked_buttons_group {
+
+      @media #{$min_lg} {
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+
+      .linked_buttons_item {
+
+        @media #{$min_lg} {
+          display: inline-block;
+        }
+
+        &:before {
+          display: none;
+        }
+      }
+
+        .linked_buttons_link {
+          @include button_inline;
+          @include button-theme-alternate($text: #fff);
+        }

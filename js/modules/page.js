@@ -123,6 +123,23 @@ Site.modules.Page = (function($, Site) {
 			});
 
 
+		// Media Gallery
+
+		if($(".media_gallery_items").length) {
+			$(".media_gallery_items").equalize({
+				target: ".media_gallery_label"
+			});
+
+			var height = $(".media_gallery_label").css("height");
+			height = height.replace("px", "");
+			height = parseInt(height) + 30;
+
+			$(".media_gallery .fs-carousel-controls").css("margin-top", height);
+
+
+		}
+
+
 		// Analytics
 
 		$.analytics({

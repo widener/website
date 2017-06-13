@@ -64,7 +64,9 @@
 
 		color: currentColor;
 		opacity: .25;
-		transition: opacity .25s;
+		transition:
+			background .25s,
+			opacity .25s;
 
 		&:focus,
 		&:hover {}

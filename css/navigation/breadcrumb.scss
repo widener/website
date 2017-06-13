@@ -2,7 +2,9 @@
 	Breadcrumb Navigation
 ============================================================================= */
 
-.breadcrumb_nav {}
+.breadcrumb_nav {
+	background: #eee;
+}
 
 
 // Breadcrumb Links
@@ -10,30 +12,41 @@
 
 .breadcrumb_list {
 	overflow-x: auto;
+	padding: 17px 30px 16px;
 	white-space: nowrap;
 }
 
 	.breadcrumb_item {
 		display: inline-block;
-
-		&:not(:last-child) {
-
-			&:after {
-				content: "/";
-			}
-		}
 	}
 
 		.breadcrumb_link,
 		.breadcrumb_label {
+			@include univers(400);
+
+			color: rgba($black, .6);
 			display: inline-block;
+			font-size: 15px;
 		}
 
 		.breadcrumb_link {
+			transition: color .25s;
 
 			&:focus,
 			&:active,
-			&:hover {}
+			&:hover {
+				color: $blue;
+			}
 		}
 
-		.breadcrumb_label {}
+		.breadcrumb_label {
+			color: $black;
+		}
+
+		.breadcrumb_icon {
+			color: $blue;
+			display: inline-block;
+			margin: -4px 4px 0;
+			vertical-align: middle;
+			transform: scale(.85);
+		}

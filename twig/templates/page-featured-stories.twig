@@ -1,0 +1,238 @@
+{% extends "_base.twig" %}
+
+{% set pageTitle = "Lights, Camera, Action" %}
+{% set pageBackground = 1 %}
+
+{% block breadcrumbNavLinks %}
+	{% set breadcrumbNavLinks = [
+		"News & Events",
+		"Feature Stories",
+		pageTitle
+	] %}
+{% endblock %}
+
+{% block layout %}
+	{% set layout = "featured" %}
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block page_feature %}
+	{% include '../partials/components/feature/featured.twig' with {
+		label: "On The Job Experience",
+		image: 2
+	} %}
+{% endblock %}
+
+{% block typography %}
+	<div class="typography">
+  	<p class="intro">Sam Devecchis and Franchesca Marino are among the many communication studies students utilizing the production studio at Widener University.</p>
+	</div>
+
+	<div class="content_aside content_aside_lg">
+		{% include "../partials/components/in-content/gallery.twig" with {
+			items: [
+				{
+					video: "//www.youtube.com/watch?v=XPjQhvjQbSM",
+					image: 1,
+					label: "Communication Studies At Widener University"
+				},
+				{
+					video: "//www.youtube.com/watch?v=XPjQhvjQbSM",
+					image: 2,
+					label: "Study Programs at Widener"
+				}
+			]
+		} %}
+
+		{% include '../partials/components/sidebar/linked-list.twig' with {
+			theme: "full",
+			modifier: "lg",
+	    title: "Related Links",
+	    links: [
+	      {
+	        href: "#",
+	        name: "Communication Studies"
+	      },
+	      {
+	        href: "#",
+	        name: "Digital Media Informatics"
+	      },
+	      {
+	        href: "#",
+	        name: "Media Organizations"
+	      },
+	      {
+	        href: "#",
+	        name: "More Feature Stories"
+	      }
+	    ]
+	  } %}
+
+		{% include '../partials/components/sidebar/linked-buttons.twig' with {
+			modifier: "lg",
+	    links: [
+	      {
+					theme: "yellow",
+	        href: "#",
+	        name: "Apply Now"
+	      },
+	      {
+					theme: "orange",
+	        href: "#",
+	        name: "Request Info"
+	      },
+	      {
+					theme: "green",
+	        href: "#",
+	        name: "Plan a Visit"
+	      }
+	    ]
+	  } %}
+	</div>
+
+	<div class="typography">
+	  <p>Located in <a href="#">Freedom Hall</a>, which officially opened in 2013, the state-of-the-art television studio has become a home for communication studies and digital media informatics majors to explore areas of television, film, and sports production in a professional atmosphere. With a studio complete with floor to ceiling windows, a cyclorama wall–or green screen–, HD television cameras, LED lighting, a control room, editing suites, and industry standard equipment, students in communications are offered hands-on, real-world experience during their time at Widener.</p>
+
+	  <p>“This is the only way to really learn the material and really learn what you’re doing,” said Devecchis, a sophomore communication studies major with a concentration in film studies. “The tools in this room and the equipment in this studio are 100% essential.”</p>
+
+	  <p>With communications being a competitive industry, media productions coordinator and senior lecturer at Widener, Timothy Scepansky feels, “It’s important for students to not only complete their coursework, but also do extracurricular work experience to hone their skills so they’re ready for the career field when they graduate, not after they graduate.”</p>
+
+	  <p>In addition to <a href="#">curriculum courses</a> and <a href="#">concentrations</a>, Widener offers an array of <a href="#">clubs and organizations</a> for students to be involved in as early as their freshman year that allow the opportunity to produce real-world work in the professional studio. These organizations include The <a href="#">Blue & Gold</a>, <a href="#">Widecast Radio</a>, <a href="#">WUTV</a>, WUFilms, and WUSports. Each extracurricular is produced and run by students, which Scepansky believes allows students to take the lead as they will in their professional careers.</p>
+
+	  <p>“We really have to depend on each other and know how to communicate with each other effectively to get the production going. We become professionals ourselves, so when we go out in the real world, we can be professional,” Devecchis said.</p>
+
+	  <h5>Related Ordered List</h5>
+	  <ul>
+	    <li>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
+	    <li>Aenean lacinia bibendum nulla sed consectetur.</li>
+	    <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</li>
+	    <li>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient.</li>
+	    <li>Donec id elit non mi porta gravida at eget metus.</li>
+	  </ul>
+
+	  <p>Marino, as a freshman, is a communication studies and marketing double major as well as an anchor for WUTV, Widener’s student-run television production. As a new member to the communications family, she believes the production studio not only prepares students for their futures, but also “gives students a chance to be someone.”</p>
+
+	  <figure class="blockquote">
+	    <span class="blockquote_mark">{{site.symbol("quote")}}</span>
+	    <blockquote class="blockquote_content">
+	      <p>We like our students to model what they want to be while they’re in school, and really the best way to do that is to utilize the professional production studio that we have here.</p>
+	    </blockquote>
+	    <figcaption class="blockquote_cite">
+	      <span class="blockquote_cite_label">Sam Devecchis</span>
+	      <span class="blockquote_cite_year">‘17</span>
+	    </figcaption>
+	  </figure>
+
+	  <p>Through the communication studies program, students have the opportunity to become film directors, editors, screenwriters, producers, technicians, and on-air talent during the course of their four years. Scepansky says, “We like our students to model what they want to be while they’re in school, and really the best way to do that is to utilize the professional production studio that we have here.”</p>
+
+	  <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
+	  <table>
+			<tr>
+				<th>Courses</th>
+				<th>Color</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>Digital Media</td>
+				<td>Red</td>
+				<td>Sed posuere consectetur est at lobortis.</td>
+			</tr>
+			<tr>
+				<td>Informatics</td>
+				<td>Orange</td>
+				<td>Maecenas sed diam eget risus varius blandit sit.</td>
+			</tr>
+			<tr>
+				<td>Communications</td>
+				<td>Yellow</td>
+				<td>Duis mollis, est non commodo luctus.</td>
+			</tr>
+			<tr>
+				<td>Digital Media</td>
+				<td>Green</td>
+				<td>Cum sociis natoque penatibus et magnis dis.</td>
+			</tr>
+			<tr>
+				<td>Digital Media</td>
+				<td>Blue</td>
+				<td>Aenean eu leo quam. Pellentesque ornare sem.</td>
+			</tr>
+		</table>
+
+	  <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
+	  <h5>Related Unordered List</h5>
+	  <ol>
+	    <li>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
+	    <li>Aenean lacinia bibendum nulla sed consectetur.</li>
+	    <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</li>
+	    <li>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient.</li>
+	    <li>Donec id elit non mi porta gravida at eget metus.</li>
+	  </ol>
+
+	  <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum.</p>
+
+	  <p>Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis.</p>
+	</div>
+
+	<div class="content_aside content_aside_sm">
+		{% include '../partials/components/in-content/discover.twig' %}
+
+		{% include '../partials/components/sidebar/linked-list.twig' with {
+			theme: "full",
+			modifier: "sm",
+	    title: "Related Links",
+	    links: [
+	      {
+	        href: "#",
+	        name: "Communication Studies"
+	      },
+	      {
+	        href: "#",
+	        name: "Digital Media Informatics"
+	      },
+	      {
+	        href: "#",
+	        name: "Media Organizations"
+	      },
+	      {
+	        href: "#",
+	        name: "More Feature Stories"
+	      }
+	    ]
+	  } %}
+
+		{% include '../partials/components/sidebar/linked-buttons.twig' with {
+			modifier: "sm",
+	    links: [
+	      {
+					theme: "yellow",
+	        href: "#",
+	        name: "Apply Now"
+	      },
+	      {
+					theme: "orange",
+	        href: "#",
+	        name: "Request Info"
+	      },
+	      {
+					theme: "green",
+	        href: "#",
+	        name: "Plan a Visit"
+	      }
+	    ]
+	  } %}
+	</div>
+{% endblock %}
+
+{% block in_content_callouts %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block full_width_callouts %}
+{% endblock %}

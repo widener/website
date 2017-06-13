@@ -6,12 +6,43 @@
   background: #eee;
   border-left: 5px solid $yellow;
   margin-bottom: 20px;
-  padding: 30px 0 20px;
+  padding: 28px 0 26px;
+
+  &_sm {
+
+    @media #{$min_md} {
+      display: none;
+    }
+  }
+
+  &_lg {
+    display: none;
+
+    @media #{$min_md} {
+      display: block;
+    }
+  }
+
+  &.theme_full {
+    background: $blue;
+    border-left: 0;
+
+    @media #{$min_lg} {
+      padding-bottom: 16px;
+    }
+  }
 }
 
   .linked_list_header {
     margin-bottom: 10px;
     padding: 0 25px;
+
+    .theme_full & {
+
+      @media #{$min_lg} {
+        margin-bottom: 0;
+      }
+    }
   }
 
     .linked_list_title {
@@ -19,6 +50,10 @@
 
       color: $black;
       font-size: 12px;
+
+      .theme_full & {
+        color: #fff;
+      }
     }
 
 
@@ -29,7 +64,63 @@
 
   .linked_list_group {}
 
-    .linked_list_item {}
+    .linked_list_item {
+
+      .theme_full & {
+
+        @media #{$min_lg} {
+          width: 49.25%;
+
+          position: relative;
+
+          display: inline-block;
+          vertical-align: top;
+        }
+
+        &:after {
+
+          @media #{$min_lg} {
+            position: absolute;
+            bottom: 0;
+            left: 25px;
+
+            border-bottom: 1px solid rgba(#fff, .25);
+            content: "";
+          }
+        }
+
+        &:nth-of-type(odd) {
+
+          &:after {
+
+            @media #{$min_lg} {
+              width: calc(100% - 25px);
+            }
+          }
+        }
+
+        &:nth-of-type(even) {
+
+          &:after {
+
+            @media #{$min_lg} {
+              width: calc(100% - 50px);
+            }
+          }
+        }
+
+        &:nth-last-child(1),
+        &:nth-last-child(2) {
+
+          &:after {
+
+            @media #{$min_lg} {
+              display: none;
+            }
+          }
+        }
+      }
+    }
 
       .linked_list_link {
         @include univers(400);
@@ -44,6 +135,20 @@
         &:hover {
           color: $blue;
         }
+
+        .theme_full & {
+          color: #fff;
+          color: rgba(#fff, .8);
+
+          @media #{$min_lg} {
+            padding: 20px 25px;
+          }
+
+          &:focus,
+          &:hover {
+            color: #fff;
+          }
+        }
       }
 
         .linked_list_link_label {
@@ -56,4 +161,13 @@
           color: $blue;
           display: inline-block;
           vertical-align: middle;
+
+          .linked_list_link:focus &,
+          .linked_list_link:hover & {
+            animation: pinch 1s infinite;
+          }
+
+          .theme_full & {
+            color: $yellow;
+          }
         }

@@ -37,8 +37,8 @@
 		<link rel="stylesheet" href="http://www.widener.edu/_resources/css/reset.css" media="screen">
 		<link rel="stylesheet" href="http://www.widener.edu/_resources/css/style.css" media="screen">
 		<link rel="stylesheet" href="http://www.widener.edu/_resources/css/print.css" media="print">
-		<link rel="stylesheet" href="../css/site.css" media="screen">
-		<link rel="stylesheet" href="../css/fonts.css" media="screen">
+		<link rel="stylesheet" href="../css/site.css">
+		<link rel="stylesheet" href="../css/fonts.css">
 	</head>
 
 	{% block layout %}
@@ -191,26 +191,35 @@
 			{% block pageContent %}
 				<!-- Page -->
 				<div class="page">
+					{% if layout == "featured" %}
+						{% include "../partials/navigation/breadcrumb.twig" with {
+							links: breadcrumbNavLinks
+						} %}
+					{% endif %}
 					<!-- Page Feature -->
 					<div class="page_feature">
-						<div class="page_header">
-							<div class="row">
-								{% if layout == "full" %}
-									{% if pageTitle %}
-										{% include "../partials/components/shared/background.twig" with {
-											class: "page_header",
-											image: pageBackground,
-											sources: {
-												"0px": img.classic.sml,
-												"740px": img.classic.med,
-												"980px": img.ultrawide.lrg
-											}
-										} %}
-										<h1 class="page_title" id="page_title">{{pageTitle}}</h1>
+						{% block page_header %}
+							<div class="page_header">
+								<div class="row">
+									{% if layout == "full" %}
+										{% if pageTitle %}
+											{% include "../partials/components/shared/background.twig" with {
+												class: "page_header",
+												image: pageBackground,
+												sources: {
+													"0px": img.classic.sml,
+													"740px": img.classic.med,
+													"980px": img.ultrawide.lrg
+												}
+											} %}
+											<h1 class="page_title" id="page_title">{{pageTitle}}</h1>
+										{% endif %}
 									{% endif %}
-								{% endif %}
+								</div>
 							</div>
-						</div>
+						{% endblock %}
+						{% block page_feature %}
+						{% endblock %}
 					</div>
 					<!-- END: Page Feature -->
 
@@ -254,9 +263,7 @@
 									{% endif %}
 
 									<!-- WYSIWYG - wrap all WYSIWYG text areas in `.typography` -->
-									<div class="typography">
-										{% block typography %}{% endblock %}
-									</div>
+									{% block typography %}{% endblock %}
 									<!-- END: WYSIWYG -->
 
 									<!-- In Content Callouts -->

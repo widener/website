@@ -1,0 +1,53 @@
+{% macro share(class) %}
+  <div class="featured_share featured_share_{{class}}">
+    <h3 class="featured_share_title">Share</h3>
+    {% set shareList = [
+      {
+        icon: "facebook",
+        label: "Facebook"
+      },
+      {
+        icon: "twitter",
+        label: "Twitter"
+      },
+      {
+        icon: "link",
+        label: "Link"
+      }
+    ] %}
+    <ol class="featured_share_list">
+      {% for item in shareList %}
+        <li class="featured_share_item">
+          <a href="#" class="featured_share_link">
+            <span class="featured_share_icon">
+              <svg class="symbol symbol_{{item.icon}}">
+          			<use xlink:href="#{{item.icon}}"></use>
+          		</svg>
+            </span>
+            <span class="featured_share_label">{{item.label}}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+{% endmacro %}
+
+{% import _self as featured %}
+
+<div class="featured">
+  <div class="row">
+    <header class="featured_header">
+      <div class="featured_header_inner">
+        <h1 class="featured_label">{{label}}</h1>
+        <h2 class="featured_title">{{pageTitle}}</h2>
+      </div>
+      {{featured.share("lg")}}
+    </header>
+    <div class="featured_body">
+      {{site.image("featured", img.classic.med, image)}}
+    </div>
+    <footer class="featured_footer">
+      {{featured.share("sm")}}
+    </footer>
+  </div>
+</div>

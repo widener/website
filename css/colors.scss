@@ -77,12 +77,12 @@ $theme_colors: (
 	}
 }
 
-@mixin button-theme-alternate($list: $theme_colors, $style: "color") {
+@mixin button-theme-alternate($list: $theme_colors, $text: $black) {
 
 	@each $label, $color in $list {
 
 		&.theme_#{$label} {
-			@include button_color($black, $color);
+			@include button_color($text, $color);
 		}
 	}
 }
