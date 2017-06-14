@@ -3,7 +3,14 @@
 ============================================================================= */
 
 .breadcrumb_nav {
+	@include max-row;
+
 	background: #eee;
+	display: none;
+
+	@media #{$min_lg} {
+		display: block;
+	}
 }
 
 

@@ -2849,7 +2849,13 @@ body:not(.layout_home) .page_content {
 	Breadcrumb Navigation
 ============================================================================= */
 .breadcrumb_nav {
-  background: #eee; }
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #eee;
+  display: none; }
+  @media screen and (min-width: 980px) {
+    .breadcrumb_nav {
+      display: block; } }
 
 .breadcrumb_list {
   overflow-x: auto;
