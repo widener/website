@@ -3950,7 +3950,7 @@ body:not(.layout_home) .page_content {
   position: relative; }
   @media screen and (min-width: 980px) {
     .featured_header {
-      padding-right: 200px; } }
+      padding-right: 280px; } }
 
 .featured_label {
   font-family: "LinotypeUniversW01-Ligh_723631", sans-serif;
@@ -3964,6 +3964,7 @@ body:not(.layout_home) .page_content {
   line-height: 1.45455;
   text-transform: uppercase;
   color: #fff;
+  display: inline-block;
   margin: 0; }
   @media screen and (min-width: 740px) {
     .featured_label {
@@ -3974,7 +3975,7 @@ body:not(.layout_home) .page_content {
       line-height: 1.375; } }
   .featured_label:after {
     height: 3px;
-    width: 70px;
+    width: 100%;
     background: #FFDA00;
     content: "";
     display: block;
@@ -3983,7 +3984,6 @@ body:not(.layout_home) .page_content {
     @media screen and (min-width: 980px) {
       .featured_label:after {
         height: 5px;
-        width: 105px;
         margin-top: 20px;
         margin-bottom: 20px; } }
 
@@ -9114,6 +9114,7 @@ body:not(.layout_home) .page_content {
       .fs-lightbox .fs-lightbox-content {
         padding: 20px 40px; } }
   .fs-lightbox .fs-lightbox-video_wrapper {
+    height: 100% !important;
     margin-right: auto !important;
     margin-left: auto !important; }
 

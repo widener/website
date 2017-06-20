@@ -50,7 +50,7 @@
     position: relative;
 
     @media #{$min_lg} {
-      padding-right: 200px;
+      padding-right: 280px;
     }
   }
 
@@ -60,11 +60,13 @@
         @include h5;
 
         color: #fff;
+        display: inline-block;
         margin: 0;
 
         &:after {
           height: 3px;
-          width: 70px;
+          width: 100%;
+          // width: 70px;
 
           background: $yellow;
           content: "";
@@ -74,7 +76,7 @@
 
           @media #{$min_lg} {
             height: 5px;
-            width: 105px;
+            // width: 105px;
 
             margin-top: 20px;
             margin-bottom: 20px;
