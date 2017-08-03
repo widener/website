@@ -242,9 +242,8 @@
 							<!-- Main Content -->
 							<div class="content_cell">
 								<main class="main_content" id="main_content" itemprop="mainContentOfPage">
-									{% if layout != "home" and layout != "full" %}
+									{% if layout != "home" and layout != "full" and layout != "featured" %}
 										<!-- Page Header -->
-										{% block page_header %}
 											<div class="page_header">
 												{% if pageTitle %}
 													{% include "../partials/components/shared/background.twig" with {
@@ -258,7 +257,6 @@
 													<h1 class="page_title" id="page_title">{{pageTitle}}</h1>
 												{% endif %}
 											</div>
-										{% endblock %}
 										<!-- END: Page Header -->
 									{% endif %}
 
