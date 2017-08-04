@@ -1,0 +1,103 @@
+{% extends "_base.twig" %}
+
+{% set pageTitle = "Admissions" %}
+
+{% block layout %}
+	{% set layout = "full" %}
+{% endblock %}
+
+{% block page_feature %}
+{% endblock %}
+
+{% block typography %}
+{% endblock %}
+
+{% block in_content_callouts %}
+{% endblock %}
+
+{% block full_width_callouts %}
+	{% include '../partials/components/full-width/explorer.twig' with {
+		theme: "condensed",
+		undergraduate: {
+			image: 1,
+			title: "Undergraduate",
+			caption: "Explore the possibilities. Not matter your focus, our top-ranking liberal arts programs prepare you to be a critical thinker and thoughtful leader both in and out of the classroom.",
+			links: [
+				"Visit Us",
+				"Apply Now"
+			]
+		},
+		graduate: {
+			image: 2,
+			title: "Graduate",
+			caption: "Become the leader you want to be through a flexible, academically rigorous program that meets your needs wherever you are in your career.",
+			links: [
+				"Learn More",
+				"Apply Now"
+			]
+		},
+		minis: [
+			{
+				title: "Continued Studies",
+				image: 1
+			},
+			{
+				title: "International Students",
+				image: 2
+			}
+		],
+		callout: {
+			title: "Some people are doers. Others are thinkers. At Widener, we believe that great leaders excel at being both.",
+			caption: "Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante."
+		}
+	} %}
+
+  {% include '../partials/components/full-width/announcement.twig' with {
+    label: "Next Steps",
+    title: "Already Admitted",
+    caption: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.",
+    image: 2,
+    link: "Make Your Deposit"
+  } %}
+
+  {% include '../partials/components/full-width/highlite.twig' with {
+    image: 2,
+    title: "Explore the Campus",
+    description: "The best way to get to know Widener University is by visiting us. Take advantage of the many options to get to know our campus.",
+    links: [
+      "Plan a Visit",
+      "Virtual Tour"
+    ]
+  } %}
+
+  {% include '../partials/components/full-width/stats.twig' with {
+    title: "Point of Pride",
+    theme: "condensed",
+    articles: [
+      {
+        stats: [
+          {
+            label: "top",
+            title: "10",
+            image: 1,
+            caption: "Widener is a top 10 college in the Philadelphia-area for career preparation"
+          },
+          {
+            title: "84%",
+            caption: "Majority of Widener seniors have participated in real-world, hands-on learning experiences"
+          },
+          {
+            title: "89%",
+            image: 2,
+            caption: "89 percent of grads are employed or pursuing graduate or <a href>professional studies</a> 6 months after graduation"
+          },
+          {
+            label: "top",
+            title: "20%",
+            caption: "Widener is in the top 20 percent nationally in salaries earned at mid-career"
+          }
+        ]
+      }
+    ]
+  } %}
+{% endblock %}
