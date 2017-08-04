@@ -45,6 +45,10 @@
 		{% set layout = "default" %}
 	{% endblock %}
 
+	{% block featureType %}
+		{% set featureType = "image" %}
+	{% endblock %}
+
 	<body class="layout_{{layout}}">
 
 		<figure style="display: none;">
@@ -203,15 +207,29 @@
 								<div class="row">
 									{% if layout == "full" %}
 										{% if pageTitle %}
-											{% include "../partials/components/shared/background.twig" with {
-												class: "page_header",
-												image: pageBackground,
-												sources: {
-													"0px": img.classic.sml,
-													"740px": img.classic.med,
-													"980px": img.ultrawide.lrg
-												}
-											} %}
+											{% if featureType == "image" %}
+												{% include "../partials/components/shared/background.twig" with {
+													class: "page_header",
+													image: pageBackground,
+													sources: {
+														"0px": img.classic.sml,
+														"740px": img.classic.med,
+														"980px": img.ultrawide.lrg
+													}
+												} %}
+											{% elseif featureType == "video" %}
+												{% include "../partials/components/shared/background-video.twig" with {
+													class: "page_header",
+													poster: img.classic.med,
+													image: 1,
+													sources: {
+														video: "https://www.youtube.com/watch?v=XPjQhvjQbSM",
+														webm: "http://example.com/video.webm",
+														mp4: "http://example.com/video.mp4",
+														ogg: "http://example.com/video.ogv"
+													}
+												} %}
+											{% endif %}
 											<h1 class="page_title" id="page_title">{{pageTitle}}</h1>
 										{% endif %}
 									{% endif %}
