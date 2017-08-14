@@ -33,6 +33,9 @@
                 <span class="stat_item_title_label">{{stat.label}}</span>
               {% endif %}
               <span class="stat_item_title">{{stat.title}}</span>
+              {% if stat.ending %}
+                <span class="stat_item_title_label">{{stat.ending}}</span>
+              {% endif %}
             </h3>
             {% if stat.image %}
               <a class="stat_item_figure" href="#">
