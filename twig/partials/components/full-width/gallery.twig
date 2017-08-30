@@ -50,19 +50,53 @@
       }'>
         {% for slide in gallery.slides %}
           <div class="gallery_slide">
-            {% include "../shared/background.twig" with {
-          		class: "gallery_slide",
-          		image: slide.image,
-              lazy: "true",
-          		lazyEdge: "100",
-          		sources: {
-          			"0px": img.square.sml,
-          			"500px": img.wide.xsml,
-          			"740px": img.wide.sml,
-          			"980px": img.wide.med,
-          			"1220px": img.wide.lrg
-          		}
-          	} %}
+            {% if slide.image %}
+              {% include "../shared/background.twig" with {
+            		class: "gallery_slide",
+            		image: slide.image,
+                lazy: "true",
+            		lazyEdge: "100",
+            		sources: {
+            			"0px": img.square.sml,
+            			"500px": img.wide.xsml,
+            			"740px": img.wide.sml,
+            			"980px": img.wide.med,
+            			"1220px": img.wide.lrg
+            		}
+            	} %}
+            {% elseif slide.video %}
+              <span class="gallery_slide_control">
+                <span class="gallery_slide_control_icon">{{site.symbol("play")}}</span>
+              </span>
+              {% include "../shared/background-video.twig" with {
+                class: "gallery_slide_video gallery_slide",
+                autoPlay: "false",
+                lazy: "true",
+                lazyEdge: "100",
+                loop: "false",
+                poster: img.wide.lrg,
+                image: slide.video,
+                sources: {
+                  video: "https://www.youtube.com/watch?v=XPjQhvjQbSM",
+                  webm: "http://example.com/video.webm",
+                  mp4: "http://example.com/video.mp4",
+                  ogg: "http://example.com/video.ogv"
+                }
+              } %}
+              {% include "../shared/background.twig" with {
+            		class: "gallery_slide_video_fallback gallery_slide",
+            		image: slide.image,
+                lazy: "true",
+            		lazyEdge: "100",
+            		sources: {
+            			"0px": img.square.sml,
+            			"500px": img.wide.xsml,
+            			"740px": img.wide.sml,
+            			"980px": img.wide.med,
+            			"1220px": img.wide.lrg
+            		}
+            	} %}
+            {% endif %}
             <div class="row">
               <div class="gallery_slide_details">
                 <div class="gallery_slide_details_inner">

@@ -20,6 +20,26 @@ Site.modules.Gallery = (function($, Site) {
 			$(".gallery_switches_close").trigger("click");
 		});
 
+		$(".gallery_slide_control").on("click", function() {
+			var $video = $(this).next();
+			$video.addClass("played");
+
+			if(!($video.hasClass("playing"))) {
+				$video.background("play");
+				$video.addClass("playing");
+				$(this).addClass("play-state");
+			} else {
+				$video.background("pause");
+				$video.removeClass("playing");
+				$(this).removeClass("play-state");
+			}
+		});
+
+		$(".gallery_panel").on("update.carousel", function() {
+			$(".gallery_slide_video").background("pause");
+			$(".gallery_slide_video").removeClass("playing");
+		});
+
 		Site.onResize.push(adjustGallery);
 	}
 

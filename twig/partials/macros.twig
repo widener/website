@@ -20,6 +20,28 @@
 {% endmacro %}
 
 
+{% macro table(data) %}
+	<table class="{{data.class}}">
+		<thead>
+			<tr>
+				{% for header in data.headers %}
+					<th>{{header}}</td>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			{% for row in data.rows %}
+				<tr>
+					{% for item in row %}
+						<td>{{item}}</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endmacro %}
+
+
 {#
 	{{site.button("class")}}
 #}

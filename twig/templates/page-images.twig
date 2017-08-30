@@ -1,0 +1,69 @@
+{% extends "_base.twig" %}
+
+{% set pageTitle = "Images" %}
+
+{% block page_feature %}
+{% endblock %}
+
+{% block typography %}
+  <div class="typography">
+    {{site.table({
+      headers: [
+        "Ratio Shifting Components",
+        "Breakpoints"
+      ],
+      rows: [
+        [
+          "Collage: collage_gallery_background",
+          "0px: img.square.sml,<br>
+          500px: img.wide.xsml,<br>
+          740px: img.wide.sml,<br>
+          980px: img.wide.med,<br>
+          1220px: img.ultrawide.lrg"
+        ],
+        [
+          "Explorer / Points of Pride: explorer_mini_background",
+          "0px: img.wide.xsml,<br>
+          980px: img.full.xxsml"
+        ],
+        [
+          "Highlite: highlite_background",
+          "0px: img.square.sml,<br>
+          500px: img.wide.xsml,<br>
+          740px: img.wide.sml,<br>
+          980px: img.wide.med,<br>
+          1220px: img.ultrawide.lrg"
+        ],
+        [
+          "Spotlight: spotlight_panel_background",
+          "0px: img.square.xsml,<br>
+          500px: img.wide.xsml,<br>
+          740px: img.wide.sml,<br>
+          980px: img.wide.med,<br>
+          1220px: img.wide.lrg"
+        ]
+      ]
+    })}}
+
+    {{site.table({
+      headers: [
+        "Image Size Shifting Components",
+        "Breakpoints"
+      ],
+      rows: [
+        [
+          "Explorer / Points of Pride: explorer_item_background",
+          "0px: img.square.xsml,<br>
+          740px: img.square.sml"
+        ]
+      ]
+    })}}
+  </div>
+{% endblock %}
+
+{% block in_content_callouts %}
+
+{% endblock %}
+
+{% block full_width_callouts %}
+{% endblock %}

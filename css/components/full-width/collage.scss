@@ -154,6 +154,13 @@
         display: block;
       }
     }
+
+    &:nth-child(n+5) {
+
+      @media #{$min_sm} {
+        display: none;
+      }
+    }
   }
 
     .collage_item_link {

@@ -427,6 +427,10 @@
               }
             }
 
+            &:nth-child(n+5) {
+              display: none;
+            }
+
             &:not(:first-child) {
               background: #fff;
               border: 1px solid $mist;

@@ -6,6 +6,7 @@ Site.modules.Stats = (function($, Site) {
 
 	function init() {
 		if($(".stats").hasClass("theme_expanded")) {
+			randomize();
 			bindUI();
 			bindWindow();
 			kickStart();
@@ -13,9 +14,33 @@ Site.modules.Stats = (function($, Site) {
 		}
 
 		if($(".stats").hasClass("theme_condensed")) {
+			randomize();
 			bindWindow();
 			resizeStats();
 		}
+	}
+
+	function randomize() {
+		$(".stat_wrapper").each(function() {
+			var $item = $(this).find(".stat_item");
+			var amount = $item.length;
+			var limit = amount - 4;
+			var random;
+
+			for(var i = 0; i < limit; i++) {
+				random = grabRandom(amount);
+
+				while(!($item.eq(random).length)) {
+					random = grabRandom(amount);
+				}
+
+				$item.eq(random).remove();
+			}
+		});
+	}
+
+	function grabRandom(limit) {
+		return Math.round(Math.random() * (limit - 1) + 1);
 	}
 
 	function bindUI() {

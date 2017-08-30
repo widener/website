@@ -19,8 +19,8 @@ Site.modules.Collage = (function($, Site) {
   }
 
   function countItems() {
-    var images = $(".collage_item_open_wrapper").length;
-    var videos = $(".collage_item_play_wrapper").length;
+    var images = $(".collage_gallery_background").length;
+    var videos = $(".collage_gallery_image iframe").length;
 
     $(".collage_detail_images").html(images);
     $(".collage_detail_videos").html(videos);

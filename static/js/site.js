@@ -920,6 +920,7 @@ Site.modules.Stats = (function($, Site) {
 
 	function init() {
 		if($(".stats").hasClass("theme_expanded")) {
+			randomize();
 			bindUI();
 			bindWindow();
 			kickStart();
@@ -927,9 +928,33 @@ Site.modules.Stats = (function($, Site) {
 		}
 
 		if($(".stats").hasClass("theme_condensed")) {
+			randomize();
 			bindWindow();
 			resizeStats();
 		}
+	}
+
+	function randomize() {
+		$(".stat_wrapper").each(function() {
+			var $item = $(this).find(".stat_item");
+			var amount = $item.length;
+			var limit = amount - 4;
+			var random;
+
+			for(var i = 0; i < limit; i++) {
+				random = grabRandom(amount);
+
+				while(!($item.eq(random).length)) {
+					random = grabRandom(amount);
+				}
+
+				$item.eq(random).remove();
+			}
+		});
+	}
+
+	function grabRandom(limit) {
+		return Math.round(Math.random() * (limit - 1) + 1);
 	}
 
 	function bindUI() {
@@ -1045,6 +1070,26 @@ Site.modules.Gallery = (function($, Site) {
 			$(".gallery_switches_close").trigger("click");
 		});
 
+		$(".gallery_slide_control").on("click", function() {
+			var $video = $(this).next();
+			$video.addClass("played");
+
+			if(!($video.hasClass("playing"))) {
+				$video.background("play");
+				$video.addClass("playing");
+				$(this).addClass("play-state");
+			} else {
+				$video.background("pause");
+				$video.removeClass("playing");
+				$(this).removeClass("play-state");
+			}
+		});
+
+		$(".gallery_panel").on("update.carousel", function() {
+			$(".gallery_slide_video").background("pause");
+			$(".gallery_slide_video").removeClass("playing");
+		});
+
 		Site.onResize.push(adjustGallery);
 	}
 
@@ -1116,8 +1161,8 @@ Site.modules.Collage = (function($, Site) {
   }
 
   function countItems() {
-    var images = $(".collage_item_open_wrapper").length;
-    var videos = $(".collage_item_play_wrapper").length;
+    var images = $(".collage_gallery_background").length;
+    var videos = $(".collage_gallery_image iframe").length;
 
     $(".collage_detail_images").html(images);
     $(".collage_detail_videos").html(videos);
