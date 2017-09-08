@@ -61,10 +61,13 @@ Site.modules.Stats = (function($, Site) {
 	}
 
 	function resizeStats() {
+		$(".stat_aside").carousel();
+
 		if($(".stats").hasClass("theme_expanded")) {
 			var height = 0;
 
 			$(".stat .js-carousel").carousel("resize");
+			$(".stat .js-carousel").carousel("update");
 
 			if($(".stats_accordion_wrapper").css("padding-right") == "40px" || $(".stats_accordion_wrapper").css("padding-right") == "140px") {
 				$(".stats_accordion_wrapper .js-carousel").carousel("disable");
@@ -97,6 +100,8 @@ Site.modules.Stats = (function($, Site) {
 				$(".stats_accordion_wrapper .js-carousel").carousel("enable");
 			}
 		}
+
+		$(".stat .js-carousel").carousel("reset");
 	}
 
 	Site.onInit.push(init);

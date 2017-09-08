@@ -30,6 +30,8 @@ Site.modules.Collage = (function($, Site) {
     var height = 0;
 
     $(".collage_gallery_caption").each(function() {
+			$(this).css("height", "auto");
+
       if($(this).height() > height) {
         height = $(this).height();
       }

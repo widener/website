@@ -356,19 +356,30 @@
       .collage_gallery_image {
 
         iframe {
-          height: 70vh;
-          min-height: 240px;
-          width: 100%;
+          display: block;
 
-          margin-bottom: 40px;
+          margin: 0 auto 40px;
+
+          @media #{$max_sm} {
+            width: 100%;
+          }
         }
       }
 
         .collage_gallery_background {
-          height: 70vh;
+          height: auto !important;
           min-height: 240px;
 
           margin-bottom: 40px;
+          padding-bottom: 100%;
+
+          @media #{$min_sm} {
+            padding-bottom: 50%;
+          }
+
+          @media #{$min_xl} {
+            padding-bottom: 40%;
+          }
         }
 
         .collage_gallery_details {

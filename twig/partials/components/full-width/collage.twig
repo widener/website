@@ -54,7 +54,7 @@
                   {% for item in galleries %}
                     <div class="collage_gallery_image" data-lightbox-gallery="collage_gallery_{{index}}">
                       {% if item.video %}
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/jsu-9PGm9Bw" frameborder="0" allowfullscreen></iframe>
+                        <iframe class="fs-lightbox-video" frameborder="0" seamless="seamless" allowfullscreen="" src="//www.youtube.com/embed/zsJpUCWfyPE?rel=0&amp;autoplay=0&amp;fs=1"></iframe>
                       {% else %}
                         {% include "../shared/background.twig" with {
                           class: "collage_gallery",
