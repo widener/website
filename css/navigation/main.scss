@@ -71,7 +71,6 @@
 			}
 
 			&.focused,
-			&:active,
 			&:hover {
 
 				.main_nav_children_wrapper {
@@ -111,7 +110,6 @@
 			}
 
 			.main_nav_item.focused &,
-			.main_nav_item:active &,
 			.main_nav_item:hover & {
 				color: $blue;
 
