@@ -131,18 +131,10 @@
   }
 
   .explorer_body & {
-    padding-top: 155px;
+    padding-top: 55%;
 
     @media print {
       padding-top: 0;
-    }
-
-    @media #{$min_sm} {
-      padding-top: 180px;
-    }
-
-    @media #{$min_md} {
-      padding-top: 55%;
     }
 
     .theme_expanded & {
@@ -163,18 +155,14 @@
   }
 
   .explorer_aside & {
-    padding-top: 45px;
+    padding-top: 55%;
 
     @media print {
       padding-top: 0;
     }
 
-    @media #{$min_sm} {
-      padding-top: 90px;
-    }
-
     @media #{$min_md} {
-      padding-top: 40%;
+      padding-top: 42%;
     }
 
     .theme_expanded & {
@@ -480,6 +468,14 @@
       color: #fff;
       display: block;
       padding: 164px 20px 25px;
+
+      @media #{$min_md} {
+        padding-top: 36%;
+      }
+
+      @media #{$min_lg} {
+        padding-top: 52%;
+      }
     }
 
       .explorer_mini_title {

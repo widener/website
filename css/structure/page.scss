@@ -136,22 +136,14 @@
 							}
 
 							.layout_default & {
-								padding: 220px 20px 25px;
+								padding: 43% 20px 25px;
 
 								@media print {
 									padding: 0;
 								}
 
-								@media #{$min_lg} {
-									padding-top: 280px;
-								}
-
 								@media #{$min_xl} {
-									padding: 320px 30px 35px 60px;
-								}
-
-								@media screen and (min-width: 1280px) and (min-height: 700px) {
-									padding-top: 462px;
+									padding: 45% 30px 35px 60px;
 								}
 							}
 

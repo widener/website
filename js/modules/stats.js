@@ -70,9 +70,9 @@ Site.modules.Stats = (function($, Site) {
 			$(".stat .js-carousel").carousel("update");
 
 			if($(".stats_accordion_wrapper").css("padding-right") == "40px" || $(".stats_accordion_wrapper").css("padding-right") == "140px") {
-				$(".stats_accordion_wrapper .js-carousel").carousel("disable");
+				$(".stats_accordion_wrapper .stat_aside").carousel("disable");
 			} else {
-				$(".stats_accordion_wrapper .js-carousel").carousel("enable");
+				$(".stats_accordion_wrapper .stat_aside").carousel("enable");
 			}
 
 			if($(".stats_accordion_wrapper").css("padding-right") == "40px" || $(".stats_accordion_wrapper").css("padding-right") == "140px") {
